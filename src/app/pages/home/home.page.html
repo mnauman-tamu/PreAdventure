@@ -1,0 +1,27 @@
+<div class="page-container">
+    <div class="form-container">
+        <div style="display: inline-block; width: 80vw;">
+            <form [formGroup]="searchParams">
+                <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
+                    <mat-form-field appearance="fill" fxFlex="60" fxFlex.xs="100">
+                        <mat-label>Location</mat-label>
+                        <input matInput type="text" formControlName="location" required>
+                    </mat-form-field>
+                    <br>
+                    <div fxFlex="40" fxFlex.xs="100" fxLayout="row" fxLayoutGap="10px">
+                        <mat-form-field class="date-input" appearance="fill" fxFlexFill>
+                            <mat-label>Start Date</mat-label>
+                            <input matInput type="date" formControlName="start_date">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="date-input" appearance="fill" fxFlexFill>
+                            <mat-label>End Date</mat-label>
+                            <input matInput type="date" formControlName="end_date">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form> 
+        </div>
+        <button class="submit" mat-raised-button (click)="submit()">Search</button>
+    </div>
+</div>
