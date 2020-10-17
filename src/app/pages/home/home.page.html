@@ -1,14 +1,19 @@
 <div id="background" class="page-container">
     <div class="form-container">
-        <div style="display: inline-block; width: 80vw;">
+        <div class="mobile-handler">
             <form [formGroup]="searchParams">
-                <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
-                    <mat-form-field appearance="fill" fxFlex="60" fxFlex.xs="100">
-                        <mat-label>Location</mat-label>
-                        <input matInput type="text" formControlName="location" required>
+                <div fxLayout="row" fxLayout.sm="row wrap" fxLayout.xs="row wrap" fxLayoutAlign="start center" 
+                fxLayoutGap="10px" fxLayoutGap.sm="0px" fxLayoutGap.xs="0px">
+                    <mat-form-field appearance="fill" fxFlex="35" fxFlex.sm="100" fxFlex.xs="100">
+                        <mat-label>From</mat-label>
+                        <input matInput type="text" formControlName="from">
                     </mat-form-field>
                     <br>
-                    <div fxFlex="40" fxFlex.xs="100" fxLayout="row" fxLayoutGap="10px">
+                    <mat-form-field appearance="fill" fxFlex="35" fxFlex.sm="100" fxFlex.xs="100">
+                        <mat-label>To</mat-label>
+                        <input matInput type="text" formControlName="to">
+                    </mat-form-field>
+                    <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" fxLayout="row" fxLayoutGap="10px">
                         <mat-form-field class="date-input" appearance="fill" fxFlexFill>
                             <mat-label>Start Date</mat-label>
                             <input matInput type="date" formControlName="start_date">
@@ -22,6 +27,6 @@
                 </div>
             </form> 
         </div>
-        <button class="submit" mat-raised-button (click)="submit()">Search</button>
+        <button class="submit" mat-raised-button (click)="submit()" [disabled]="!searchParams.valid">Search</button>
     </div>
 </div>

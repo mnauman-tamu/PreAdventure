@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from './../../shared/data.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { validateBasis } from '@angular/flex-layout';
 
 @Component({
   selector: 'home-page',
@@ -10,7 +11,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class HomePageComponent {
 
     searchParams = new FormGroup( {
-        location: new FormControl(''),
+        from: new FormControl(''),
+        to: new FormControl('', Validators.required),
         start_date: new FormControl(''),
         end_date: new FormControl('')
     });

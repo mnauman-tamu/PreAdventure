@@ -4,7 +4,8 @@ import { catchError, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 export interface search {
-    location: string;
+    from: string;
+    to: string;
     start_date: string;
     end_date: string;
 }
@@ -15,7 +16,8 @@ export interface search {
 export class DataService {
 
     search_input: search = {
-        location: '',
+        from: '',
+        to: '',
         start_date: '',
         end_date: ''
     };
@@ -62,8 +64,9 @@ export class DataService {
     */
 
     inputSearch(formInput): void {
-        this.search_input.location = formInput.location;
-        this.search_input.location = formInput.start_date;
+        this.search_input.from = formInput.from;
+        this.search_input.to = formInput.to;
+        this.search_input.start_date = formInput.start_date;
         this.search_input.end_date = formInput.end_date;
     }
 }

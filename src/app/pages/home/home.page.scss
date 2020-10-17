@@ -1,3 +1,42 @@
+$screen-xs-min: 425px;  // Tiny phones
+$screen-sm-min: 576px;  // Small tablets and large smartphones (landscape view)
+$screen-md-min: 768px;  // Small tablets (portrait view)
+$screen-lg-min: 992px;  // Tablets and small desktops
+$screen-xl-min: 1200px; // Large tablets and desktops
+
+@mixin xs {
+  @media (min-width: #{$screen-xs-min}) {
+      @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
+
 .page-container {
     position: absolute;
     top:0;
@@ -13,6 +52,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.mobile-handler {
+    display: inline-block; 
+    width: 95vw;
+
+    @include sm {
+        
+        width: 80vw;
+    }
 }
 
 .date-input {
