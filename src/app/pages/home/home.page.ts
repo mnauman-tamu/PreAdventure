@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from './../../shared/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { validateBasis } from '@angular/flex-layout';
 
 @Component({
   selector: 'home-page',
@@ -9,6 +8,8 @@ import { validateBasis } from '@angular/flex-layout';
   styleUrls: ['./home.page.scss']
 })
 export class HomePageComponent {
+
+    imageName = "assets/images/valley.jpg";
 
     searchParams = new FormGroup( {
         from: new FormControl(''),
