@@ -21,6 +21,13 @@ export class SummaryPageComponent implements OnInit {
           }
         )
 
-        this.dataService.tripAdvisorLocationSearch();
+      this.dataService.mapquestSearch().subscribe(
+        (data) => {
+          console.log(data);
+        }
+      )
+
+      //conserve searches if not using
+      // this.dataService.tripAdvisorLocationSearch();
     }
 }

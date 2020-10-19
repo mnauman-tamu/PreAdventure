@@ -62,6 +62,18 @@ export class DataService {
           )
     }
 
+    mapquestSearch(): Observable<any> {
+        //let headers: HttpHeaders = new HttpHeaders();
+        /*headers = headers.append('Accept', 'application/json');
+        headers = headers.append(
+          'X-RapidAPI-Key',
+          '1108554cc1mshf11c17c4fea2b3dp179054jsn2446fb7a8965'
+        );*/
+        return this.http.get(
+            `https://www.mapquestapi.com/search/v2/radius?origin=San+Fransisco&radius=20&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|999333&key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw`
+        )
+    }
+
     tripAdvisorLocationSearch(): void
     {
         var axios = require("axios").default;
@@ -90,9 +102,6 @@ export class DataService {
         }).catch(function (error) {
             console.error(error);
         });
-
-
-
         
     }
 
