@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PreAdventure"
+    }
+  },
+  "defaultProject": "PreAdventure",
+  "cli": {
+    "analytics": "08f8569a-ae7d-4f23-bf9b-7ce3f3df3999"
+  }
 }

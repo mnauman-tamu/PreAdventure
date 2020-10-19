@@ -20,5 +20,7 @@ export class SummaryPageComponent implements OnInit {
             console.log(data);
           }
         )
+
+        this.dataService.tripAdvisorLocationSearch();
     }
 }
