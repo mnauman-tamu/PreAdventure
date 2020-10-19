@@ -8,19 +8,26 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./summary.page.scss']
 })
 export class SummaryPageComponent implements OnInit {
+  
+  crimes: any[];
+  POIs: any[];
 
-    POIs: String[];
+  constructor(private dataService: DataService) {}
 
-    constructor(private dataService: DataService) {}
+  ngOnInit() {
+      // Call APIs Here
+      this.dataService.crime().subscribe(
+        (data) => {
+          console.log(data);
+          this.crimes = data.results;
+        }
+      )
 
-    ngOnInit() {
-        // Call APIs Here
-        this.dataService.crime().subscribe(
-          (data) => {
-            console.log(data);
-          }
-        )
-
-        this.dataService.tripAdvisorLocationSearch();
-    }
+      this.dataService.tripAdvisorLocationSearch().subscribe(
+        (data) => {
+          console.log(data);
+          this.POIs = data.data;
+        }
+      )
+  }
 }

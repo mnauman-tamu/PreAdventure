@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { SummaryPageComponent } from './summary/summary.page';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { SummaryPageComponent } from './summary/summary.page';
         SummaryPageComponent
     ],
     imports: [
+        CommonModule,
         FlexLayoutModule,
         ReactiveFormsModule,
         MatInputModule,

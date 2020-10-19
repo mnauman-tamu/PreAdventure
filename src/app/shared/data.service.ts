@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 export interface search {
     from: string;
@@ -38,6 +38,7 @@ export class DataService {
     // https://angular.io/guide/http
 
     spotifyByCountry(country: string): Observable<any> {
+        
         let headers: HttpHeaders = new HttpHeaders();
         headers = headers.append('Accept', 'application/json');
         headers = headers.append(
@@ -62,8 +63,30 @@ export class DataService {
           )
     }
 
-    tripAdvisorLocationSearch(): void
+    tripAdvisorLocationSearch(): Observable<any>
     {
+        let options = {
+            headers: {
+                'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
+                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+            },
+            params: {
+                'query': `'${this.search_input.to}'`,
+                'location_id': '1',
+                'limit': '30',
+                'sort': 'relevance',
+                'offset': '0',
+                'lang': 'en_US',
+                'currency': 'USD',
+                'units': 'km'
+            }
+        };
+
+        return this.http.get(
+            `https://rapidapi.p.rapidapi.com/locations/search`,
+            options
+        );
+        /*
         var axios = require("axios").default;
 
         var options = {
@@ -89,7 +112,7 @@ export class DataService {
             console.log(response.data);
         }).catch(function (error) {
             console.error(error);
-        });
+        });*/
 
 
 
