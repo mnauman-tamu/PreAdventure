@@ -11,10 +11,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { SummaryPageComponent } from './summary/summary.page';
 
 @NgModule({
     declarations: [
-        HomePageComponent
+        HomePageComponent,
+        SummaryPageComponent
     ],
     imports: [
         FlexLayoutModule,
@@ -29,6 +31,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ],
     exports: [
         HomePageComponent,
+        SummaryPageComponent,
         FlexLayoutModule,
         ReactiveFormsModule,
         MatInputModule,

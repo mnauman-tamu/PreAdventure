@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from './../../shared/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -18,10 +19,11 @@ export class HomePageComponent {
         end_date: new FormControl('')
     });
 
-    constructor(private dataService: DataService) {}
+    constructor(private dataService: DataService, private router: Router) {}
 
     submit() {
         this.dataService.inputSearch(this.searchParams.value);
         console.log("searched!");
+        this.router.navigate(['summary']);
     }
 }

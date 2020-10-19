@@ -50,6 +50,18 @@ export class DataService {
           )
     }
 
+    crime(): Observable<any> {
+        //let headers: HttpHeaders = new HttpHeaders();
+        /*headers = headers.append('Accept', 'application/json');
+        headers = headers.append(
+          'X-RapidAPI-Key',
+          '1108554cc1mshf11c17c4fea2b3dp179054jsn2446fb7a8965'
+        );*/
+        return this.http.get(
+          `https://api.usa.gov/crime/fbi/sapi/api/summarized/state/TX/violent-crime/2000/2019?API_KEY=iiHnOKfno2Mgkt5AynpvPpUQTEyxE77jo1RU8PIv`
+          )
+    }
+
     /*
     exampleCallingFunction(): void {
         DataService.exampleFunction().subscribe(

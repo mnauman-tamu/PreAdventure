@@ -4,10 +4,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'home-page',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss']
+  templateUrl: './summary.page.html',
+  styleUrls: ['./summary.page.scss']
 })
-export class HomePageComponent implements OnInit {
+export class SummaryPageComponent implements OnInit {
 
     POIs: String[];
 
@@ -15,6 +15,10 @@ export class HomePageComponent implements OnInit {
 
     ngOnInit() {
         // Call APIs Here
-        
+        this.dataService.crime().subscribe(
+          (data) => {
+            console.log(data);
+          }
+        )
     }
 }
