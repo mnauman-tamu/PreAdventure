@@ -37,7 +37,7 @@ export class DataService {
 
     // https://angular.io/guide/http
 
-    exampleFunction(): Observable<any> {
+    spotifyByCountry(country: string): Observable<any> {
         let headers: HttpHeaders = new HttpHeaders();
         headers = headers.append('Accept', 'application/json');
         headers = headers.append(
@@ -45,7 +45,7 @@ export class DataService {
           '1108554cc1mshf11c17c4fea2b3dp179054jsn2446fb7a8965'
         );
         return this.http.get(
-          `https://restcountries-v1.p.rapidapi.com/capital/` + name, 
+          `https://restcountries-v1.p.rapidapi.com/capital/${this.search_input.from}` + name, 
            {headers: headers}
           )
     }
@@ -58,6 +58,7 @@ export class DataService {
             },
             (data) => {
                 // 'data' is the JSON object
+                weather = data;
             }
         )
     }
