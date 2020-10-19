@@ -64,60 +64,34 @@ export class DataService {
 
     tripAdvisorLocationSearch(): void
     {
-        // var axios = require("axios").default;
+        var axios = require("axios").default;
 
-        // var options = {
-        //     method: 'GET',
-        //     url: 'https://rapidapi.p.rapidapi.com/locations/search',
-        //     params: {
-        //         query: `'${this.search_input.to}'`,
-        //         location_id: '1',
-        //         limit: '30',
-        //         sort: 'relevance',
-        //         offset: '0',
-        //         lang: 'en_US',
-        //         currency: 'USD',
-        //         units: 'km'
-        //     },
-        //     headers: {
-        //         'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-        //         'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
-        //     }
-        // };
+        var options = {
+            method: 'GET',
+            url: 'https://rapidapi.p.rapidapi.com/locations/search',
+            params: {
+                query: `'${this.search_input.to}'`,
+                location_id: '1',
+                limit: '30',
+                sort: 'relevance',
+                offset: '0',
+                lang: 'en_US',
+                currency: 'USD',
+                units: 'km'
+            },
+            headers: {
+                'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
+                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+            }
+        };
 
-        // axios.request(options).then(function (response) {
-        //     console.log(response.data);
-        // }).catch(function (error) {
-        //     console.error(error);
-        // });
-
-        var unirest = require("unirest");
-
-        var req = unirest("GET", "https://rapidapi.p.rapidapi.com/locations/search");
-
-        req.query({
-            "query": "New York",
-            "location_id": "1",
-            "limit": "30",
-            "sort": "relevance",
-            "offset": "0",
-            "lang": "en_US",
-            "currency": "USD",
-            "units": "km"
-        });
-
-        req.headers({
-            "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-            "x-rapidapi-key": "c240828760msh057482f498e41c4p172a21jsndb181050d689",
-            "useQueryString": true
+        axios.request(options).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.error(error);
         });
 
 
-        req.end(function (res) {
-            if (res.error) throw new Error(res.error);
-
-            console.log(res.body);
-        });
 
         
     }
