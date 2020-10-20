@@ -79,8 +79,8 @@ export class DataService {
         options
       );
     }
-    
-    
+
+
     tripAdvisorLocationSearch(): Observable<any>
     {
         const options = {
@@ -153,4 +153,9 @@ export class DataService {
         this.search_input.start_date = formInput.start_date;
         this.search_input.end_date = formInput.end_date;
     }
+
+    getInputSearch(): Search {
+        return this.search_input;
+    }
+
 }

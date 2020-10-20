@@ -15,6 +15,12 @@ export class SummaryPageComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
+      // for after testing:
+      // reroutes back to home page if no data in search params
+      /*if(this.dataService.getInputSearch().to === '') {
+        this.router.navigate(['']);
+      }*/
+
       // Call APIs Here
       /*this.dataService.crime().subscribe(
         (data) => {
@@ -35,7 +41,7 @@ export class SummaryPageComponent implements OnInit {
           console.log(data);
         }
       );
-    
+
       /*this.dataService.fiveDayForecast().subscribe(
         (data) => {
           console.log(data);
