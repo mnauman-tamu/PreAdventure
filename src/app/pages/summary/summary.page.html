@@ -1,1 +1,7 @@
 <h1>Summary Page</h1>
+<div *ngFor="let POI of POIs">
+    <p>{{POI.result_object.name}} : {{POI.result_object.rating}} stars</p>
+</div>
+<div *ngFor="let element of forecast">
+  <p>{{element.dt_txt}} : {{element.main.temp}} degrees</p>
+</div>
