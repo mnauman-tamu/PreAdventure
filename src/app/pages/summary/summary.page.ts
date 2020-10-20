@@ -30,12 +30,12 @@ export class SummaryPageComponent implements OnInit {
         }
       );*/
 
-      this.dataService.fiveDayForecast().subscribe(
+      /*this.dataService.fiveDayForecast().subscribe(
         (data) => {
           console.log(data);
           this.forecast = data.list;
         }
-      );
+      );*/
 
   }
 }
