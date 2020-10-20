@@ -50,14 +50,20 @@ export class DataService {
     }
 
     mapquestSearch(): Observable<any> {
-        //let headers: HttpHeaders = new HttpHeaders();
-        /*headers = headers.append('Accept', 'application/json');
-        headers = headers.append(
-          'X-RapidAPI-Key',
-          '1108554cc1mshf11c17c4fea2b3dp179054jsn2446fb7a8965'
-        );*/
+        const options = {
+            params: {
+                origin: `${this.search_input.to}`,
+                radius: '20',
+                maxMatches: '10',
+                ambiguities: 'ignore',
+                hostedData: 'mqap.ntpois|group_sic_code=?|999333',
+                key: 'gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw'
+            }
+        };
         return this.http.get(
-            `https://www.mapquestapi.com/search/v2/radius?origin=San+Fransisco&radius=20&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|999333&key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw`
+            // `https://www.mapquestapi.com/search/v2/radius?origin=San+Fransisco&radius=20&maxMatches=10&ambiguities=ignore&hostedData=mqap.ntpois|group_sic_code=?|999333&key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw`
+            'https://www.mapquestapi.com/search/v2/radius?',
+            options
         );
     }
 
@@ -104,33 +110,11 @@ export class DataService {
             `https://rapidapi.p.rapidapi.com/locations/search`,
             options
         );
-        /*
-        var axios = require("axios").default;
+    }
 
-        var options = {
-            method: 'GET',
-            url: 'https://rapidapi.p.rapidapi.com/locations/search',
-            params: {
-                query: `'${this.search_input.to}'`,
-                location_id: '1',
-                limit: '30',
-                sort: 'relevance',
-                offset: '0',
-                lang: 'en_US',
-                currency: 'USD',
-                units: 'km'
-            },
-            headers: {
-                'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
-            }
-        };
-
-        axios.request(options).then(function (response) {
-            console.log(response.data);
-        }).catch(function (error) {
-            console.error(error);
-        });*/
+    tripAdvisorAttractionsSearch(): Observable<any>
+    {
+        return;
     }
 
     /*

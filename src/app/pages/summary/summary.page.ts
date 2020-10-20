@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SummaryPageComponent implements OnInit {
   crimes: any[];
   POIs: any[];
+  taLocationID: any;
   forecast: any[];
 
   constructor(private dataService: DataService) {}
@@ -23,18 +24,26 @@ export class SummaryPageComponent implements OnInit {
         }
       );*/
 
-      /*this.dataService.tripAdvisorLocationSearch().subscribe(
-        (data) => {
+      this.dataService.tripAdvisorLocationSearch().subscribe(
+        (data) => { 
           console.log(data);
-          this.POIs = data.data;
-        }
-      );*/
-
-      this.dataService.mapquestSearch().subscribe(
-        (data) => {
-          console.log(data);
+          for(var i=0; i<30; i++)
+          {
+            if(data.data[0].result_type == 'geos')
+            {
+              this.taLocationID = data.data[i].result_object.location_id;       //get location id to search other aspects
+              break;
+            }
+          }
+          console.log('Trip Advisor Location ID: ' + this.taLocationID)
         }
       );
+
+      // this.dataService.mapquestSearch().subscribe(
+      //   (data) => {
+      //     console.log(data);
+      //   }
+      // );
     
       /*this.dataService.fiveDayForecast().subscribe(
         (data) => {
