@@ -85,8 +85,8 @@ export class DataService {
         options
       );
     }
-    
-    
+
+
     tripAdvisorLocationSearch(): Observable<any>
     {
         const options = {
@@ -102,7 +102,7 @@ export class DataService {
                 offset: '0',
                 lang: 'en_US',
                 currency: 'USD',
-                units: 'km'
+                units: 'mi'
             }
         };
 
@@ -112,9 +112,28 @@ export class DataService {
         );
     }
 
-    tripAdvisorAttractionsSearch(): Observable<any>
+    tripAdvisorAttractionsSearch(id): Observable<any>
     {
-        return;
+        const options = {
+            headers: {
+                'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
+                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+            },
+            params: {
+                location_id : `${id}`,
+                lang : 'en_US',
+                currency : 'USD',
+                sort : 'recommended',
+                lunit : 'mi',
+                limit : '15'
+            }
+        };
+
+        console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
+        return this.http.get(
+            `https://rapidapi.p.rapidapi.com/attractions/list`,
+            options
+        );
     }
 
     /*
@@ -137,4 +156,9 @@ export class DataService {
         this.search_input.start_date = formInput.start_date;
         this.search_input.end_date = formInput.end_date;
     }
+
+    getInputSearch(): Search {
+        return this.search_input;
+    }
+
 }
