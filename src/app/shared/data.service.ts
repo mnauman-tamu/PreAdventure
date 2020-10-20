@@ -50,7 +50,7 @@ export class DataService {
     }
 
     mapquestSearch(): Observable<any> {
-        //let headers: HttpHeaders = new HttpHeaders();
+        // let headers: HttpHeaders = new HttpHeaders();
         /*headers = headers.append('Accept', 'application/json');
         headers = headers.append(
           'X-RapidAPI-Key',
@@ -78,6 +78,19 @@ export class DataService {
         `https://rapidapi.p.rapidapi.com/forecast`,
         options
       );
+    }
+
+    skyScannerFlightSearch(): Observable<any>{
+
+        const options = {
+          headers: {
+            'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
+            'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
+          }
+        };
+
+        return this.http.get(
+         'https://rapidapi.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/SFO-sky/ORD-sky/2021-04-01?inboundpartialdate=2019-12-01', options);
     }
 
 
