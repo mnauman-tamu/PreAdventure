@@ -5,3 +5,6 @@
 <div *ngFor="let element of forecast">
   <p>{{element.dt_txt}} : {{element.main.temp}} degrees</p>
 </div>
+<div *ngFor="let image of images">
+  <a href = {{image.results.urls.regular}}> image</a>
+</div>

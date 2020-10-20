@@ -11,37 +11,44 @@ export class SummaryPageComponent implements OnInit {
   crimes: any[];
   POIs: any[];
   forecast: any[];
+  images: any[];
 
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
       // Call APIs Here
-      /*this.dataService.crime().subscribe(
+      this.dataService.crime().subscribe(
         (data) => {
           console.log(data);
           this.crimes = data.results;
         }
-      );*/
-
-      /*this.dataService.tripAdvisorLocationSearch().subscribe(
+      );
+    /*this.dataService.tripAdvisorLocationSearch().subscribe(
         (data) => {
           console.log(data);
           this.POIs = data.data;
         }
       );*/
 
-      this.dataService.mapquestSearch().subscribe(
+      /*this.dataService.mapquestSearch().subscribe(
         (data) => {
           console.log(data);
         }
-      );
-    
-      /*this.dataService.fiveDayForecast().subscribe(
+      );*/
+
+      this.dataService.fiveDayForecast().subscribe(
         (data) => {
           console.log(data);
           this.forecast = data.list;
         }
-      );*/
+      );
 
+
+    this.dataService.unplashImageSearch().subscribe(
+      (data) => {
+        console.log(data);
+        this.images = data.list;
+      }
+    );
   }
 }
