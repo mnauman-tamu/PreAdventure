@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { SummaryPageComponent } from './summary/summary.page';
 import { CommonModule } from '@angular/common';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { CommonModule } from '@angular/common';
         MatFormFieldModule,
         MatCardModule,
         MatToolbarModule,
-        MatMenuModule
+        MatMenuModule,
+        MatExpansionModule
     ],
     exports: [
         HomePageComponent,
@@ -42,7 +44,8 @@ import { CommonModule } from '@angular/common';
         MatFormFieldModule,
         MatCardModule,
         MatToolbarModule,
-        MatMenuModule
+        MatMenuModule,
+        MatExpansionModule
     ]
 })
 export class PagesModule { }
