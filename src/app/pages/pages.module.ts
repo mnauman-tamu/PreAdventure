@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
     declarations: [
         HomePageComponent,
-        SummaryPageComponent
+        SummaryPageComponent,
     ],
     imports: [
         CommonModule,
