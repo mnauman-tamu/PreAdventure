@@ -98,8 +98,18 @@ export class SummaryPageComponent implements OnInit {
                   lcontainer.appendChild(link_tag);
                 }
               }
+              this.dataService.gettaAttractions(this.taAttractions);
             }
           )
+
+
+          //trip advisor hotels search api call
+          this.dataService.tripAdvisorHotelsSearch(this.taLocationID).subscribe(
+            (hotelsData) => {
+              console.log(hotelsData);
+            }
+          )
+  
         }
       );
 

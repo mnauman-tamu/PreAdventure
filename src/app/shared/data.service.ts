@@ -15,6 +15,9 @@ export interface Search {
 })
 export class DataService {
 
+    //member variables
+    taAttractionsList: any = []
+
     search_input: Search = {
         from: '',
         to: '',
@@ -129,9 +132,37 @@ export class DataService {
             }
         };
 
-        console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
+        // console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
         return this.http.get(
             `https://rapidapi.p.rapidapi.com/attractions/list`,
+            options
+        );
+    }
+
+    tripAdvisorHotelsSearch(id): Observable<any>
+    {
+        const options = {
+            headers: {
+                'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
+                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+            },
+            params: {
+                location_id: `${id}`,
+                adults: '1',
+                checkin: `${this.search_input.start_date}`,
+                rooms: '1',
+                nights: '2',        //fixme
+                offset: '0',
+                currency: 'USD',
+                limit: '30',
+                order: 'asc',
+                lang: 'en_US',
+                sort: 'recommended'
+            }
+        };
+        console.log(`https://rapidapi.p.rapidapi.com/hotels/list`, options)
+        return this.http.get(
+            `https://rapidapi.p.rapidapi.com/hotels/list`,
             options
         );
     }
@@ -161,4 +192,8 @@ export class DataService {
         return this.search_input;
     }
 
+    gettaAttractions(attractionsl): void {
+        this.taAttractionsList = attractionsl;
+        console.log(this.taAttractionsList);
+    }
 }
