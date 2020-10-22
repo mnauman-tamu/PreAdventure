@@ -17,6 +17,10 @@ export class SummaryPageComponent implements OnInit {
   taAttractions: any = [];
   forecast: any[];
 
+  imageName: string = "";
+
+  panelOpenState: boolean;
+
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
@@ -35,7 +39,7 @@ export class SummaryPageComponent implements OnInit {
       );*/
 
       //trip advisor api servicing
-      this.dataService.tripAdvisorLocationSearch().subscribe(
+      /*this.dataService.tripAdvisorLocationSearch().subscribe(
         (data) => { 
           console.log(data);
           for(var i=0; i<data.data.length; i++)
@@ -87,7 +91,7 @@ export class SummaryPageComponent implements OnInit {
             }
           )
         }
-      );
+      );*/
 
       //mapquest api servicing
       // this.dataService.mapquestSearch().subscribe(
@@ -112,6 +116,14 @@ export class SummaryPageComponent implements OnInit {
           this.forecast = data.list;
         }
       );*/
+
+      this.dataService.dailyForecast().subscribe(
+        (data) => {
+          console.log(data);
+          this.forecast = data.list;
+          console.log(this.forecast);
+        }
+      );
 
   }
 }
