@@ -16,7 +16,8 @@ export interface Search {
 export class DataService {
 
     //member variables
-    taAttractionsList: any = []
+    taAttractionsList: any = [];
+    taHotelsList: any = [];
 
     search_input: Search = {
         from: '',
@@ -160,9 +161,9 @@ export class DataService {
                 sort: 'recommended'
             }
         };
-        console.log(`https://rapidapi.p.rapidapi.com/hotels/list`, options)
+        console.log(`https://rapidapi.p.rapidapi.com/hotels/get-details`, options)
         return this.http.get(
-            `https://rapidapi.p.rapidapi.com/hotels/list`,
+            `https://rapidapi.p.rapidapi.com/hotels/get-details`,
             options
         );
     }
@@ -195,5 +196,10 @@ export class DataService {
     gettaAttractions(attractionsl): void {
         this.taAttractionsList = attractionsl;
         console.log(this.taAttractionsList);
+    }
+
+    gettaHotels(hotelsl): void {
+        this.taHotelsList = hotelsl;
+        console.log(this.taHotelsList);
     }
 }

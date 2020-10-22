@@ -15,6 +15,7 @@ export class SummaryPageComponent implements OnInit {
   POIs: any[];
   taLocationID: any;
   taAttractions: any = [];
+  taHotels: any = [];
   forecast: any[];
 
   constructor(private dataService: DataService) {}
@@ -37,7 +38,7 @@ export class SummaryPageComponent implements OnInit {
       //trip advisor api servicing
       this.dataService.tripAdvisorLocationSearch().subscribe(
         (data) => { 
-          console.log(data);
+          // console.log(data);
           for(var i=0; i<data.data.length; i++)
           {
             if(data.data[0].result_type == 'geos')
@@ -52,14 +53,15 @@ export class SummaryPageComponent implements OnInit {
           const card = document.getElementById('AttractionsList')
           this.dataService.tripAdvisorAttractionsSearch(this.taLocationID).subscribe(
             (attractionsData) => {
-              console.log(attractionsData);
+              // console.log(attractionsData);
 
-              for (var i = 0; i < data.data.length && i < 10; i++)
+              for (var i = 0; i < attractionsData.data.length && i < 10; i++)
               {
                 const attName = attractionsData.data[i].name;
                 const attDesc = attractionsData.data[i].description;
+                const attRate = attractionsData.data[i].rating;
                 const attAddy = attractionsData.data[i].address;
-                const attURL = attractionsData.data[i].web_url;
+                const attURL = attractionsData.data[i].website;
                 var attPhoto = null;
                 try
                 {
@@ -67,7 +69,7 @@ export class SummaryPageComponent implements OnInit {
                 }
                 catch {}
 
-                let attObj = new DataClass.attObject(attName, attDesc, attAddy, attURL, attPhoto);
+                let attObj = new DataClass.attObject(attName, attDesc, attRate, attAddy, attURL, attPhoto);
                 this.taAttractions[i] = attObj;
 
                 //limit display to 5 attractions
@@ -90,9 +92,56 @@ export class SummaryPageComponent implements OnInit {
 
 
           //trip advisor hotels search api call
+          const card2 = document.getElementById('HotelsList')
           this.dataService.tripAdvisorHotelsSearch(this.taLocationID).subscribe(
             (hotelsData) => {
               console.log(hotelsData);
+
+              for (var i = 0; i < hotelsData.data.length && i < 10; i++) {
+                const hotName = hotelsData.data[i].name;
+                const hotDesc = hotelsData.data[i].description;
+                const hotRate = hotelsData.data[i].rating;
+                const hotPrice = hotelsData.data[i].price;
+                const hotAddy = hotelsData.data[i].address;
+                const hotURL = hotelsData.data[i].web_url;
+                var hotWifi = false;
+                var hotBreakfast = false;
+                var hotPhoto = null;
+                try {
+                  hotPhoto = hotelsData.data[i].photo.images.large.url;
+                }
+                catch { }
+
+                //search through amenities
+                for(let dict of hotelsData.data[i].amenities)
+                {
+                  if(dict.name.search(/wifi/i) > -1)
+                  {
+                    hotWifi = true;
+                  }
+                  if(dict.name.search(/breakfast/i) > -1)
+                  {
+                    hotBreakfast = true;
+                  }
+                }
+
+                let hotObj = new DataClass.hotObject(hotName, hotDesc, hotRate, hotPrice, hotAddy, hotURL, hotPhoto, hotWifi, hotBreakfast);
+                this.taHotels[i] = hotObj;
+
+                //limit display to 5 attractions
+                if (i < 5) {
+                  const lcontainer = document.createElement('div');
+                  lcontainer.setAttribute('class', 'container');
+
+                  const link_tag = document.createElement('a');
+                  link_tag.href = hotURL;
+                  link_tag.textContent = hotName;
+
+                  card2.appendChild(lcontainer);
+                  lcontainer.appendChild(link_tag);
+                }
+              }
+              this.dataService.gettaHotels(this.taHotels);
             }
           )
   
