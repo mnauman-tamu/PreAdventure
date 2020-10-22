@@ -1,22 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../shared/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as DataClass from './../../shared/data.classes';
 
-class attObject {
-  name: any;
-  description: any;
-  address: any;
-  webURL: any;
-  photo: any;
-
-  constructor(name: string, description: string, address: string, webURL: string, photo: string) {
-    this.name = name;
-    this.description = description;
-    this.address = address;
-    this.webURL = webURL;
-    this.photo = photo;
-  }
-}
 
 @Component({
   selector: 'summary-page',
@@ -83,7 +69,7 @@ export class SummaryPageComponent implements OnInit {
                 }
                 catch {}
 
-                let attObj = new attObject(attName, attDesc, attAddy, attURL, attPhoto);
+                let attObj = new DataClass.attObject(attName, attDesc, attAddy, attURL, attPhoto);
                 this.taAttractions[i] = attObj;
 
                 //limit display to 5 attractions
