@@ -17,6 +17,8 @@ export class SummaryPageComponent implements OnInit {
   taAttractions: any = [];
   forecast: any[];
 
+  imageName: string = "";
+
   panelOpenState: boolean;
 
   constructor(private dataService: DataService) {}

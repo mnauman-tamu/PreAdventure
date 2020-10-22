@@ -1,57 +1,188 @@
-<h1 style="text-align: center; font-size: 45px">Summary Page</h1>
-<div fxLayout="row" fxLayoutAlign="space-evenly center">
-  <mat-card>
-    <mat-card-title>API 1</mat-card-title>
-    <mat-card-content>Here is the information for API 1</mat-card-content>
-    <mat-card-actions>
-      <button mat-button>MORE DETAIL</button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>API 2</mat-card-title>
-    <mat-card-content>Here is the information for API 2</mat-card-content>
-  </mat-card>
-</div>
-<div fxLayout="row" fxLayoutAlign="center">
-  <mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                        (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Weather Panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div fxLayout="row" fxLayoutAlign="space-evenly" *ngFor="let day of forecast">
-        <p>{{day.temp.min}} - {{day.temp.max}}</p>
-        <p>{{day.weather[0].description}}</p>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-<div fxLayout="row" fxLayoutAlign="space-evenly center">
-  <mat-card>
-    <mat-card-title>API 3</mat-card-title>
-    <mat-card-content>Here is the information for API 3</mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>API 4</mat-card-title>
-    <mat-card-content>Here is the information for API 4</mat-card-content>
-  </mat-card>
-</div>
-
-<div fxLayout="row" fxLayoutAlign="space-evenly center">
-  <mat-card>
-    <mat-card-title>API 5</mat-card-title>
-    <mat-card-content>Here is the information for API 5</mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>API 6</mat-card-title>
-    <mat-card-content>Here is the information for API 6</mat-card-content>
-  </mat-card>
-</div>
+<div id="background" [ngStyle]="{'background-image': 'url(' + imageName + ')'}">
+  <h1 class="mat-display-3" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Adventure Summary</h1>
+  <p style="text-align: center;">Click "More Detail" to find out more about each element of your adventure.</p>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+    <mat-card class="card-container">
+      <mat-card-title>Points of Interest</mat-card-title>
+      <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
+        <div fxLayout="row" fxLayoutAlign="center stretch">
+          <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Hotels
+                </mat-panel-title>
+                <mat-panel-description>
+                  Best Hotels for your destination
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
+                <p>{{day.temp.min}} - {{day.temp.max}}</p>
+                <p>{{day.weather[0].description}}</p>
+              </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Something Else
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to find out more
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
+                <p>{{day.temp.min}} - {{day.temp.max}}</p>
+                <p>{{day.weather[0].description}}</p>
+              </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Something Else
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to {{panelOpenState ? 'close' : 'open'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
+                <p>{{day.temp.min}} - {{day.temp.max}}</p>
+                <p>{{day.weather[0].description}}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>MORE DETAIL</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+    <mat-card class="card-container">
+      <mat-card-title>Weather</mat-card-title>
+      <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
+        <div fxLayout="row" fxLayoutAlign="center stretch">
+          <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Forecast
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to {{panelOpenState ? 'close' : 'open'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
+                <p>{{day.temp.min}} - {{day.temp.max}}</p>
+                <p>{{day.weather[0].description}}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>MORE DETAIL</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+    <mat-card class="card-container">
+      <mat-card-title>Weather</mat-card-title>
+      <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
+        <div fxLayout="row" fxLayoutAlign="center stretch">
+          <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Forecast
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to {{panelOpenState ? 'close' : 'open'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
+                <p>{{day.temp.min}} - {{day.temp.max}}</p>
+                <p>{{day.weather[0].description}}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>MORE DETAIL</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+    <mat-card class="card-container">
+      <mat-card-title>Weather</mat-card-title>
+      <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
+        <div fxLayout="row" fxLayoutAlign="center stretch">
+          <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Forecast
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to {{panelOpenState ? 'close' : 'open'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
+                <p>{{day.temp.min}} - {{day.temp.max}}</p>
+                <p>{{day.weather[0].description}}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>MORE DETAIL</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+    <mat-card class="card-container">
+      <mat-card-title>Weather</mat-card-title>
+      <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
+        <div fxLayout="row" fxLayoutAlign="center stretch">
+          <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Forecast
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to {{panelOpenState ? 'close' : 'open'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
+                <p>{{day.temp.min}} - {{day.temp.max}}</p>
+                <p>{{day.weather[0].description}}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>MORE DETAIL</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 <!--The code below is from the previous summary page-->
 <!--<div *ngFor="let POI of POIs">-->
 <!--  <p>{{POI.result_object.name}} : {{POI.result_object.rating}} stars</p>-->
