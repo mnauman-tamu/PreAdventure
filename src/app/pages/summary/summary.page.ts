@@ -117,13 +117,13 @@ export class SummaryPageComponent implements OnInit {
         }
       );*/
 
-      this.dataService.dailyForecast().subscribe(
+      /*this.dataService.dailyForecast().subscribe(
         (data) => {
           console.log(data);
           this.forecast = data.list;
           console.log(this.forecast);
         }
-      );
+      );*/
 
   }
 }
