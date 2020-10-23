@@ -99,6 +99,23 @@ export class DataService {
          'https://rapidapi.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/SFO-sky/ORD-sky/2021-04-01?inboundpartialdate=2019-12-01', options);
     }
 
+    dailyForecast(): Observable<any> {
+        const options = {
+          headers: {
+            'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+            'x-rapidapi-key': 'a622ac738emsh154c26ff5de0944p1a36a0jsn6b447b8261a5'
+          },
+          params: {
+            q: `${this.search_input.to}, us`,
+            units: 'imperial'
+          }
+        };
+
+        return this.http.get(
+          `https://rapidapi.p.rapidapi.com/forecast/daily`,
+          options
+        );
+      }
 
     tripAdvisorLocationSearch(): Observable<any>
     {
