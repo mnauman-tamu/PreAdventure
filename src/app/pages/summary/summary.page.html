@@ -12,6 +12,93 @@
     <mat-card-content>Here is the information for API 2</mat-card-content>
   </mat-card>
 </div>
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Weather Panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row" fxLayoutAlign="space-evenly" *ngFor="let day of forecast">
+        <p>{{day.temp.min}} - {{day.temp.max}}</p>
+        <p>{{day.weather[0].description}}</p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Images Panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row" fxLayoutAlign="space-evenly" *ngFor="let image of images">
+        <a href = "{{image.urls.raw}}"> {{image.description}}</a><br>
+        <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width="500" height="500"><br>
+        <p>Photo by {{image.user.name}} from Unsplash</p>
+        <!--<p>{{image.description}}</p>
+        <p>{{image.user.name}}</p>
+        <p>{{image.urls.raw}}</p>-->
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Music Panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row" fxLayoutAlign="space-evenly" *ngFor="let song of music">
+        <p>{{song.artistName}}</p>
+        <p>{{song.trackViewUrl}}</p>
+        <p>{{song.trackCensoredName}}</p>
+        <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/360398541?i=360399451&uo=4"></iframe>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<script src="summary.page.ts"></script>
+<!--The code below is from the previous summary page-->
+<!--<div *ngFor="let POI of POIs">-->
+<!--  <p>{{POI.result_object.name}} : {{POI.result_object.rating}} stars</p>-->
+<!--</div>-->
+<!--<div *ngFor="let element of forecast">-->
+<!--  <p>{{element.dt_txt}} : {{element.main.temp}} degrees</p>-->
+<!--</div>-->
+<!---<div *ngFor="let POI of POIs">
+    <p>{{POI.result_object.name}} : {{POI.result_object.rating}} stars</p>
+<h1 style="text-align: center; font-size: 45px">Summary Page</h1>
+<div fxLayout="row" fxLayoutAlign="space-evenly center" id="Attractions">
+  <mat-card>
+    <mat-card-title>Attractions</mat-card-title>
+    <mat-card-content id="AttractionsList"></mat-card-content>
+    <mat-card-actions>
+      <button mat-button>MORE DETAIL</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>API 2</mat-card-title>
+    <mat-card-content>Here is the information for API 2</mat-card-content>
+  </mat-card>
+</div>
 <div fxLayout="row" fxLayoutAlign="space-evenly center">
   <mat-card>
     <mat-card-title>API 3</mat-card-title>
@@ -22,11 +109,22 @@
     <mat-card-content>Here is the information for API 4</mat-card-content>
   </mat-card>
 </div>
-<div *ngFor="let image of images">
-  <a href = {{image.results.urls.regular}}> image</a>
+<div *ngFor="let element of forecast">
+  <p>{{element.dt_txt}} : {{element.main.temp}} degrees</p>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="space-evenly center">
+<div *ngFor="let image of images">
+  <a href = {{image.urls.regular}}> image.results.alt_description</a>
+  <p>Photo by {{image.results.user.name}}</p>
+</div>
+<div *ngFor="let song of music">
+  <p>{{song.results}} song</p>
+</div>
+<div *ngFor="let track of spotify">
+  <p>{{track.tracks.items}} song</p>
+</div>-->
+
+<!--<div fxLayout="row" fxLayoutAlign="space-evenly center">
   <mat-card>
     <mat-card-title>API 5</mat-card-title>
     <mat-card-content>Here is the information for API 5</mat-card-content>
@@ -35,7 +133,7 @@
     <mat-card-title>API 6</mat-card-title>
     <mat-card-content>Here is the information for API 6</mat-card-content>
   </mat-card>
-</div>
+</div>-->
 
 <script src="summary.page.ts"></script>
 <!--The code below is from the previous summary page-->
