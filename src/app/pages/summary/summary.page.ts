@@ -17,6 +17,8 @@ export class SummaryPageComponent implements OnInit {
   taAttractions: any = [];
   forecast: any[];
 
+  range5 = [0,1,2,3,4];
+
   imageName: string = "";
 
   panelOpenState: boolean;
@@ -39,7 +41,7 @@ export class SummaryPageComponent implements OnInit {
       );*/
 
       //trip advisor api servicing
-      /*this.dataService.tripAdvisorLocationSearch().subscribe(
+      this.dataService.tripAdvisorLocationSearch().subscribe(
         (data) => { 
           console.log(data);
           for(var i=0; i<data.data.length; i++)
@@ -74,24 +76,24 @@ export class SummaryPageComponent implements OnInit {
                 let attObj = new DataClass.attObject(attName, attDesc, attAddy, attURL, attPhoto);
                 this.taAttractions[i] = attObj;
 
-                //limit display to 5 attractions
-                if(i < 5)
-                {
-                  const lcontainer = document.createElement('div');
-                  lcontainer.setAttribute('class', 'container');
+                // //limit display to 5 attractions
+                // if(i < 5)
+                // {
+                //   const lcontainer = document.createElement('div');
+                //   lcontainer.setAttribute('class', 'container');
 
-                  const link_tag = document.createElement('a');
-                  link_tag.href = attURL;
-                  link_tag.textContent = attName;
+                //   const link_tag = document.createElement('a');
+                //   link_tag.href = attURL;
+                //   link_tag.textContent = attName;
 
-                  card.appendChild(lcontainer);
-                  lcontainer.appendChild(link_tag);
-                }
+                //   card.appendChild(lcontainer);
+                //   lcontainer.appendChild(link_tag);
+                // }
               }
             }
           )
         }
-      );*/
+      );
 
       //mapquest api servicing
       // this.dataService.mapquestSearch().subscribe(

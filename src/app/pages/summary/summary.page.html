@@ -11,16 +11,19 @@
                                 (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Hotels
+                  Attractions
                 </mat-panel-title>
                 <mat-panel-description>
-                  Best Hotels for your destination
+                  Best places to visit for your destination
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
+              <div *ngIf="taAttractions.length > 0">
+                <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
+                  <p><b>{{taAttractions[i].name}}</b></p>
+                  <!-- <p>{{taAttractions[i].stars}}</p> -->
+                  <p>{{taAttractions[i].address}}</p>
+                </div>
               </div>
             </mat-expansion-panel>
             <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
