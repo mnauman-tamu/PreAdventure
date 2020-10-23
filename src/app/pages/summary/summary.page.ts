@@ -16,6 +16,7 @@ export class SummaryPageComponent implements OnInit {
   taLocationID: any;
   taAttractions: any = [];
   taHotels: any = [];
+  taRestaurants: any = [];
   forecast: any[];
 
   range5 = [0,1,2,3,4];
@@ -56,10 +57,10 @@ export class SummaryPageComponent implements OnInit {
           console.log('Trip Advisor Location ID: ' + this.taLocationID);
 
           //trip advisor attractions search
-          const card = document.getElementById('AttractionsList')
+          // const card = document.getElementById('AttractionsList')
           this.dataService.tripAdvisorAttractionsSearch(this.taLocationID).subscribe(
             (attractionsData) => {
-              // console.log(attractionsData);
+              console.log(attractionsData);
 
               for (var i = 0; i < attractionsData.data.length && i < 10; i++)
               {
@@ -94,11 +95,11 @@ export class SummaryPageComponent implements OnInit {
               }
               this.dataService.gettaAttractions(this.taAttractions);
             }
-          )
+          );
 
 
           //trip advisor hotels search api call
-          const card2 = document.getElementById('HotelsList')
+          // const card2 = document.getElementById('HotelsList')
           this.dataService.tripAdvisorHotelsSearch(this.taLocationID).subscribe(
             (hotelsData) => {
               console.log(hotelsData);
@@ -135,22 +136,58 @@ export class SummaryPageComponent implements OnInit {
                 this.taHotels[i] = hotObj;
 
                 //limit display to 5 attractions
-                if (i < 5) {
-                  const lcontainer = document.createElement('div');
-                  lcontainer.setAttribute('class', 'container');
+                // if (i < 5) {
+                //   const lcontainer = document.createElement('div');
+                //   lcontainer.setAttribute('class', 'container');
 
-                  const link_tag = document.createElement('a');
-                  link_tag.href = hotURL;
-                  link_tag.textContent = hotName;
+                //   const link_tag = document.createElement('a');
+                //   link_tag.href = hotURL;
+                //   link_tag.textContent = hotName;
 
-                  card2.appendChild(lcontainer);
-                  lcontainer.appendChild(link_tag);
-                }
+                //   card2.appendChild(lcontainer);
+                //   lcontainer.appendChild(link_tag);
+                // }
               }
               this.dataService.gettaHotels(this.taHotels);
             }
-          )
+          );
   
+          this.dataService.tripAdvisorRestaurantSearch(this.taLocationID).subscribe(
+            (restData) => {
+              console.log(restData);
+
+              for (var i = 0; i < restData.data.length && i < 10; i++) {
+                const restName = restData.data[i].name;
+                const restDesc = restData.data[i].description;
+                const restRating = restData.data[i].rating;
+                const restPrice = restData.data[i].price_level;
+                const restAddy = restData.data[i].address;
+                const restURL = restData.data[i].web_url;
+                var restPhoto = null;
+                try {
+                  restPhoto = restData.data[i].photo.images.large.url;
+                }
+                catch { }
+
+                let restObj = new DataClass.restObject(restName, restDesc, restRating, restPrice, restAddy, restURL, restPhoto);
+                this.taRestaurants[i] = restObj;
+
+                //limit display to 5 attractions
+                // if (i < 5) {
+                //   const lcontainer = document.createElement('div');
+                //   lcontainer.setAttribute('class', 'container');
+
+                //   const link_tag = document.createElement('a');
+                //   link_tag.href = hotURL;
+                //   link_tag.textContent = hotName;
+
+                //   card2.appendChild(lcontainer);
+                //   lcontainer.appendChild(link_tag);
+                // }
+              }
+              this.dataService.gettaRestaurants(this.taRestaurants);
+            }
+          );
         }
       );
 

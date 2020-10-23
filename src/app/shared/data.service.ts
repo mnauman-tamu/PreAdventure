@@ -18,6 +18,7 @@ export class DataService {
     //member variables
     taAttractionsList: any = [];
     taHotelsList: any = [];
+    taRestaurantsList: any = [];
 
     search_input: Search = {
         from: '',
@@ -185,6 +186,27 @@ export class DataService {
         );
     }
 
+    tripAdvisorRestaurantSearch(id): Observable<any> {
+        const options = {
+            headers: {
+                'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
+                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+            },
+            params: {
+                location_id: `${id}`,
+                lunit: 'mi',
+                limit: '30',
+                currency: 'USD',
+                lang: 'en_US'
+            }
+        };
+        console.log(`https://rapidapi.p.rapidapi.com/restaurants/list`, options)
+        return this.http.get(
+            `https://rapidapi.p.rapidapi.com/restaurants/list`,
+            options
+        );
+    }
+
     /*
     exampleCallingFunction(): void {
         DataService.exampleFunction().subscribe(
@@ -218,5 +240,10 @@ export class DataService {
     gettaHotels(hotelsl): void {
         this.taHotelsList = hotelsl;
         console.log(this.taHotelsList);
+    }
+
+    gettaRestaurants(restl): void {
+        this.taRestaurantsList = restl;
+        console.log(this.taRestaurantsList);
     }
 }

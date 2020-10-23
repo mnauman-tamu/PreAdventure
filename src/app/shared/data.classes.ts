@@ -40,3 +40,23 @@ export class hotObject {
         this.breakfast = breakfast;
     }
 }
+
+export class restObject {
+    name: any;
+    description: any;
+    rating: any;
+    price: any;
+    address: any;
+    webURL: any;
+    photo: any;
+
+    constructor(name: string, description: string, rating: string, price: string, address: string, webURL: string, photo: string) {
+        this.name = name;
+        this.description = description;
+        this.rating = rating;
+        this.price = price;
+        this.address = address;
+        this.webURL = webURL;
+        this.photo = photo;
+    }
+}
