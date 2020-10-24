@@ -13,6 +13,8 @@ export interface Search {
 @Injectable({
     providedIn: 'root',
 })
+
+
 export class DataService {
 
     search_input: Search = {
@@ -21,6 +23,7 @@ export class DataService {
         start_date: '',
         end_date: ''
     };
+
 
     constructor(private http: HttpClient) {}
 
@@ -86,7 +89,7 @@ export class DataService {
       );
     }
 
-    skyScannerFlightSearch(): Observable<any>{
+  skyScannerFlightSearch(from: any, to: any, date: any): Observable<any>{
 
         const options = {
           headers: {
@@ -94,9 +97,10 @@ export class DataService {
             'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
           }
         };
+        console.log(from);
 
         return this.http.get(
-         'https://rapidapi.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/SFO-sky/ORD-sky/2021-04-01?inboundpartialdate=2019-12-01', options);
+         `https://rapidapi.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/${from}/${to}/${date}?inboundpartialdate=2019-12-01`, options);
     }
 
     dailyForecast(): Observable<any> {
@@ -117,54 +121,71 @@ export class DataService {
         );
       }
 
-    tripAdvisorLocationSearch(): Observable<any>
-    {
-        const options = {
-            headers: {
-                'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
-            },
-            params: {
-                query: `'${this.search_input.to}'`,
-                location_id: '1',
-                limit: '30',
-                sort: 'relevance',
-                offset: '0',
-                lang: 'en_US',
-                currency: 'USD',
-                units: 'mi'
-            }
-        };
 
-        return this.http.get(
-            `https://rapidapi.p.rapidapi.com/locations/search`,
-            options
-        );
+    skyScannerGetLoc(loc: any): Observable<any>{
+      const options = {
+        headers: {
+          'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
+          'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
+        },
+        params: {
+          query : loc
+        }
+      };
+
+      return this.http.get(
+        'https://rapidapi.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/', options);
     }
 
-    tripAdvisorAttractionsSearch(id): Observable<any>
-    {
-        const options = {
-            headers: {
-                'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
-            },
-            params: {
-                location_id : `${id}`,
-                lang : 'en_US',
-                currency : 'USD',
-                sort : 'recommended',
-                lunit : 'mi',
-                limit : '15'
-            }
-        };
 
-        console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
-        return this.http.get(
-            `https://rapidapi.p.rapidapi.com/attractions/list`,
-            options
-        );
-    }
+    // tripAdvisorLocationSearch(): Observable<any>
+    // {
+    //     const options = {
+    //         headers: {
+    //             'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
+    //             'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+    //         },
+    //         params: {
+    //             query: `'${this.search_input.to}'`,
+    //             location_id: '1',
+    //             limit: '30',
+    //             sort: 'relevance',
+    //             offset: '0',
+    //             lang: 'en_US',
+    //             currency: 'USD',
+    //             units: 'mi'
+    //         }
+    //     };
+    //
+    //     return this.http.get(
+    //         `https://rapidapi.p.rapidapi.com/locations/search`,
+    //         options
+    //     );
+    // }
+    //
+    // tripAdvisorAttractionsSearch(id): Observable<any>
+    // {
+    //     const options = {
+    //         headers: {
+    //             'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
+    //             'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+    //         },
+    //         params: {
+    //             location_id : `${id}`,
+    //             lang : 'en_US',
+    //             currency : 'USD',
+    //             sort : 'recommended',
+    //             lunit : 'mi',
+    //             limit : '15'
+    //         }
+    //     };
+    //
+    //     console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
+    //     return this.http.get(
+    //         `https://rapidapi.p.rapidapi.com/attractions/list`,
+    //         options
+    //     );
+    // }
 
     /*
     exampleCallingFunction(): void {
