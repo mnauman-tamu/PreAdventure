@@ -1,3 +1,57 @@
 div {
   margin-bottom: 60px;
 }
+div {
+  margin-bottom: 60px;
+}
+
+* {box-sizing: border-box}
+
+/* Container needed to position the overlay. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Make the image to responsive */
+.image {
+  display: block;
+  width: 500px;
+  height: 500px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 1); /* Black see-through */
+  color: black;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: black;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container:hover .overlay {
+  opacity: 0.75;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 33%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}

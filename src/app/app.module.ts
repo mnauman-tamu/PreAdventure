@@ -10,10 +10,13 @@ import { PagesModule } from './pages/pages.module';
 import { CommonModule } from '@angular/common';
 import { DataService } from './shared/data.service';
 import {MatDialogModule} from '@angular/material/dialog';
+import { SafePipe } from './safe.pipe';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -26,4 +29,5 @@ import {MatDialogModule} from '@angular/material/dialog';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

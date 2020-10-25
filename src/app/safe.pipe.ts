@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -12,13 +11,4 @@ export class SafePipe implements PipeTransform {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-}
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent {
-  title = 'PreAdventure';
 }

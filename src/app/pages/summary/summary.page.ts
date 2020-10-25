@@ -36,6 +36,8 @@ export class SummaryPageComponent implements OnInit {
   music: any[];
   spotify: any[];
 
+  imageName: string = "";
+
   panelOpenState: boolean;
 
   constructor(private dataService: DataService) {}
@@ -228,6 +230,10 @@ export class SummaryPageComponent implements OnInit {
     this.dataService.iTunesSearch().subscribe(
       (data) => {
         console.log(data);
+        for(var i = 0; i < data.results.length; i++) {
+          data.results[i].trackViewUrl = data.results[i].trackViewUrl.replace("https://", "https://embed.");
+          console.log(data.results[i].trackViewUrl)
+        }
         this.music = data.results;
       }
     );
