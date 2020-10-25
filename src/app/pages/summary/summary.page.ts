@@ -11,11 +11,14 @@ import * as DataClass from './../../shared/data.classes';
 })
 
 export class SummaryPageComponent implements OnInit {
-  crimes: any[];
+  ORIs: string[];
+  ORIData: { [ori: string] : any }; 
+  ORICrimeData: { [ori: string] : any};
   POIs: any[];
   taLocationID: any;
   taAttractions: any = [];
   forecast: any[];
+  crimeDone: boolean = false;
 
   range5 = [0,1,2,3,4];
 
@@ -23,7 +26,11 @@ export class SummaryPageComponent implements OnInit {
 
   panelOpenState: boolean;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.ORIs = new Array();
+    this.ORIData = {};
+    this.ORICrimeData = {};
+  }
 
   ngOnInit() {
       // for after testing:
@@ -126,6 +133,40 @@ export class SummaryPageComponent implements OnInit {
           console.log(this.forecast);
         }
       );*/
+      this.dataService.mapQuestGeocode().subscribe(
+        (geo) => {
+          console.log(geo);
+          let county: string = geo.results[0].locations[0].adminArea4;
+          this.dataService.getORIsByState(geo.results[0].locations[0].adminArea3).subscribe(
+            (data) => {
+              console.log(data);
+              for(let elem of data.results) {
+                console.log(county + ' ' + elem.county_name);
+                if(county.toUpperCase().includes(elem.county_name.toUpperCase()) && elem.county_name != "") {
+                  console.log(elem);
+                  this.ORIs.push(elem.ori);
+                  this.ORIData[elem.ori] = elem;
+                }
+              }
+              for(let elem of this.ORIs) {
+                console.log(elem);
+                this.dataService.getCrimeDataForORI(elem).subscribe(
+                  (crimeData) => {
+                    console.log(crimeData); 
+                    this.ORICrimeData[elem] = crimeData;
+                  }
+                );
+              }
+              this.test();
+              this.crimeDone = true;
+            } 
+          )
+        }
+      )
+  }
 
+  test() {
+    console.log(this.ORIData);
+    console.log(this.ORICrimeData);
   }
 }
