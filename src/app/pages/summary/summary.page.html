@@ -143,7 +143,7 @@
   </div>
   <div fxLayout="row" fxLayoutAlign="space-evenly center">
     <mat-card class="card-container">
-      <mat-card-title>Weather</mat-card-title>
+      <mat-card-title>Place Holder</mat-card-title>
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
           <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
@@ -173,7 +173,7 @@
   </div>
   <div fxLayout="row" fxLayoutAlign="space-evenly center">
     <mat-card class="card-container">
-      <mat-card-title>Weather</mat-card-title>
+      <mat-card-title>Place Holder</mat-card-title>
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
           <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
@@ -252,7 +252,7 @@
         </mat-expansion-panel-header>
                     <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let song of music">
           <p>{{song.artistName}}</p>
-          <p>{{song.trackViewUrl}}</p>
+          <!-- <p>{{song.trackViewUrl}}</p> -->
           <p>{{song.trackCensoredName}}</p>
           <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" [src]='song.trackViewUrl | safe'></iframe>
         </div>
