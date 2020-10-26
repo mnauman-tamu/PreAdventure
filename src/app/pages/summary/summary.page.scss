@@ -1,5 +1,22 @@
-div {
-  margin-bottom: 60px;
+#background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f1f0f0;
+}
+
+.card-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.accordion {
+  width: 80vw;
+}
+
+.sub-expansion-container {
+  margin-bottom: 0px !important;
+  margin-top: 10px;
+  border-bottom: 1px solid lightgrey;
 }
 #background {
   background-repeat: no-repeat;

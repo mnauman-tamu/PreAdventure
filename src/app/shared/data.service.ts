@@ -161,13 +161,13 @@ export class DataService {
                 units: 'mi'
             }
         };
-
+    
         return this.http.get(
             `https://rapidapi.p.rapidapi.com/locations/search`,
             options
         );
     }
-
+    
     tripAdvisorAttractionsSearch(id): Observable<any>
     {
         const options = {
@@ -184,7 +184,7 @@ export class DataService {
                 limit : '15'
             }
         };
-
+    
         console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
         return this.http.get(
             `https://rapidapi.p.rapidapi.com/attractions/list`,
