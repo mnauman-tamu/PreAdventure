@@ -17,20 +17,24 @@ export class SummaryPageComponent implements OnInit {
   POIs: any[];
   taLocationID: any;
   taAttractions: any = [];
+  taHotels: any = [];
+  taRestaurants: any = [];
   forecast: any[];
+  images: any[];
+  music: any[];
+  spotify: any[];
+  arrivalLocation: any;
+  departureLocation: any;
+
   crimeDone: boolean = false;
 
-  range5 = [0,1,2,3,4];
+  range5 = [0, 1, 2, 3, 4];
 
-  imageName: string = "";
+  imageName = '';
 
   panelOpenState: boolean;
 
-  constructor(private dataService: DataService) {
-    this.ORIs = new Array();
-    this.ORIData = {};
-    this.ORICrimeData = {};
-  }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
     // if (!sessionStorage.getItem('isPageRefreshed')) {
@@ -49,42 +53,9 @@ export class SummaryPageComponent implements OnInit {
       /*this.dataService.crime().subscribe(
         (data) => {
           console.log(data);
-          this.forecast = data.list;
-          console.log(this.forecast);
+          this.crimes = data.results;
         }
-      );
-
-      this.dataService.mapQuestGeocode().subscribe(
-        (geo) => {
-          console.log(geo);
-          let county: string = geo.results[0].locations[0].adminArea4;
-          this.dataService.getORIsByState(geo.results[0].locations[0].adminArea3).subscribe(
-            (data) => {
-              console.log(data);
-              for(let elem of data.results) {
-                console.log(county + ' ' + elem.county_name);
-                if(county.toUpperCase().includes(elem.county_name.toUpperCase()) && elem.county_name != "") {
-                  console.log(elem);
-                  this.ORIs.push(elem.ori);
-                  this.ORIData[elem.ori] = elem;
-                }
-              }
-              for(let elem of this.ORIs) {
-                console.log(elem);
-                this.dataService.getCrimeDataForORI(elem).subscribe(
-                  (crimeData) => {
-                    console.log(crimeData); 
-                    this.ORICrimeData[elem] = crimeData;
-                  }
-                );
-              }
-              this.test();
-              this.crimeDone = true;
-            } 
-          )
-        }
-      );
-  }
+      );*/
 
     //trip advisor api servicing
     this.dataService.tripAdvisorLocationSearch().subscribe(
@@ -317,9 +288,47 @@ export class SummaryPageComponent implements OnInit {
       }
     );
 
+    this.dataService.mapQuestGeocode().subscribe(
+      (geo) => {
+        console.log(geo);
+        let county: string = geo.results[0].locations[0].adminArea4;
+        this.dataService.getORIsByState(geo.results[0].locations[0].adminArea3).subscribe(
+          (data) => {
+            console.log(data);
+            for(let elem of data.results) {
+              console.log(county + ' ' + elem.county_name);
+              if(county.toUpperCase().includes(elem.county_name.toUpperCase()) && elem.county_name != "") {
+                console.log(elem);
+                this.ORIs.push(elem.ori);
+                this.ORIData[elem.ori] = elem;
+              }
+            }
+            for(let elem of this.ORIs) {
+              console.log(elem);
+              this.dataService.getCrimeDataForORI(elem).subscribe(
+                (crimeData) => {
+                  console.log(crimeData); 
+                  this.ORICrimeData[elem] = crimeData;
+                }
+              );
+            }
+            this.test();
+            this.crimeDone = true;
+          } 
+        )
+      }
+    );
+
+    /*this.dataService.spotifySearch().subscribe(
+      (data) => {
+        console.log(data);
+        this.spotify = data.list;
+      }
+    );*/
+  }
+
   test() {
     console.log(this.ORIData);
     console.log(this.ORICrimeData);
   }
 }
-
