@@ -103,36 +103,30 @@ export class SummaryPageComponent implements OnInit {
       );
 
       //mapquest api servicing
-      // this.dataService.mapquestSearch().subscribe(
-      //   (data) => {
-      //     console.log(data);
-
-      //     const app = document.getElementById('AttractionsInfo')
-
-      //     for(var i=0; i < data.searchResults.length && i < 5; i++)
-      //     {
-      //       var loc_name = data.searchResults[i].name;
-      //       const p = document.createElement('p');
-      //       p.textContent = `${loc_name}`;
-      //       app.appendChild(p);
-      //     }
-      //   }
-      // );
-
-      /*this.dataService.fiveDayForecast().subscribe(
+      this.dataService.mapquestSearch().subscribe(
         (data) => {
           console.log(data);
-          this.forecast = data.list;
-        }
-      );*/
 
-      /*this.dataService.dailyForecast().subscribe(
+          const app = document.getElementById('AttractionsInfo')
+
+          for(var i=0; i < data.searchResults.length && i < 5; i++)
+          {
+            var loc_name = data.searchResults[i].name;
+            const p = document.createElement('p');
+            p.textContent = `${loc_name}`;
+            app.appendChild(p);
+          }
+        }
+      );
+
+      this.dataService.dailyForecast().subscribe(
         (data) => {
           console.log(data);
           this.forecast = data.list;
           console.log(this.forecast);
         }
-      );*/
+      );
+
       this.dataService.mapQuestGeocode().subscribe(
         (geo) => {
           console.log(geo);
