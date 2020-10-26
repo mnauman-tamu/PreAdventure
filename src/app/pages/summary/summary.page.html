@@ -74,7 +74,7 @@
   </div>
   <div fxLayout="row" fxLayoutAlign="space-evenly center">
     <mat-card class="card-container">
-      <mat-card-title>Weather</mat-card-title>
+      <mat-card-title>Flights</mat-card-title>
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
           <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
@@ -82,16 +82,14 @@
                                 (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Forecast
+                  Flight time and Prices
                 </mat-panel-title>
                 <mat-panel-description>
                   Click to {{panelOpenState ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
+              <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" id="FlightsData">
               </div>
             </mat-expansion-panel>
           </mat-accordion>
