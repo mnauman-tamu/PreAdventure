@@ -21,48 +21,57 @@
                                 (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
+                  Attractions
+                </mat-panel-title>
+                <mat-panel-description>
+                  Best places to visit for your destination
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <mat-divider></mat-divider>
+              <div *ngIf="taAttractions.length > 0">
+                <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
+                  <p><b>{{taAttractions[i].name}}</b></p>
+                  <p>{{taAttractions[i].rating}}</p>
+                  <p>{{taAttractions[i].address}}</p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
                   Hotels
                 </mat-panel-title>
                 <mat-panel-description>
-                  Best Hotels for your destination
+                  Find the best hotels for your destination
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
+              <div *ngIf="taHotels.length > 0">
+                <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
+                  <p><b>{{taHotels[i].name}}</b></p>
+                  <p>{{taHotels[i].rating}}</p>
+                  <p>{{taHotels[i].address}}</p>
+                </div>
               </div>
             </mat-expansion-panel>
             <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
                                 (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Something Else
-                </mat-panel-title>
-                <mat-panel-description>
-                  Click to find out more
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
-              </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Something Else
+                  Restaurants
                 </mat-panel-title>
                 <mat-panel-description>
                   Click to {{panelOpenState ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
+              <div *ngIf="taRestaurants.length > 0">
+                <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
+                  <p><b>{{taRestaurants[i].name}}</b></p>
+                  <p>{{taRestaurants[i].rating}}</p>
+                  <p>{{taRestaurants[i].address}}</p>
+                </div>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
@@ -75,7 +84,7 @@
   </div>
   <div fxLayout="row" fxLayoutAlign="space-evenly center">
     <mat-card class="card-container">
-      <mat-card-title>Weather</mat-card-title>
+      <mat-card-title>Flights</mat-card-title>
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
           <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
@@ -83,16 +92,14 @@
                                 (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Forecast
+                  Flight time and Prices
                 </mat-panel-title>
                 <mat-panel-description>
                   Click to {{panelOpenState ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
+              <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" id="FlightsData">
               </div>
             </mat-expansion-panel>
           </mat-accordion>

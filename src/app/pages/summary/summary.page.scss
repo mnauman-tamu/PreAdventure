@@ -1,8 +1,10 @@
 div {
   margin-bottom: 60px;
 }
-div {
-  margin-bottom: 60px;
+#background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f1f0f0;
 }
 
 * {box-sizing: border-box}
@@ -39,11 +41,18 @@ div {
 .container:hover .overlay {
   opacity: 0.75;
 }
+.card-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 /* Create two equal columns that sits next to each other */
 .column {
   flex: 33%;
   padding: 0 4px;
+}
+.accordion {
+  width: 80vw;
 }
 
 .column img {
@@ -54,4 +63,9 @@ div {
   display: flex;
   flex-wrap: wrap;
   padding: 0 4px;
+}
+.sub-expansion-container {
+  margin-bottom: 0px !important;
+  margin-top: 10px;
+  border-bottom: 1px solid lightgrey;
 }
