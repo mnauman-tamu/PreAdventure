@@ -12,8 +12,8 @@ import * as DataClass from './../../shared/data.classes';
 
 export class SummaryPageComponent implements OnInit {
   ORIs: string[];
-  ORIData: { [ori: string] : any }; 
-  ORICrimeData: { [ori: string] : any};
+  ORIData: { [ori: string] : any } = {}; 
+  ORICrimeData: { [ori: string] : any} = {};
   POIs: any[];
   taLocationID: any;
   taAttractions: any = [];
@@ -34,7 +34,9 @@ export class SummaryPageComponent implements OnInit {
 
   panelOpenState: boolean;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.ORIs = new Array();
+  }
 
   ngOnInit() {
     // if (!sessionStorage.getItem('isPageRefreshed')) {
