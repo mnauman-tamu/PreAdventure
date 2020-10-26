@@ -18,6 +18,9 @@ export class SummaryPageComponent implements OnInit {
   taHotels: any = [];
   taRestaurants: any = [];
   forecast: any[];
+  images: any[];
+  music: any[];
+  spotify: any[];
   arrivalLocation: any;
   departureLocation: any;
 
@@ -52,8 +55,15 @@ export class SummaryPageComponent implements OnInit {
 
 
       //trip advisor api servicing
+      /*this.dataService.tripAdvisorLocationSearch().subscribe(
+      );
+    /*this.dataService.tripAdvisorLocationSearch().subscribe(
+        (data) => {
+      );*/
+
+      //trip advisor api servicing
       this.dataService.tripAdvisorLocationSearch().subscribe(
-        (data) => { 
+        (data) => {
           // console.log(data);
           for(var i=0; i<data.data.length; i++)
           {
@@ -160,7 +170,7 @@ export class SummaryPageComponent implements OnInit {
               this.dataService.gettaHotels(this.taHotels);
             }
           );
-  
+          
           this.dataService.tripAdvisorRestaurantSearch(this.taLocationID).subscribe(
             (restData) => {
               console.log(restData);
@@ -254,13 +264,93 @@ export class SummaryPageComponent implements OnInit {
       }
     );
 
-      /*this.dataService.fiveDayForecast().subscribe(
-        (data) => {
-          console.log(data);
-          this.forecast = data.list;
-          console.log(this.forecast);
-        }
-      );*/
+      //mapquest api servicing
 
+      // this.dataService.mapquestSearch().subscribe(
+      //   (data) => {
+      //     console.log(data);
+
+      //     const app = document.getElementById('AttractionsInfo')
+
+      //     for(var i=0; i < data.searchResults.length && i < 5; i++)
+      //     {
+      //       var loc_name = data.searchResults[i].name;
+      //       const p = document.createElement('p');
+      //       p.textContent = `${loc_name}`;
+      //       app.appendChild(p);
+      //     }
+      //   }
+      // );
+
+    interface keyValuePair{
+      key: any;
+      value: any;
+    }
+
+    this.dataService.skyScannerGetLoc(this.dataService.getInputSearch().from).subscribe(
+      (data1) => {
+        console.log(data1);
+        this.dataService.skyScannerGetLoc(this.dataService.getInputSearch().to).subscribe(
+          (data2) => {
+            console.log(data2);
+            this.arrivalLocation = data1.Places[0].PlaceId as string;
+            this.departureLocation = data2.Places[0].PlaceId as string;
+            // tslint:disable-next-line:max-line-length
+            this.dataService.skyScannerFlightSearch(this.departureLocation, this.arrivalLocation, this.dataService.getInputSearch().start_date).subscribe(
+              (data) => {
+                console.log(data);
+                const text = document.getElementById('FlightsData');
+
+
+                for (let i = 0; i < data.Quotes.length && i < 5; i ++){
+                  const flight_price = data.Quotes[i].MinPrice;
+                  const time = data.Quotes[i].QuoteDateTime;
+                  const p = document.createElement('p');
+                  p.textContent = `$${flight_price} Time: ${time.substring(time.indexOf('T') + 1, time.indexOf('T') + 6)}`;
+                  text.appendChild(p);
+                }
+              }
+            );
+            console.log(this.arrivalLocation);
+          }
+        );
+
+      }
+    );
+
+
+    this.dataService.dailyForecast().subscribe(
+      (data) => {
+        console.log(data);
+        this.forecast = data.list;
+        console.log(this.forecast);
+      }
+    );
+
+    this.dataService.unplashImageSearch().subscribe(
+      (data) => {
+        console.log(data);
+        this.images = data.results;
+        console.log(this.images);
+      }
+    );
+
+    this.dataService.iTunesSearch().subscribe(
+      (data) => {
+        console.log(data);
+        for(var i = 0; i < data.results.length; i++) {
+          data.results[i].trackViewUrl = data.results[i].trackViewUrl.replace("https://", "https://embed.");
+          console.log(data.results[i].trackViewUrl)
+        }
+        this.music = data.results;
+      }
+    );
+
+    /*this.dataService.spotifySearch().subscribe(
+      (data) => {
+        console.log(data);
+        this.spotify = data.list;
+      }
+    );*/
   }
 }

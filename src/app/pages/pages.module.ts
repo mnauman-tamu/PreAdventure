@@ -15,12 +15,14 @@ import { SummaryPageComponent } from './summary/summary.page';
 import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
+import {SafePipe} from '../app.component';
 
 @NgModule({
-    declarations: [
-        HomePageComponent,
-        SummaryPageComponent,
-    ],
+  declarations: [
+    HomePageComponent,
+    SummaryPageComponent,
+    SafePipe,
+  ],
     imports: [
         CommonModule,
         FlexLayoutModule,
