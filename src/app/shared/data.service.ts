@@ -45,16 +45,22 @@ export class DataService {
 
     // https://angular.io/guide/http
 
-    crime(): Observable<any> {
-        // let headers: HttpHeaders = new HttpHeaders();
-        /*headers = headers.append('Accept', 'application/json');
-        headers = headers.append(
-          'X-RapidAPI-Key',
-          '1108554cc1mshf11c17c4fea2b3dp179054jsn2446fb7a8965'
-        );*/
+    getORIsByState(state: string): Observable<any> {
         return this.http.get(
-          `https://api.usa.gov/crime/fbi/sapi/api/summarized/state/TX/violent-crime/2000/2019?API_KEY=iiHnOKfno2Mgkt5AynpvPpUQTEyxE77jo1RU8PIv`
+          `https://api.usa.gov/crime/fbi/sapi/api/agencies/byStateAbbr/${state}?API_KEY=Yjch03tlVA2WMEk3fNTihmmQ48AGmUdcwVm84Jqs`
           );
+    }
+
+    getCrimeDataForORI(ori: string): Observable<any> {
+        return this.http.get(
+            `https://api.usa.gov/crime/fbi/sapi/api/summarized/agencies/${ori}/offenses/2018/2019?API_KEY=Yjch03tlVA2WMEk3fNTihmmQ48AGmUdcwVm84Jqs`
+        );
+    }
+
+    mapQuestGeocode(): Observable<any> {
+        return this.http.get(
+          `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${this.search_input.to}`  
+        );
     }
 
     mapquestSearch(): Observable<any> {

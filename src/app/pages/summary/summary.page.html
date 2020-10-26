@@ -36,6 +36,9 @@
                   <p>{{taAttractions[i].address}}</p>
                 </div>
               </div>
+              <mat-action-row>
+                <button mat-button color="primary">More Details</button>
+              </mat-action-row>
             </mat-expansion-panel>
             <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
                                 (closed)="panelOpenState = false">
@@ -55,6 +58,9 @@
                   <p>{{taHotels[i].address}}</p>
                 </div>
               </div>
+              <mat-action-row>
+                <button mat-button color="primary">More Details</button>
+              </mat-action-row>
             </mat-expansion-panel>
             <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
                                 (closed)="panelOpenState = false">
@@ -74,12 +80,14 @@
                   <p>{{taRestaurants[i].address}}</p>
                 </div>
               </div>
+              <mat-action-row>
+                <button mat-button color="primary">More Details</button>
+              </mat-action-row>
             </mat-expansion-panel>
           </mat-accordion>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>MORE DETAIL</button>
       </mat-card-actions>
     </mat-card>
   </div>
@@ -181,23 +189,29 @@
                                 (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Forecast
+                  Crime Data
                 </mat-panel-title>
                 <mat-panel-description>
                   Click to {{panelOpenState ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
+              <div *ngIf="crimeDone && ORIData.length == ORICrimeData.length">
+                <div class="sub-expansion-container" fxLayout="column" *ngFor="let ori of ORIs">
+                  <p><b>{{ori}}: {{ORIData[ori].agency_name}}</b></p>
+                  <div *ngFor="let elem of ORICrimeData[ori].results" fxLayout="row" fxLayoutAlign="space-between">
+                    <p>{{elem.offense}} :</p>
+                    <p>Actual = {{elem.actual}},</p>
+                    <p>Cleared = {{elem.cleared}}</p>
+                  </div>
+                </div>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>MORE DETAIL</button>
+        <button mat-button (click)="test()">MORE DETAIL</button>
       </mat-card-actions>
     </mat-card>
   </div>
