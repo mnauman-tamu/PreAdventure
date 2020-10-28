@@ -83,7 +83,28 @@ export class DataStorageService implements OnInit{
     needToRequest(): boolean {
         console.log(this.search_input);
         console.log(this.dataService.search_input);
-        return this.search_input != this.dataService.search_input;
+            
+        let data = JSON.parse(localStorage.getItem('Pre-Adventure-Data'));
+        if(data && (data.search_input == this.dataService.search_input || !this.dataService.searched)) {
+            console.log('Using local storage!');
+            this.search_input = data.search_input;
+            this.ORIs = data.ORIs;
+            this.ORIData = data.ORICrimeData;
+            this.ORICrimeData = data.ORICrimeData;
+            this.POIs = data.POIs;
+            this.taLocationID = data.taLocationID;
+            this.taAttractions = data.taAttractions;
+            this.taHotels = data.taHotels;
+            this.taRestaurants = data.taRestaurants;
+            this.forecast = data.forecast;
+            this.images = data.images;
+            this.music = data.music;
+            this.spotify = data.spotify;
+            this.arrivalLocation = data.arrivalLocation;
+            this.departureLocation = data.departureLocation;
+            return false;
+        }
+        return true;
     }
 
     summaryPageAPIs(origin: SummaryPageComponent) {
@@ -103,6 +124,22 @@ export class DataStorageService implements OnInit{
         this.arrivalLocation = origin.arrivalLocation;
         this.departureLocation = origin.departureLocation;
         //Insert data to clients browser cache
-        
+        localStorage.setItem('Pre-Adventure-Data', JSON.stringify({
+            'search_input':this.search_input,
+            'ORIs':this.ORIs,
+            'ORIData':this.ORIData,
+            'ORICrimeData':this.ORICrimeData,
+            'POIs':this.POIs,
+            'taLocationID':this.taLocationID,
+            'taAttractions':this.taAttractions,
+            'taHotels':this.taHotels,
+            'taRestaurants':this.taRestaurants,
+            'forecast':this.forecast,
+            'images':this.images,
+            'music':this.music,
+            'spotify':this.spotify,
+            'arrivalLocation':this.arrivalLocation,
+            'departureLocation':this.departureLocation
+        }))
     }
 }

@@ -22,6 +22,7 @@ export class DataService {
     taHotelsList: any = [];
     taRestaurantsList: any = [];
 
+    searched: boolean = false;
     search_input: Search = {
         from: '',
         to: '',
@@ -325,6 +326,7 @@ export class DataService {
         this.search_input.to = formInput.to;
         this.search_input.start_date = formInput.start_date;
         this.search_input.end_date = formInput.end_date;
+        this.searched = true;
     }
 
     getInputSearch(): Search {
