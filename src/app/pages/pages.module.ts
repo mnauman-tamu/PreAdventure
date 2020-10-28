@@ -16,11 +16,27 @@ import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import {SafePipe} from '../app.component';
+import { CrimePageComponent } from './detailsPages/crime/crime.page';
+import { AttractionsPageComponent } from './detailsPages/attractions/attractions.page';
+import { FlightsPageComponent } from './detailsPages/flights/flights.page';
+import { HotelsPageComponent } from './detailsPages/hotels/hotels.page';
+import { MusicPageComponent } from './detailsPages/music/music.page';
+import { PhotosPageComponent } from './detailsPages/photos/photos.page';
+import { RestaurantsPageComponent } from './detailsPages/restaurants/restaurants.page';
+import { WeatherPageComponent } from './detailsPages/weather/weather.page';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     SummaryPageComponent,
+    CrimePageComponent,
+    AttractionsPageComponent,
+    FlightsPageComponent,
+    HotelsPageComponent,
+    MusicPageComponent,
+    PhotosPageComponent,
+    RestaurantsPageComponent,
+    WeatherPageComponent,
     SafePipe,
   ],
     imports: [
@@ -40,6 +56,14 @@ import {SafePipe} from '../app.component';
     exports: [
         HomePageComponent,
         SummaryPageComponent,
+        CrimePageComponent,
+        AttractionsPageComponent,
+        FlightsPageComponent,
+        HotelsPageComponent,
+        MusicPageComponent,
+        PhotosPageComponent,
+        RestaurantsPageComponent,
+        WeatherPageComponent,
         FlexLayoutModule,
         ReactiveFormsModule,
         MatInputModule,

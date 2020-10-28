@@ -37,7 +37,7 @@
                 </div>
               </div>
               <mat-action-row>
-                <button mat-button color="primary">More Details</button>
+                <button mat-button routerLink="/attractions" color="primary">More Details</button>
               </mat-action-row>
             </mat-expansion-panel>
             <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
@@ -59,7 +59,7 @@
                 </div>
               </div>
               <mat-action-row>
-                <button mat-button color="primary">More Details</button>
+                <button mat-button routerLink="/hotels" color="primary">More Details</button>
               </mat-action-row>
             </mat-expansion-panel>
             <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
@@ -196,7 +196,7 @@
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div *ngIf="crimeDone && ORIData.length == ORICrimeData.length">
+              <div *ngIf="crimeDone">
                 <div class="sub-expansion-container" fxLayout="column" *ngFor="let ori of ORIs">
                   <p><b>{{ori}}: {{ORIData[ori].agency_name}}</b></p>
                   <div *ngFor="let elem of ORICrimeData[ori].results" fxLayout="row" fxLayoutAlign="space-between">
