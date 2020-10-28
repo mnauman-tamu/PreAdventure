@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from './../../shared/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as DataClass from './../../shared/data.classes';
+import { DataStorageService } from 'src/app/shared/dataStorage.service';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class SummaryPageComponent implements OnInit {
 
   panelOpenState: boolean;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataStorage: DataStorageService, private dataService: DataService) {
     this.ORIs = new Array();
   }
 
@@ -297,12 +298,15 @@ export class SummaryPageComponent implements OnInit {
         this.dataService.getORIsByState(geo.results[0].locations[0].adminArea3).subscribe(
           (data) => {
             console.log(data);
+            let countA = 0;
+            let countB = 0;
             for(let elem of data.results) {
               console.log(county + ' ' + elem.county_name);
               if(county.toUpperCase().includes(elem.county_name.toUpperCase()) && elem.county_name != "") {
                 console.log(elem);
                 this.ORIs.push(elem.ori);
                 this.ORIData[elem.ori] = elem;
+                countA++;
               }
             }
             for(let elem of this.ORIs) {
@@ -311,11 +315,15 @@ export class SummaryPageComponent implements OnInit {
                 (crimeData) => {
                   console.log(crimeData); 
                   this.ORICrimeData[elem] = crimeData;
+                  countB++;
+                  if(countA == countB) {
+                    console.log('All APIs Done');
+                    this.crimeDone = true;
+                    this.dataStorage.summaryPageAPIs(this);
+                  }
                 }
               );
             }
-            this.test();
-            this.crimeDone = true;
           } 
         )
       }
