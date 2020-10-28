@@ -16,11 +16,13 @@ import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import {SafePipe} from '../app.component';
+import { CrimePageComponent } from './detailsPages/crime/crime.page';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     SummaryPageComponent,
+    CrimePageComponent,
     SafePipe,
   ],
     imports: [
@@ -40,6 +42,7 @@ import {SafePipe} from '../app.component';
     exports: [
         HomePageComponent,
         SummaryPageComponent,
+        CrimePageComponent,
         FlexLayoutModule,
         ReactiveFormsModule,
         MatInputModule,
