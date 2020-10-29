@@ -1,13 +1,15 @@
 <div id="background" [ngStyle]="{'background-image': 'url(' + imageName + ')'}">
   <h1 class="mat-display-3" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Adventure Summary</h1>
   <p style="text-align: center;">Click "More Detail" to find out more about each element of your adventure.</p>
+  <div fxLayout="row" fxLayoutAlign="center stretch">
   <div class = "row">
     <div class="column" *ngFor="let image of images">
       <div class="container">
-        <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width="500" height="500" class="image">
+        <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width="500" height=auto class="image">
         <div class="overlay"><a href = "{{image.urls.raw}}"> {{image.description}}</a> by <a href = "{{image.user.links.html}}"> {{image.user.name}}</a> from <a href = "https://unsplash.com/"> Unsplash </a></div>
       </div>
     </div>
+  </div>
   </div>
   <!--City will be a variable
   <a href = "https://unsplash.com/s/photos/<%City%>">More Photos</a>-->
@@ -231,10 +233,10 @@
             Click here to view photos
           </mat-panel-description>
         </mat-expansion-panel-header>
-              <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let image of images">
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let image of images">
           <a href = "{{image.urls.raw}}"> {{image.description}}</a><br>
-          <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width="500" height="500"><br>
-          <p>Photo by {{image.user.name}} from Unsplash</p>
+          <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width="500" height=auto><br>
+          Photo by <a href = "{{image.user.links.html}}"> {{image.user.name}}</a> from <a href = "https://unsplash.com/"> Unsplash </a>
 
 
         <!--City will be a variable
@@ -268,7 +270,7 @@
           <p>{{song.artistName}}</p>
           <!-- <p>{{song.trackViewUrl}}</p> -->
           <p>{{song.trackCensoredName}}</p>
-          <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" [src]='song.trackViewUrl | safe'></iframe>
+          <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="250" style="width:100%;max-width:360px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" [src]='song.trackViewUrl | safe'></iframe>
         </div>
       </mat-expansion-panel>
     </mat-accordion>
