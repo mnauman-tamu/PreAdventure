@@ -200,17 +200,17 @@ export class SummaryPageComponent implements OnInit {
         //   }
         // );
 
-      this.dataService.skyScannerGetLoc('San Francisco').subscribe(
+      this.dataService.skyScannerGetLoc(this.dataService.search_input.to).subscribe(
         (data1) => {
-          this.dataService.skyScannerGetLoc('New York').subscribe(
+          this.dataService.skyScannerGetLoc(this.dataService.search_input.from).subscribe(
             (data2) => {
               console.log(data2);
               this.arrivalLocation = data1.Places[0].CityId as string;
-              this.departureLocation = data2.Places[0].CityId as string
+              this.departureLocation = data2.Places[0].CityId as string;
 
 
               // tslint:disable-next-line:max-line-length
-              this.dataService.skyScannerFlightSearch(this.departureLocation, this.arrivalLocation, '2020-11-02').subscribe(
+              this.dataService.skyScannerFlightSearch(this.departureLocation, this.arrivalLocation, this.dataService.search_input.start_date).subscribe(
                 (dataTo) => {
                   const text = document.getElementById('FlightsData');
                   const p = document.createElement('p');
@@ -245,7 +245,7 @@ export class SummaryPageComponent implements OnInit {
 
 
                   // tslint:disable-next-line:max-line-length
-                  this.dataService.skyScannerFlightSearch(this.arrivalLocation, this.departureLocation, '2020-11-12').subscribe(
+                  this.dataService.skyScannerFlightSearch(this.arrivalLocation, this.departureLocation, this.dataService.search_input.end_date).subscribe(
                     (dataFrom) => {
                       console.log(dataFrom);
                       const p = document.createElement('p');
