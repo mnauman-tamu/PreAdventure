@@ -81,9 +81,11 @@ export class SummaryPageComponent implements OnInit {
           this.dataService.tripAdvisorAttractionsSearch(this.taLocationID).subscribe(
             (attractionsData) => {
               console.log(attractionsData);
-
-              for (var i = 0; i < attractionsData.data.length && i < 10; i++)
+              var j = 0;
+              for (var i = 0; i < attractionsData.data.length && i < 11; i++)
               {
+                if(i == 6)
+                  continue;
                 const attName = attractionsData.data[i].name;
                 const attDesc = attractionsData.data[i].description;
                 const attRate = attractionsData.data[i].rating;
@@ -97,21 +99,9 @@ export class SummaryPageComponent implements OnInit {
                 catch {}
 
                 let attObj = new DataClass.attObject(attName, attDesc, attRate, attAddy, attURL, attPhoto);
-                this.taAttractions[i] = attObj;
+                this.taAttractions[j] = attObj;
 
-                // //limit display to 5 attractions
-                // if(i < 5)
-                // {
-                //   const lcontainer = document.createElement('div');
-                //   lcontainer.setAttribute('class', 'container');
-
-                //   const link_tag = document.createElement('a');
-                //   link_tag.href = attURL;
-                //   link_tag.textContent = attName;
-
-                //   card.appendChild(lcontainer);
-                //   lcontainer.appendChild(link_tag);
-                // }
+                j++;
               }
               this.dataService.gettaAttractions(this.taAttractions);
             }
@@ -123,7 +113,7 @@ export class SummaryPageComponent implements OnInit {
           this.dataService.tripAdvisorHotelsSearch(this.taLocationID).subscribe(
             (hotelsData) => {
               console.log(hotelsData);
-
+              var j = 0;
               for (var i = 0; i < hotelsData.data.length && i < 10; i++) {
                 const hotName = hotelsData.data[i].name;
                 const hotDesc = hotelsData.data[i].description;
@@ -154,29 +144,19 @@ export class SummaryPageComponent implements OnInit {
 
                 let hotObj = new DataClass.hotObject(hotName, hotDesc, hotRate, hotPrice, hotAddy, hotURL, hotPhoto, hotWifi, hotBreakfast);
                 this.taHotels[i] = hotObj;
-
-                //limit display to 5 attractions
-                // if (i < 5) {
-                //   const lcontainer = document.createElement('div');
-                //   lcontainer.setAttribute('class', 'container');
-
-                //   const link_tag = document.createElement('a');
-                //   link_tag.href = hotURL;
-                //   link_tag.textContent = hotName;
-
-                //   card2.appendChild(lcontainer);
-                //   lcontainer.appendChild(link_tag);
-                // }
               }
               this.dataService.gettaHotels(this.taHotels);
             }
           );
           
+          //trip advisor restaurants search api call
           this.dataService.tripAdvisorRestaurantSearch(this.taLocationID).subscribe(
             (restData) => {
               console.log(restData);
-
-              for (var i = 0; i < restData.data.length && i < 10; i++) {
+              var j = 0;
+              for (var i = 0; i < restData.data.length && i < 11; i++) {
+                if(i == 4)
+                  continue;
                 const restName = restData.data[i].name;
                 const restDesc = restData.data[i].description;
                 const restRating = restData.data[i].rating;
@@ -190,20 +170,9 @@ export class SummaryPageComponent implements OnInit {
                 catch { }
 
                 let restObj = new DataClass.restObject(restName, restDesc, restRating, restPrice, restAddy, restURL, restPhoto);
-                this.taRestaurants[i] = restObj;
+                this.taRestaurants[j] = restObj;
 
-                //limit display to 5 attractions
-                // if (i < 5) {
-                //   const lcontainer = document.createElement('div');
-                //   lcontainer.setAttribute('class', 'container');
-
-                //   const link_tag = document.createElement('a');
-                //   link_tag.href = hotURL;
-                //   link_tag.textContent = hotName;
-
-                //   card2.appendChild(lcontainer);
-                //   lcontainer.appendChild(link_tag);
-                // }
+                j++;
               }
               this.dataService.gettaRestaurants(this.taRestaurants);
             }
