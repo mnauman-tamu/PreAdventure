@@ -24,6 +24,7 @@ import { MusicPageComponent } from './detailsPages/music/music.page';
 import { PhotosPageComponent } from './detailsPages/photos/photos.page';
 import { RestaurantsPageComponent } from './detailsPages/restaurants/restaurants.page';
 import { WeatherPageComponent } from './detailsPages/weather/weather.page';
+import { Router, RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { WeatherPageComponent } from './detailsPages/weather/weather.page';
   ],
     imports: [
         CommonModule,
+        RouterModule,
         FlexLayoutModule,
         ReactiveFormsModule,
         MatInputModule,
