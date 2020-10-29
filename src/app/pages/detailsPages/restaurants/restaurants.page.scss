@@ -1,0 +1,146 @@
+$screen-xs-min: 425px;  // Tiny phones
+$screen-sm-min: 576px;  // Small tablets and large smartphones (landscape view)
+$screen-md-min: 768px;  // Small tablets (portrait view)
+$screen-lg-min: 992px;  // Tablets and small desktops
+$screen-xl-min: 1200px; // Large tablets and desktops
+
+@mixin xs {
+  @media (min-width: #{$screen-xs-min}) {
+      @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
+
+.mobile-handler {
+    display: inline-block; 
+    width: 95vw;
+
+    @include sm {  
+        width: 80vw;
+    }
+}
+
+#background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f1f0f0;
+}
+
+.card-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.accordion {
+  width: 80vw;
+}
+
+.sub-expansion-container {
+  margin-bottom: 0px !important;
+  margin-top: 10px;
+  border-bottom: 1px solid lightgrey;
+}
+
+* {box-sizing: border-box}
+
+/* Container needed to position the overlay. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Make the image to responsive */
+.image {
+  display: block;
+  width: 500px;
+  height: 500px;
+}
+
+.image-center {
+  max-height: 100%;
+  max-width: 100%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 1); /* Black see-through */
+  color: black;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: black;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container:hover .overlay {
+  opacity: 0.75;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 33%;
+  padding: 0 4px;
+}
+.accordion {
+  width: 80vw;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+.sub-expansion-container {
+  margin-bottom: 0px !important;
+  margin-top: 10px;
+  border-bottom: 1px solid lightgrey;
+}
+
+/* creates link without text-decoration */
+.website:link {
+  text-decoration: none;
+  color: black;
+}
+.website:hover{
+  text-decoration: underline;
+  color:black;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../shared/data.service';
+import * as DataClass from '../../../shared/data.classes';
 
 @Component({
     selector: 'attractions-page',
@@ -7,11 +8,16 @@ import { DataService } from '../../../shared/data.service';
     styleUrls: ['./attractions.page.scss']
   })
 export class AttractionsPageComponent implements OnInit{
+
+  taAttractionsList: any = [];
+  name: string;
   
-    constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {}
 
-    ngOnInit() {
-
-    }
+  ngOnInit() {
+    this.taAttractionsList = this.dataService.taAttractionsList;
+    this.name = this.dataService.search_input.to;
+    // console.log(this.taAttractionsList)
+  }
 
 }
