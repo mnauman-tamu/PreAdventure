@@ -60,7 +60,7 @@ export class DataService {
 
     mapQuestGeocode(): Observable<any> {
         return this.http.get(
-          `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${this.search_input.to}`  
+          `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${this.search_input.to}`
         );
     }
 
@@ -168,13 +168,13 @@ export class DataService {
                 units: 'mi'
             }
         };
-    
+
         return this.http.get(
             `https://rapidapi.p.rapidapi.com/locations/search`,
             options
         );
     }
-    
+
     tripAdvisorAttractionsSearch(id): Observable<any>
     {
         const options = {
@@ -191,7 +191,7 @@ export class DataService {
                 limit : '15'
             }
         };
-    
+
         console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
         return this.http.get(
             `https://rapidapi.p.rapidapi.com/attractions/list`,
@@ -270,16 +270,17 @@ export class DataService {
 
     iTunesSearch(): Observable<any> {
       const options = {
-        /*headers: {
-          "content-type": "application/x-www-form-urlencoded",
+        headers: {
+          /*"content-type": "application/x-www-form-urlencoded",
           "x-rapidapi-host": "iTunesvolodimir-kudriachenkoV1.p.rapidapi.com",
           "x-rapidapi-key": "a0c517e50fmsha9a75e803218fbep1f3c97jsndc0fddd8d86d",
           "useQueryString": true
-        },*/
+          'Access-Control-Allow-Origin': 'http://localhost:4200/summary',*/
+        },
         params: {
-          "entity": "song",
-          "term": `'${this.search_input.to}'`,
-          "limit": "25"
+          term: `${this.search_input.to}`,
+          entity: 'song',
+          limit: '25'
         }
       };
 
