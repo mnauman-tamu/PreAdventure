@@ -24,6 +24,7 @@ import { MusicPageComponent } from './detailsPages/music/music.page';
 import { PhotosPageComponent } from './detailsPages/photos/photos.page';
 import { RestaurantsPageComponent } from './detailsPages/restaurants/restaurants.page';
 import { WeatherPageComponent } from './detailsPages/weather/weather.page';
+import { aboutUsPageComponent } from './aboutUsPage/aboutUs.page';
 import { Router, RouterModule } from '@angular/router';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { Router, RouterModule } from '@angular/router';
     PhotosPageComponent,
     RestaurantsPageComponent,
     WeatherPageComponent,
+    aboutUsPageComponent,
     SafePipe,
   ],
   imports: [
@@ -66,6 +68,7 @@ import { Router, RouterModule } from '@angular/router';
     PhotosPageComponent,
     RestaurantsPageComponent,
     WeatherPageComponent,
+    aboutUsPageComponent,
     FlexLayoutModule,
     ReactiveFormsModule,
     MatInputModule,
