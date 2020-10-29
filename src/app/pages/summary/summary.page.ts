@@ -162,7 +162,7 @@ export class SummaryPageComponent implements OnInit {
                 const restRating = restData.data[i].rating;
                 const restPrice = restData.data[i].price_level;
                 const restAddy = restData.data[i].address;
-                const restURL = restData.data[i].web_url;
+                const restURL = restData.data[i].website;
                 var restPhoto = null;
                 try {
                   restPhoto = restData.data[i].photo.images.large.url;

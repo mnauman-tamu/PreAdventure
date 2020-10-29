@@ -31,8 +31,8 @@
               <mat-divider></mat-divider>
               <div *ngIf="taAttractions.length > 0">
                 <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
-                  <p><b>{{taAttractions[i].name}}</b></p>
-                  <p>{{taAttractions[i].rating}}</p>
+                  <p><b><a class="website" href={{taAttractions[i].webURL}}>{{taAttractions[i].name}}</a></b></p>
+                  <p>{{taAttractions[i].rating}}/5.0</p>
                   <p>{{taAttractions[i].address}}</p>
                 </div>
               </div>
@@ -53,8 +53,8 @@
               <mat-divider></mat-divider>
               <div *ngIf="taHotels.length > 0">
                 <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
-                  <p><b>{{taHotels[i].name}}</b></p>
-                  <p>{{taHotels[i].rating}}</p>
+                  <p><b><a class="website" href={{taHotels[i].webURL}}>{{taHotels[i].name}}</a></b></p>
+                  <p>{{taHotels[i].rating}}/5.0</p>
                   <p>{{taHotels[i].address}}</p>
                 </div>
               </div>
@@ -75,13 +75,13 @@
               <mat-divider></mat-divider>
               <div *ngIf="taRestaurants.length > 0">
                 <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
-                  <p><b>{{taRestaurants[i].name}}</b></p>
-                  <p>{{taRestaurants[i].rating}}</p>
+                  <p><b><a class="website" href={{taRestaurants[i].webURL}}>{{taRestaurants[i].name}}</a></b></p>
+                  <p>{{taRestaurants[i].rating}}/5.0</p>
                   <p>{{taRestaurants[i].address}}</p>
                 </div>
               </div>
               <mat-action-row>
-                <button mat-button color="primary">More Details</button>
+                <button mat-button [routerLink]="['/restaurants']" color="primary">More Details</button>
               </mat-action-row>
             </mat-expansion-panel>
           </mat-accordion>

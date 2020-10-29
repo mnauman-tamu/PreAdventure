@@ -10,11 +10,13 @@ import * as DataClass from '../../../shared/data.classes';
 export class AttractionsPageComponent implements OnInit{
 
   taAttractionsList: any = [];
+  name: string;
   
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.taAttractionsList = this.dataService.taAttractionsList;
+    this.name = this.dataService.search_input.to;
     // console.log(this.taAttractionsList)
   }
 

@@ -1,12 +1,14 @@
 <div id="background" [ngStyle]="{'background-image': ''}">
-    <h1 class="mat-display-3" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Attractions</h1>
+    <h1 class="mat-display-3" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Attractions in {{name}}
+    </h1>
     <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <mat-card class="card-container" style="max-width: 75%;" *ngFor="let obj of taAttractionsList">
+        <mat-card class="card-container mobile-handler" *ngFor="let obj of taAttractionsList">
             <mat-card-title>{{obj.name}}</mat-card-title>
             <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
                 <div fxLayout="column" fxLayoutAlign="center">
                     <img src={{obj.photo}} class="image-center">
-                    <h3><b>{{obj.address}} | Rating: {{obj.rating}}/5.0</b></h3>
+                    <h2 class="body-2">{{obj.address}}</h2>
+                    <h3 class="body-2"><b>Rating: {{obj.rating}}/5.0</b></h3>
                     <p>{{obj.description}}</p>
                 </div>
             </mat-card-content>
