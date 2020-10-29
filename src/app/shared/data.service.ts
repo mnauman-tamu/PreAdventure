@@ -101,19 +101,20 @@ export class DataService {
       );
     }
 
-  skyScannerFlightSearch(from: any, to: any, date: any): Observable<any>{
+  skyScannerFlightSearch(from: any, to: any, fromdate: any): Observable<any> {
 
-        const options = {
-          headers: {
-            'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
-            'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
-          }
-        };
-        console.log(from);
+    const options = {
+      headers: {
+        'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
+        'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
+      },
+    };
+    console.log(from);
 
-        return this.http.get(
-         `https://rapidapi.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/${from}/${to}/${date}?inboundpartialdate=2019-12-01`, options);
-    }
+    return this.http.get(
+      // tslint:disable-next-line:max-line-length
+      `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/${from}/${to}/${fromdate}`, options);
+  }
 
     dailyForecast(): Observable<any> {
         const options = {
@@ -134,20 +135,46 @@ export class DataService {
       }
 
 
-    skyScannerGetLoc(loc: any): Observable<any>{
-      const options = {
-        headers: {
-          'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
-          'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
-        },
-        params: {
-          query : loc
-        }
-      };
+  skyScannerGetLoc(loc: any): Observable<any> {
+    const options = {
+      headers: {
+        'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
+        'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
+      },
+      params: {
+        query: loc
+      }
+    };
 
-      return this.http.get(
-        'https://rapidapi.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/', options);
+    return this.http.get(
+      'https://rapidapi.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/', options);
+  }
+
+  skyScannerCarriers(carrierIds: any, carriers: any): any {
+    const carrierNames: any = [];
+    let k = 0;
+    for (let i = 0; i < carriers.length; ++i) {
+      // tslint:disable-next-line:prefer-for-of
+      for (let j = 0; j < carrierIds.length; ++j) {
+        if (carriers[i].CarrierId === carrierIds[j]) {
+          carrierNames[k] = carriers[i].Name;
+          k++;
+        }
+      }
     }
+    return carrierNames;
+  }
+
+  skyScannerPlaces(placeId: any, places: any): any {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < places.length; ++i) {
+      if (placeId === places[i].PlaceId) {
+        console.log('here');
+        return places[i].Name;
+      }
+    }
+    return '';
+  }
 
     taKey = '0ca729d386msh96bc584a4685233p119899jsncc5cbeeb00d9';
     tripAdvisorLocationSearch(): Observable<any>
