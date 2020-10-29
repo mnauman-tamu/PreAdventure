@@ -86,6 +86,16 @@
   border-bottom: 1px solid lightgrey;
 }
 
+
+/* creates link without text-decoration */
+.website:link {
+  text-decoration: none;
+  color: black;
+}
+.website:hover{
+  text-decoration: underline;
+  color:black;
+}
 .centered-and-cropped { object-fit: cover }
 
 .imgContainer {
@@ -108,3 +118,4 @@
   width: 500px;
   height: 500px;
 }
+

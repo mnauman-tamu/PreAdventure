@@ -149,13 +149,13 @@ export class DataService {
         'https://rapidapi.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/', options);
     }
 
-
+    taKey = '0ca729d386msh96bc584a4685233p119899jsncc5cbeeb00d9';
     tripAdvisorLocationSearch(): Observable<any>
     {
         const options = {
             headers: {
                 'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+                'x-rapidapi-key': this.taKey
             },
             params: {
                 query: `'${this.search_input.to}'`,
@@ -180,7 +180,7 @@ export class DataService {
         const options = {
             headers: {
                 'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+                'x-rapidapi-key': this.taKey
             },
             params: {
                 location_id : `${id}`,
@@ -203,7 +203,7 @@ export class DataService {
     const options = {
       headers: {
         'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-        'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+        'x-rapidapi-key': this.taKey
       },
       params: {
         location_id: `${id}`,
@@ -230,7 +230,7 @@ export class DataService {
     const options = {
       headers: {
         'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-        'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+        'x-rapidapi-key': this.taKey
       },
       params: {
         location_id: `${id}`,

@@ -7,11 +7,15 @@ import { DataService } from '../../../shared/data.service';
     styleUrls: ['./hotels.page.scss']
   })
 export class HotelsPageComponent implements OnInit{
-  
-    constructor(private dataService: DataService) {}
 
-    ngOnInit() {
+  taHotelsList: any = [];
+  name: string;
 
-    }
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.taHotelsList = this.dataService.taHotelsList;
+    this.name = this.dataService.search_input.to;
+  }
 
 }
