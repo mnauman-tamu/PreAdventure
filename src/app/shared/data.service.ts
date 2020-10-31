@@ -45,6 +45,9 @@ export class DataService {
     */
 
     // https://angular.io/guide/http
+    changeTheme() {
+        document.body.classList.add('theme-alternate');
+    }
 
     getORIsByState(state: string): Observable<any> {
         return this.http.get(
@@ -327,6 +330,7 @@ export class DataService {
         this.search_input.start_date = formInput.start_date;
         this.search_input.end_date = formInput.end_date;
         this.searched = true;
+        console.log(this.search_input);
     }
 
     getInputSearch(): Search {

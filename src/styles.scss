@@ -219,6 +219,8 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 @include angular-material-theme($theme);
 
 .theme-alternate {
+  background-color: $dark-background;
+  color: $light-text;
   @include angular-material-theme($altTheme);
 }
 
@@ -244,8 +246,6 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
     font-family: 'Roboto';
   }
 }
-
-
 
 
 /* You can add global styles to this file, and also import other style files */

@@ -269,7 +269,14 @@ export class SummaryPageComponent implements OnInit {
       this.dataService.dailyForecast().subscribe(
         (data) => {
           console.log(data);
+          let daysPerMonth = [31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
+          let curDate = new Date().toISOString();
+          let inputDate = this.dataService.search_input.start_date;
+          let curDateValue = (Number(curDate.substr(0, 4)) - 2020) * 365 + daysPerMonth[Number(curDate.substr(5, 2))] + Number(curDate.substr(8, 2));
+          let inputDateValue = (Number(inputDate.substr(0, 4)) - 2020) * 365 + daysPerMonth[Number(inputDate.substr(5, 2))] + Number(inputDate.substr(8, 2));
           this.forecast = data.list;
+          this.forecast.splice(0, inputDateValue - curDateValue);
+          //this.dataService.search_input.start_date
           console.log(this.forecast);
         }
       );

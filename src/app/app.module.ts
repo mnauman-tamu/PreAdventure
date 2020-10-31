@@ -12,6 +12,7 @@ import { DataService } from './shared/data.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SafePipe } from './safe.pipe';
 import { RouterModule } from '@angular/router';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     BrowserAnimationsModule,
     PagesModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

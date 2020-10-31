@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../shared/data.service';
+import { DataStorageService} from '../../../shared/dataStorage.service';
 
 @Component({
     selector: 'weather-page',
@@ -7,11 +8,13 @@ import { DataService } from '../../../shared/data.service';
     styleUrls: ['./weather.page.scss']
   })
 export class WeatherPageComponent implements OnInit{
+
+  forecast: any;
   
-    constructor(private dataService: DataService) {}
+  constructor(private dataStorage: DataStorageService, private dataService: DataService) {}
 
-    ngOnInit() {
-
-    }
+  ngOnInit() {
+    this.forecast = this.dataStorage.forecast;
+  }
 
 }

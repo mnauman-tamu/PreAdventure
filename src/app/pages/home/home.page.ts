@@ -24,6 +24,7 @@ export class HomePageComponent {
     submit() {
         this.dataService.inputSearch(this.searchParams.value);
         console.log("searched!");
+        console.log(this.searchParams.value);
         this.router.navigate(['summary']);
     }
 }
