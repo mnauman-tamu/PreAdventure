@@ -23,9 +23,12 @@ export class SafePipe implements PipeTransform {
 export class AppComponent {
   title = 'PreAdventure';
   darkMode = false;
+  colorBlind = false;
 
   changeTheme() {
-    if(this.darkMode) {
+    if(this.colorBlind) {
+      this.colorBlindThemes();
+    } else if(this.darkMode) {
       document.body.classList.remove("theme-alternate");
       this.darkMode = false;
     } else {
@@ -33,4 +36,39 @@ export class AppComponent {
       this.darkMode = true;
     }
   }
+
+  colorBlindThemes() {
+    if(this.darkMode) {
+      document.body.classList.remove("theme-colorblind-alternate"); // need to make this theme
+      document.body.classList.add("theme-colorblind"); // need to make this theme
+      this.darkMode = false;
+    } else {
+      document.body.classList.remove("theme-colorblind");
+      document.body.classList.add("theme-colorblind-alternate");
+      this.darkMode = true;
+    }
+  }
+
+  toggleColorBlind() {
+    if(this.colorBlind) {
+      if(this.darkMode) {
+        document.body.classList.remove("theme-colorblind-alternate");
+        document.body.classList.add("theme-alternate");
+        this.colorBlind = false;
+      } else {
+        document.body.classList.remove("theme-colorblind");
+        this.colorBlind = false;
+      }
+    } else {
+      if(this.darkMode) {
+        document.body.classList.remove("theme-alternate");
+        document.body.classList.add("theme-colorblind-alternate");
+        this.colorBlind = true;
+      } else {
+        document.body.classList.add("theme-colorblind");
+        this.colorBlind = true;
+      }
+    }
+  }
+
 }
