@@ -1,0 +1,20 @@
+<div id="background" [ngStyle]="{'background-image': ''}">
+    <h1 class="mat-display-3" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Restaurants in {{name}}
+    </h1>
+    <div fxLayout="column" fxLayoutAlign="space-evenly center">
+        <mat-card class="card-container mobile-handler"  *ngFor="let obj of taRestaurantsList">
+            <mat-card-title>{{obj.name}}</mat-card-title>
+            <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
+                <div fxLayout="column" fxLayoutAlign="center">
+                    <img src={{obj.photo}} class="image-center">
+                    <h2 class="body-2">{{obj.address}}</h2>
+                    <h3 class="body-2"><b>Rating: {{obj.rating}}/5.0</b></h3>
+                    <p>{{obj.description}}</p>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <a href={{obj.webURL}} class="website"><button mat-button>MORE DETAIL</button></a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

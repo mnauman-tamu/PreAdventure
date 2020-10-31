@@ -24,6 +24,7 @@ import { MusicPageComponent } from './detailsPages/music/music.page';
 import { PhotosPageComponent } from './detailsPages/photos/photos.page';
 import { RestaurantsPageComponent } from './detailsPages/restaurants/restaurants.page';
 import { WeatherPageComponent } from './detailsPages/weather/weather.page';
+import { aboutUsPageComponent } from './aboutUsPage/aboutUs.page';
 import { Router, RouterModule } from '@angular/router';
 
 @NgModule({
@@ -38,45 +39,47 @@ import { Router, RouterModule } from '@angular/router';
     PhotosPageComponent,
     RestaurantsPageComponent,
     WeatherPageComponent,
+    aboutUsPageComponent,
     SafePipe,
   ],
-    imports: [
-        CommonModule,
-        RouterModule,
-        FlexLayoutModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatExpansionModule,
-        MatDividerModule
-    ],
-    exports: [
-        HomePageComponent,
-        SummaryPageComponent,
-        CrimePageComponent,
-        AttractionsPageComponent,
-        FlightsPageComponent,
-        HotelsPageComponent,
-        MusicPageComponent,
-        PhotosPageComponent,
-        RestaurantsPageComponent,
-        WeatherPageComponent,
-        FlexLayoutModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatExpansionModule,
-        MatDividerModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatExpansionModule,
+    MatDividerModule
+  ],
+  exports: [
+    HomePageComponent,
+    SummaryPageComponent,
+    CrimePageComponent,
+    AttractionsPageComponent,
+    FlightsPageComponent,
+    HotelsPageComponent,
+    MusicPageComponent,
+    PhotosPageComponent,
+    RestaurantsPageComponent,
+    WeatherPageComponent,
+    aboutUsPageComponent,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatExpansionModule,
+    MatDividerModule
+  ]
 })
 export class PagesModule { }

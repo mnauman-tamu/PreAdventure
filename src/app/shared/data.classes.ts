@@ -60,3 +60,21 @@ export class restObject {
         this.photo = photo;
     }
 }
+
+export class flightData{
+  price: any;
+  airlines: any;
+  date: any;
+  direct: any;
+  originid: any;
+  destinationid: any;
+
+  constructor(price: any, airlines: any, date: any, direct: any, originid: any, destinationid: any) {
+    this.price = price;
+    this.airlines = airlines;
+    this.date = date;
+    this.direct = direct;
+    this.originid = originid;
+    this.destinationid = destinationid;
+  }
+}

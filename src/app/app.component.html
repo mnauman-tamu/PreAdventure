@@ -1,14 +1,14 @@
 <div id="theme">
 <mat-toolbar class="nav" id="animate-test">
 
-  
-  <img alt="logo" src="assets/images/logo.png" height="120px">
-  
+
+  <img alt="logo" src="assets/images/logo.png" height="120px" routerLink="/">
+
 
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
-  <div id="bar" fxLayout="row" fxShow="false" fxShow.gt-sm>
-      <button mat-button routerLink="/summary">About</button>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <button mat-button routerLink="/aboutUs">About</button>
       <button mat-button routerLink="/Contact">Contact Us</button>
       <div fxLayout="column" style="font-size: 14px;">
         <mat-slide-toggle color="primary" (click)="changeTheme()">Dark Mode</mat-slide-toggle>
@@ -27,4 +27,8 @@
 </mat-menu>
 
 <router-outlet></router-outlet>
+<<<<<<< HEAD
 </div>
+=======
+
+>>>>>>> 5f341feaf6515dcc7368f8c3ccd208e5754f4d8a

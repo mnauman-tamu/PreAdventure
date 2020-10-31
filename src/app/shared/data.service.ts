@@ -63,7 +63,7 @@ export class DataService {
 
     mapQuestGeocode(): Observable<any> {
         return this.http.get(
-          `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${this.search_input.to}`  
+          `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${this.search_input.to}`
         );
     }
 
@@ -104,19 +104,20 @@ export class DataService {
       );
     }
 
-  skyScannerFlightSearch(from: any, to: any, date: any): Observable<any>{
+  skyScannerFlightSearch(from: any, to: any, fromdate: any): Observable<any> {
 
-        const options = {
-          headers: {
-            'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
-            'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
-          }
-        };
-        console.log(from);
+    const options = {
+      headers: {
+        'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
+        'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
+      },
+    };
+    console.log(from);
 
-        return this.http.get(
-         `https://rapidapi.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/${from}/${to}/${date}?inboundpartialdate=2019-12-01`, options);
-    }
+    return this.http.get(
+      // tslint:disable-next-line:max-line-length
+      `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/${from}/${to}/${fromdate}`, options);
+  }
 
     dailyForecast(): Observable<any> {
         const options = {
@@ -137,28 +138,54 @@ export class DataService {
       }
 
 
-    skyScannerGetLoc(loc: any): Observable<any>{
-      const options = {
-        headers: {
-          'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
-          'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
-        },
-        params: {
-          query : loc
+  skyScannerGetLoc(loc: any): Observable<any> {
+    const options = {
+      headers: {
+        'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
+        'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
+      },
+      params: {
+        query: loc
+      }
+    };
+
+    return this.http.get(
+      'https://rapidapi.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/', options);
+  }
+
+  skyScannerCarriers(carrierIds: any, carriers: any): any {
+    const carrierNames: any = [];
+    let k = 0;
+    for (let i = 0; i < carriers.length; ++i) {
+      // tslint:disable-next-line:prefer-for-of
+      for (let j = 0; j < carrierIds.length; ++j) {
+        if (carriers[i].CarrierId === carrierIds[j]) {
+          carrierNames[k] = carriers[i].Name;
+          k++;
         }
-      };
-
-      return this.http.get(
-        'https://rapidapi.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/', options);
+      }
     }
+    return carrierNames;
+  }
 
+  skyScannerPlaces(placeId: any, places: any): any {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < places.length; ++i) {
+      if (placeId === places[i].PlaceId) {
+        console.log('here');
+        return places[i].Name;
+      }
+    }
+    return '';
+  }
 
+    taKey = '0ca729d386msh96bc584a4685233p119899jsncc5cbeeb00d9';
     tripAdvisorLocationSearch(): Observable<any>
     {
         const options = {
             headers: {
                 'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+                'x-rapidapi-key': this.taKey
             },
             params: {
                 query: `'${this.search_input.to}'`,
@@ -171,19 +198,19 @@ export class DataService {
                 units: 'mi'
             }
         };
-    
+
         return this.http.get(
             `https://rapidapi.p.rapidapi.com/locations/search`,
             options
         );
     }
-    
+
     tripAdvisorAttractionsSearch(id): Observable<any>
     {
         const options = {
             headers: {
                 'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-                'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+                'x-rapidapi-key': this.taKey
             },
             params: {
                 location_id : `${id}`,
@@ -194,7 +221,7 @@ export class DataService {
                 limit : '15'
             }
         };
-    
+
         console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
         return this.http.get(
             `https://rapidapi.p.rapidapi.com/attractions/list`,
@@ -206,7 +233,7 @@ export class DataService {
     const options = {
       headers: {
         'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-        'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+        'x-rapidapi-key': this.taKey
       },
       params: {
         location_id: `${id}`,
@@ -233,7 +260,7 @@ export class DataService {
     const options = {
       headers: {
         'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-        'x-rapidapi-key': 'c240828760msh057482f498e41c4p172a21jsndb181050d689'
+        'x-rapidapi-key': this.taKey
       },
       params: {
         location_id: `${id}`,
@@ -273,16 +300,17 @@ export class DataService {
 
     iTunesSearch(): Observable<any> {
       const options = {
-        /*headers: {
-          "content-type": "application/x-www-form-urlencoded",
+        headers: {
+          /*"content-type": "application/x-www-form-urlencoded",
           "x-rapidapi-host": "iTunesvolodimir-kudriachenkoV1.p.rapidapi.com",
           "x-rapidapi-key": "a0c517e50fmsha9a75e803218fbep1f3c97jsndc0fddd8d86d",
           "useQueryString": true
-        },*/
+          'Access-Control-Allow-Origin': 'http://localhost:4200/summary',*/
+        },
         params: {
-          "entity": "song",
-          "term": `'${this.search_input.to}'`,
-          "limit": "25"
+          term: `${this.search_input.to}`,
+          entity: 'song',
+          limit: '25'
         }
       };
 

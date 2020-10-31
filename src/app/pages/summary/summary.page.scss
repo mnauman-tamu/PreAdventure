@@ -31,7 +31,6 @@
 .image {
   display: block;
   width: 500px;
-  height: 500px;
 }
 
 .overlay {
@@ -80,3 +79,37 @@
   margin-top: 10px;
   border-bottom: 1px solid lightgrey;
 }
+
+
+/* creates link without text-decoration */
+.website:link {
+  text-decoration: none;
+  color: black;
+}
+.website:hover{
+  text-decoration: underline;
+  color:black;
+}
+.centered-and-cropped { object-fit: cover }
+
+.imgContainer {
+  overflow: hidden;
+  width: 500px;
+  height: 500px;
+}
+.imgContainer img {
+  width: 500px;
+  height: auto;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.img-cropped {
+  object-fit: cover;
+  object-position: center center;
+  width: 500px;
+  height: 500px;
+}
+
