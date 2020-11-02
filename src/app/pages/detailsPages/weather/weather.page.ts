@@ -9,11 +9,15 @@ import { DataStorageService} from '../../../shared/dataStorage.service';
   })
 export class WeatherPageComponent implements OnInit{
 
-  forecast: any;
+  forecastRange: any[] = [];
+  dates: any[];
+  forecast: any[];
   
   constructor(private dataStorage: DataStorageService, private dataService: DataService) {}
 
   ngOnInit() {
+    this.forecastRange = this.dataStorage.forecastRange;
+    this.dates = this.dataStorage.dates;
     this.forecast = this.dataStorage.forecast;
   }
 

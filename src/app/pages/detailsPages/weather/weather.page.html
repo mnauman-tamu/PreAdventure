@@ -1,1 +1,30 @@
-<h1 class="mat-display-3">Weather</h1>
+<div class="mobile-handler" fxLayout="column" fxLayoutAlign="space-evenly center">
+    <h1 class="mat-display-3" style="margin-top:20px;">Weather</h1> 
+    <div  fxLayout="column" fxLayoutAlign="space-evenly stretch">
+        <div *ngFor="let day of forecastRange">
+            <mat-card class="mobile-handler">
+                <mat-card-title>
+                    {{dates[day]}}
+                </mat-card-title>
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="space-evenly stretch">
+                        <div fxLayout="column" fxLayoutAlign="center center">
+                            <p class="mat-body-strong">Low/High</p>
+                            <p>{{forecast[day].temp.min}}&deg; - {{forecast[day].temp.max}}&deg;</p>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="center center">
+                            <img src="http://openweathermap.org/img/wn/{{forecast[day].weather[0].icon}}@2x.png">
+                            <p>{{forecast[day].weather[0].main}}</p>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="center center">
+                            <p><span class="mat-body-strong">Morning: </span>{{forecast[day].temp.morn}}&deg;</p>
+                            <p><span class="mat-body-strong">Day: </span>{{forecast[day].temp.day}}&deg;</p>
+                            <p><span class="mat-body-strong">Evening: </span>{{forecast[day].temp.eve}}&deg;</p>
+                            <p><span class="mat-body-strong">Night: </span>{{forecast[day].temp.night}}&deg;</p>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

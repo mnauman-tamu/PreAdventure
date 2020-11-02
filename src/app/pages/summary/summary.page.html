@@ -138,16 +138,18 @@
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecastRange">
+                <p>{{dates[day]}}</p>
+                <p>{{forecast[day].temp.min}} - {{forecast[day].temp.max}}</p>
+                <p>{{forecast[day].weather[0].description}}</p>
+                <img height="50px" width="50px" alt="weather icon" src="http://openweathermap.org/img/wn/{{forecast[day].weather[0].icon}}@2x.png">
               </div>
             </mat-expansion-panel>
           </mat-accordion>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>MORE DETAIL</button>
+        <button routerLink="/weather" mat-button>MORE DETAIL</button>
       </mat-card-actions>
     </mat-card>
   </div>
