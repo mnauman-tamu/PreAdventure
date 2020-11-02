@@ -21,6 +21,7 @@ export class DataService {
     taAttractionsList: any = [];
     taHotelsList: any = [];
     taRestaurantsList: any = [];
+    images2: any[];
 
     searched: boolean = false;
     search_input: Search = {
@@ -29,6 +30,7 @@ export class DataService {
         start_date: '',
         end_date: ''
     };
+  music2: any[];
 
 
     constructor(private http: HttpClient) {}
@@ -277,49 +279,49 @@ export class DataService {
     );
   }
 
-    unplashImageSearch(): Observable<any> {
-      const options = {
-        /*headers: {
-          'Access Key': '3W6s5FtYTqAljRAG_050DF3P3T6_2q2v7hXAjQKrP88',
-          'Secret Key': 'm0rqXhl5Ta1xqf0BnLAU4016ShWYejBIqyEUMV4xb0w'
+  unplashImageSearch(): Observable<any> {
+    const options = {
+      /*headers: {
+        'Access Key': '3W6s5FtYTqAljRAG_050DF3P3T6_2q2v7hXAjQKrP88',
+        'Secret Key': 'm0rqXhl5Ta1xqf0BnLAU4016ShWYejBIqyEUMV4xb0w'
 
-        },*/
-        params: {
-          query: `'${this.search_input.to}'`,
-          page: '1',
-          per_page: '3',
-          client_id: '3W6s5FtYTqAljRAG_050DF3P3T6_2q2v7hXAjQKrP88',
-        }
-      };
+      },*/
+      params: {
+        query: `'${this.search_input.to}'`,
+        page: '1',
+        per_page: '3',
+        client_id: '3W6s5FtYTqAljRAG_050DF3P3T6_2q2v7hXAjQKrP88',
+      }
+    };
 
-      return this.http.get(
-        `https://api.unsplash.com/search/photos`,
-        options
-      );
-    }
+    return this.http.get(
+      `https://api.unsplash.com/search/photos`,
+      options
+    );
+  }
 
-    iTunesSearch(): Observable<any> {
-      const options = {
-        headers: {
-          /*"content-type": "application/x-www-form-urlencoded",
-          "x-rapidapi-host": "iTunesvolodimir-kudriachenkoV1.p.rapidapi.com",
-          "x-rapidapi-key": "a0c517e50fmsha9a75e803218fbep1f3c97jsndc0fddd8d86d",
-          "useQueryString": true
-          'Access-Control-Allow-Origin': 'http://localhost:4200/summary',*/
-        },
-        params: {
-          term: `${this.search_input.to}`,
-          entity: 'song',
-          limit: '25'
-        }
-      };
+  iTunesSearch(): Observable<any> {
+    const options = {
+      headers: {
+        /*"content-type": "application/x-www-form-urlencoded",
+        "x-rapidapi-host": "iTunesvolodimir-kudriachenkoV1.p.rapidapi.com",
+        "x-rapidapi-key": "a0c517e50fmsha9a75e803218fbep1f3c97jsndc0fddd8d86d",
+        "useQueryString": true
+        'Access-Control-Allow-Origin': 'http://localhost:4200/summary',*/
+      },
+      params: {
+        term: `${this.search_input.to}`,
+        entity: 'song',
+        limit: '5'
+      }
+    };
 
-      console.log('https://itunes.apple.com/search', options)
-      return this.http.get(
-        'https://itunes.apple.com/search',
-        options
-      );
-    }
+    console.log('https://itunes.apple.com/search', options)
+    return this.http.get(
+      'https://itunes.apple.com/search',
+      options
+    );
+  }
 
   /*spotifySearch(): Observable<any> {
     const options = {
@@ -379,4 +381,57 @@ export class DataService {
         this.taRestaurantsList = restl;
         console.log(this.taRestaurantsList);
     }
+
+    getImages(photos): void {
+      this.images2 = photos;
+    }
+
+  getMusic(songs): void {
+    this.music2 = songs;
+  }
+
+  unplashImageSearch2(): Observable<any> {
+    const options = {
+      /*headers: {
+        'Access Key': '3W6s5FtYTqAljRAG_050DF3P3T6_2q2v7hXAjQKrP88',
+        'Secret Key': 'm0rqXhl5Ta1xqf0BnLAU4016ShWYejBIqyEUMV4xb0w'
+
+      },*/
+      params: {
+        query: `'${this.search_input.to}'`,
+        page: '1',
+        per_page: '15',
+        client_id: '3W6s5FtYTqAljRAG_050DF3P3T6_2q2v7hXAjQKrP88',
+      }
+    };
+
+    return this.http.get(
+      `https://api.unsplash.com/search/photos`,
+      options
+    );
+  }
+
+  iTunesSearch2(): Observable<any> {
+    const options = {
+      headers: {
+        /*"content-type": "application/x-www-form-urlencoded",
+        "x-rapidapi-host": "iTunesvolodimir-kudriachenkoV1.p.rapidapi.com",
+        "x-rapidapi-key": "a0c517e50fmsha9a75e803218fbep1f3c97jsndc0fddd8d86d",
+        "useQueryString": true
+        'Access-Control-Allow-Origin': 'http://localhost:4200/summary',*/
+      },
+      params: {
+        term: `${this.search_input.to}`,
+        entity: 'song',
+        limit: '25'
+      }
+    };
+
+    console.log('https://itunes.apple.com/search', options)
+    return this.http.get(
+      'https://itunes.apple.com/search',
+      options
+    );
+  }
+
 }

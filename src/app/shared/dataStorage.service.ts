@@ -20,6 +20,8 @@ export class DataStorageService implements OnInit{
     forecast: any[];
     images: any[];
     music: any[];
+    images2: any[];
+    music2: any[];
     spotify: any[];
     arrivalLocation: any;
     departureLocation: any;
@@ -44,22 +46,22 @@ export class DataStorageService implements OnInit{
         request.onerror = function() {
             console.log('Database failed to open');
         };
-        
+
         // onsuccess handler signifies that the database opened successfully
         request.onsuccess = function() {
             console.log('Database opened successfully');
-        
+
             // Store the opened database object in the db variable. This is used a lot below
             db = request.result;
         };
         request.onupgradeneeded = function(e) {
             // Grab a reference to the opened database
             let db = e.target.
-          
+
             // Create an objectStore to store our notes in (basically like a single table)
             // including a auto-incrementing key
             let objectStore = db.createObjectStore('summary_data', { keyPath: 'id', autoIncrement:true });
-          
+
             // Define what data items the objectStore will contain
             objectStore.createIndex('search_input', 'search_input', { unique: false });
             objectStore.createIndex('ORIs', 'ORIs', { unique: false });
@@ -75,7 +77,7 @@ export class DataStorageService implements OnInit{
             objectStore.createIndex('spotify', 'spotify', { unique: false });
             objectStore.createIndex('arrivalLocation', 'arrivalLocation', { unique: false });
             objectStore.createIndex('departureLocation', 'departureLocation', { unique: false });
-          
+
             console.log('Database setup complete');
           };*/
     }
@@ -83,7 +85,7 @@ export class DataStorageService implements OnInit{
     needToRequest(): boolean {
         console.log(this.search_input);
         console.log(this.dataService.search_input);
-            
+
         let data = JSON.parse(localStorage.getItem('Pre-Adventure-Data'));
         if(data && (data.search_input == this.dataService.search_input || !this.dataService.searched)) {
             console.log('Using local storage!');
@@ -99,6 +101,8 @@ export class DataStorageService implements OnInit{
             this.forecast = data.forecast;
             this.images = data.images;
             this.music = data.music;
+            this.images2 = data.images2;
+            this.music2 = data.music2;
             this.spotify = data.spotify;
             this.arrivalLocation = data.arrivalLocation;
             this.departureLocation = data.departureLocation;
@@ -120,7 +124,8 @@ export class DataStorageService implements OnInit{
         this.forecast = origin.forecast;
         this.images = origin.images;
         this.music = origin.music;
-        this.spotify = origin.spotify;
+        this.images2 = origin.images2;
+        this.music2 = origin.music2;
         this.arrivalLocation = origin.arrivalLocation;
         this.departureLocation = origin.departureLocation;
         //Insert data to clients browser cache
@@ -137,6 +142,8 @@ export class DataStorageService implements OnInit{
             'forecast':this.forecast,
             'images':this.images,
             'music':this.music,
+            'images2':this.images2,
+            'music2':this.music2,
             'spotify':this.spotify,
             'arrivalLocation':this.arrivalLocation,
             'departureLocation':this.departureLocation

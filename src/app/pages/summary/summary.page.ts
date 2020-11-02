@@ -23,6 +23,8 @@ export class SummaryPageComponent implements OnInit {
   forecast: any[];
   images: any[];
   music: any[];
+  images2: any[];
+  music2: any[];
   spotify: any[];
   arrivalLocation: any;
   departureLocation: any;
@@ -36,6 +38,11 @@ export class SummaryPageComponent implements OnInit {
   imageName = '';
 
   panelOpenState: boolean;
+  panelOpenState1: boolean;
+  panelOpenState2: boolean;
+  panelOpenState3: boolean;
+  panelOpenState4: boolean;
+  panelOpenState5: boolean;
 
   constructor(private dataStorage: DataStorageService, private dataService: DataService) {
     this.ORIs = new Array();
@@ -46,7 +53,6 @@ export class SummaryPageComponent implements OnInit {
     //   sessionStorage.setItem('isPageRefreshed', 'true');
     //   // This will reload page once prevent reloading of page again for that session.
     //   window.location.reload();
-
     // }
       // for after testing:
       // reroutes back to home page if no data in search params
@@ -345,7 +351,7 @@ export class SummaryPageComponent implements OnInit {
                 console.log(elem);
                 this.dataService.getCrimeDataForORI(elem).subscribe(
                   (crimeData) => {
-                    console.log(crimeData); 
+                    console.log(crimeData);
                     this.ORICrimeData[elem] = crimeData;
                     countB++;
                     if(countA == countB) {
@@ -356,8 +362,30 @@ export class SummaryPageComponent implements OnInit {
                   }
                 );
               }
-            } 
+            }
           )
+        }
+      );
+      this.dataService.unplashImageSearch2().subscribe(
+
+        (data) => {
+          console.log(data);
+          this.images2 = data.results;
+          console.log(this.images2);
+          this.dataService.getImages(this.images2);
+        }
+
+      );
+
+      this.dataService.iTunesSearch2().subscribe(
+        (data) => {
+          console.log(data);
+          for(var i = 0; i < data.results.length; i++) {
+            data.results[i].trackViewUrl = data.results[i].trackViewUrl.replace("https://", "https://embed.");
+            console.log(data.results[i].trackViewUrl)
+          }
+          this.music2 = data.results;
+          this.dataService.getMusic(this.music2);
         }
       );
 
@@ -379,6 +407,8 @@ export class SummaryPageComponent implements OnInit {
         this.forecast = this.dataStorage.forecast;
         this.images = this.dataStorage.images;
         this.music = this.dataStorage.music;
+        this.images2 = this.dataStorage.images2;
+        this.music2 = this.dataStorage.music2;
         this.spotify = this.dataStorage.spotify;
         this.arrivalLocation = this.dataStorage.arrivalLocation;
         this.departureLocation = this.dataStorage.departureLocation;

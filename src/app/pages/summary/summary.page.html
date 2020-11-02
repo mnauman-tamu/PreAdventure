@@ -5,7 +5,7 @@
   <div class = "row">
     <div class="column" *ngFor="let image of images">
       <div class="container">
-        <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width="500" height=auto class="image">
+        <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width=28% height=auto class="image">
         <div class="overlay"><a href = "{{image.urls.raw}}"> {{image.description}}</a> by <a href = "{{image.user.links.html}}"> {{image.user.name}}</a> from <a href = "https://unsplash.com/"> Unsplash </a></div>
       </div>
     </div>
@@ -64,14 +64,14 @@
                 <button mat-button routerLink="/hotels" color="primary">More Details</button>
               </mat-action-row>
             </mat-expansion-panel>
-            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState1 = true"
+                                (closed)="panelOpenState1 = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   Restaurants
                 </mat-panel-title>
                 <mat-panel-description>
-                  Click to {{panelOpenState ? 'close' : 'open'}}
+                  Click to {{panelOpenState1 ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
@@ -99,14 +99,14 @@
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
           <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
-            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState2 = true"
+                                (closed)="panelOpenState2 = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   Flight time and Prices
                 </mat-panel-title>
                 <mat-panel-description>
-                  Click to {{panelOpenState ? 'close' : 'open'}}
+                  Click to {{panelOpenState2 ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
@@ -127,14 +127,14 @@
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
           <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
-            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState3 = true"
+                                (closed)="panelOpenState3 = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   Forecast
                 </mat-panel-title>
                 <mat-panel-description>
-                  Click to {{panelOpenState ? 'close' : 'open'}}
+                  Click to {{panelOpenState3 ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
@@ -157,14 +157,14 @@
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
           <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
-            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState4 = true"
+                                (closed)="panelOpenState4 = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   Forecast
                 </mat-panel-title>
                 <mat-panel-description>
-                  Click to {{panelOpenState ? 'close' : 'open'}}
+                  Click to {{panelOpenState4 ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
@@ -187,14 +187,14 @@
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
           <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
-            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
-                                (closed)="panelOpenState = false">
+            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState5 = true"
+                                (closed)="panelOpenState5 = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   Crime Data
                 </mat-panel-title>
                 <mat-panel-description>
-                  Click to {{panelOpenState ? 'close' : 'open'}}
+                  Click to {{panelOpenState5 ? 'close' : 'open'}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
@@ -235,7 +235,7 @@
         </mat-expansion-panel-header>
               <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let image of images">
           <a href = "{{image.urls.raw}}"> {{image.description}}</a><br>
-          <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width="500" height=auto><br>
+          <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=50% height=auto><br>
           Photo by <a href = "{{image.user.links.html}}"> {{image.user.name}}</a> from <a href = "https://unsplash.com/"> Unsplash </a>
 
 
@@ -246,7 +246,7 @@
   </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>MORE DETAIL</button>
+        <button mat-button [routerLink]="['/photos']" color="primary">More Details</button>
       </mat-card-actions>
     </mat-card>
   </div>
@@ -267,9 +267,9 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
                     <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let song of music">
-          <p>{{song.artistName}}</p>
+                      <p><a href = "{{song.artistViewUrl}}">{{song.artistName}}</a></p>
           <!-- <p>{{song.trackViewUrl}}</p> -->
-          <p>{{song.trackCensoredName}}</p>
+                      <p><a href = "{{song.collectionViewUrl}}">{{song.trackCensoredName}}</a></p>
           <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="250" style="width:100%;max-width:360px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" [src]='song.trackViewUrl | safe'></iframe>
         </div>
       </mat-expansion-panel>
@@ -277,7 +277,7 @@
   </div>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>MORE DETAIL</button>
+              <button mat-button [routerLink]="['/music']" color="primary">More Details</button>
             </mat-card-actions>
           </mat-card>
         </div>
