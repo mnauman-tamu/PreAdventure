@@ -20,6 +20,8 @@ export class SummaryPageComponent implements OnInit {
   taAttractions: any = [];
   taHotels: any = [];
   taRestaurants: any = [];
+  forecastRange: any = [];
+  dates: string[];
   forecast: any[];
   images: any[];
   music: any[];
@@ -28,6 +30,8 @@ export class SummaryPageComponent implements OnInit {
   departureLocation: any;
   inflights: any = [];
   outflights: any = [];
+
+  location: any;
 
   crimeDone: boolean = false;
 
@@ -39,6 +43,7 @@ export class SummaryPageComponent implements OnInit {
 
   constructor(private dataStorage: DataStorageService, private dataService: DataService) {
     this.ORIs = new Array();
+    this.dates = new Array();
   }
 
   ngOnInit() {
@@ -200,7 +205,7 @@ export class SummaryPageComponent implements OnInit {
         //   }
         // );
 
-      this.dataService.skyScannerGetLoc(this.dataService.search_input.to).subscribe(
+      /*this.dataService.skyScannerGetLoc(this.dataService.search_input.to).subscribe(
         (data1) => {
           this.dataService.skyScannerGetLoc(this.dataService.search_input.from).subscribe(
             (data2) => {
@@ -286,19 +291,34 @@ export class SummaryPageComponent implements OnInit {
           );
 
         }
-      );
+      );*/
 
 
       this.dataService.dailyForecast().subscribe(
         (data) => {
           console.log(data);
-          let daysPerMonth = [31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
+          let daysByMonth = [31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
+          let daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
           let curDate = new Date().toISOString();
           let inputDate = this.dataService.search_input.start_date;
-          let curDateValue = (Number(curDate.substr(0, 4)) - 2020) * 365 + daysPerMonth[Number(curDate.substr(5, 2))] + Number(curDate.substr(8, 2));
-          let inputDateValue = (Number(inputDate.substr(0, 4)) - 2020) * 365 + daysPerMonth[Number(inputDate.substr(5, 2))] + Number(inputDate.substr(8, 2));
+          let curDateValue = (Number(curDate.substr(0, 4)) - 2020) * 365 + daysByMonth[Number(curDate.substr(5, 2))] + Number(curDate.substr(8, 2));
+          let inputDateValue = (Number(inputDate.substr(0, 4)) - 2020) * 365 + daysByMonth[Number(inputDate.substr(5, 2))] + Number(inputDate.substr(8, 2));
           this.forecast = data.list;
           this.forecast.splice(0, inputDateValue - curDateValue);
+          let inputYear = Number(inputDate.substr(0,4)), inputMonth = Number(inputDate.substr(5, 2)), inputDay = Number(inputDate.substr(8, 2));
+          let offset = 0;
+          for(let i = 0; i < this.forecast.length; i++) {
+            if(inputDay + i > daysPerMonth[inputMonth-1]) {
+              offset += daysPerMonth[inputMonth-1];
+              inputMonth++;
+            }
+            if(inputMonth > 12) {
+              inputMonth = 1;
+              inputYear++;
+            }
+            this.dates.push(inputYear.toString() + '-' + inputMonth.toString() + '-' + (inputDay + i - offset).toString());
+            this.forecastRange.push(i);
+          }
           //this.dataService.search_input.start_date
           console.log(this.forecast);
         }
@@ -325,6 +345,7 @@ export class SummaryPageComponent implements OnInit {
 
       this.dataService.mapQuestGeocode().subscribe(
         (geo) => {
+          this.location = geo;
           console.log(geo);
           let county: string = geo.results[0].locations[0].adminArea4;
           this.dataService.getORIsByState(geo.results[0].locations[0].adminArea3).subscribe(
@@ -376,6 +397,8 @@ export class SummaryPageComponent implements OnInit {
         this.taAttractions = this.dataStorage.taAttractions;
         this.taHotels = this.dataStorage.taHotels;
         this.taRestaurants = this.dataStorage.taRestaurants;
+        this.forecastRange = this.dataStorage.forecastRange;
+        this.dates = this.dataStorage.dates;
         this.forecast = this.dataStorage.forecast;
         this.images = this.dataStorage.images;
         this.music = this.dataStorage.music;
@@ -387,6 +410,7 @@ export class SummaryPageComponent implements OnInit {
   }
 
   test() {
+    console.log(this.location);
     console.log(this.ORIData);
     console.log(this.ORICrimeData);
   }

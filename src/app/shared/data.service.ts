@@ -30,6 +30,308 @@ export class DataService {
         end_date: ''
     };
 
+    stateCrime = {
+      'maine':{
+        rank: 1,
+        crime: '112.1 per 100,000',
+        murders: '24 (7th lowest)',
+        city: 'Augusta'
+      },
+      'vermont':{
+        rank: 2,
+        crime: '172 per 100,000',
+        murders: '10 (the lowest)',
+        city: 'Rutland'
+      },
+      'New Hampshire':{
+        rank: 3,
+        crime: '173.2 per 100,000',
+        murders: '21 (6th lowest)',
+        city: 'Manchester'
+      },
+      'Virginia':{
+        rank: 4,
+        crime: '200 per 100,000',
+        murders: '391 (17th highest)',
+        city: 'Portsmouth'
+      },
+      'Connecticut':{
+        rank: 5,
+        crime: '207.4 per 100,000',
+        murders: '83 (18th lowest)',
+        city: 'Hartford'
+      },
+      'New Jersey':{
+        rank: 6,
+        crime: '208.1 per 100,000',
+        murders: '286 (20th highest)',
+        city: 'Camden'
+      },
+      'Kentucky':{
+        rank: 7,
+        crime: '211.9 per 100,000',
+        murders: '244 (21st highest)',
+        city: 'Covington'
+      },
+      'Wyoming':{
+        rank: 8,
+        crime: '212.2 per 100,000',
+        murders: '13 (3rd lowest)',
+        city: 'Cheyenne'
+      },
+      'Rhode Island':{
+        rank: 9,
+        crime: '219.1 per 100,000',
+        murders: '16 (4th lowest)',
+        city: 'Woonsocket'
+      },
+      'Minnesota':{
+        rank: 10,
+        crime: '220.4 per 100,000',
+        murders: '106 (19th lowest)',
+        city: 'Minneapolis'
+      },
+      'Idaho':{
+        rank: 11,
+        crime: '227.1 per 100,000',
+        murders: '35 (9th lowest)',
+        city: 'Garden City'
+      },
+      'Utah':{
+        rank: 12,
+        crime: '233.1 per 100,000',
+        murders: '60 (15th lowest)',
+        city: 'South Salt Lake'
+      },
+      'Mississippi': {
+        rank: 13,
+        crime: '234.4 per 100,000',
+        murders: '171 (23rd lowest)',
+        city: 'Brookhaven'
+      },
+      'Hawaii':{
+        rank: 14,
+        crime: '248.6 per 100,000',
+        murders: '36 (10th lowest)',
+        city: 'Honolulu'
+      },
+      'Iowa':{
+        rank: 15,
+        crime: '250.1 per 100,000',
+        murders: '54 (14th lowest)',
+        city: 'Waterloo'
+      },
+      'Ohio':{
+        rank: 16,
+        crime: '279.9 per 100,000',
+        murders: '564 (9th highest)',
+        city: 'Cleveland'
+      },
+      'North Dakota':{
+        rank: 17,
+        crime: '280.6 per 100,000',
+        murders: '18 (5th lowest)',
+        city: 'Williston'
+      },
+      'Nebraska':{
+        rank: 18,
+        crime: '284.4 per 100,000',
+        murders: '44 (11th lowest)',
+        city: 'Omaha'
+      },
+      'Oregon':{
+        rank: 19,
+        crime: '285.5 per 100,000',
+        murders: '82 (17th lowest)',
+        city: 'Portland'
+      },
+      'West Virginia':{
+        rank: 20,
+        crime: '289.9 per 100,000',
+        murders: '67 (16th lowest)',
+        city: 'Beckley'
+      },
+      'Wisconsin':{
+        rank:21,
+        crime: '295.4per 100,000',
+        murders: '176 (24th lowest)',
+        city: 'Milwaukee'
+      },
+      'Pennsylvania':{
+        rank: 22,
+        crime: '306 per 100,000',
+        murders: '784 (4th highest)',
+        city: 'McKeesport'
+      },
+      'Washington':{
+        rank: 23,
+        crime: '311.5 per 100,000',
+        murders: '236 (22nd highest)',
+        city: 'Tacoma'
+      },
+      'Georgia':{
+        rank: 24,
+        crime: '326.6 per 100,000',
+        murders: '642 (6th highest)',
+        city: 'East Point'
+      },
+      'Massachusetts':{
+        rank: 25,
+        crime: '338.1 per 100,000',
+        murders: '136 (21st lowest)',
+        city: 'Fall River'
+      },
+      'New York':{
+        rank: 26,
+        crime: '350.5 per 100,000',
+        murders: '562 (10th highest)',
+        city: 'Newburgh'
+      },
+      'Montana':{
+        rank: 27,
+        crime: '374.1 per 100,000',
+        murders: '34 (8th lowest)',
+        city: 'Helena'
+      },
+      'North Carolina':{
+        rank: 28,
+        crime: '377.6 per 100,000',
+        murders: '628 (7th highest)',
+        city: 'Whiteville'
+      },
+      'Indiana':{
+        rank: 29,
+        crime: '382.3 per 100,000',
+        murders: '438 (20th highest)',
+        city: 'Indianapolis'
+      },
+      'Florida':{
+        rank: 30,
+        crime: '384.9 per 100,000',
+        murders: '1107 (3rd highest)',
+        city: 'Florida City'
+      },
+      'Colorado':{
+        rank: 31,
+        crime: '397.2 per 100,000',
+        murders: '210 (24th lowest)',
+        city: 'Pueblo'
+      },
+      'Illinois':{
+        rank: 32,
+        crime: '404.1 per 100,000',
+        murders: '884 (4th lowest)',
+        city: 'Danville'
+      },
+      'South Dakota':{
+        rank: 33,
+        crime: '404.7 per 100,000',
+        murders: '12 (2nd lowest)',
+        city: 'Rapid City'
+      },
+      'Texas':{
+        rank: 34,
+        crime: '410.9 per 100,000',
+        murders: '1,322 (2nd highest)',
+        city: 'Bellmead'
+      },
+      'Delaware':{
+        rank: 35,
+        crime: '423.6 per 100,000',
+        murders: '48 (13th lowest)',
+        city: 'Wilmington'
+      },
+      'Kansas':{
+        rank: 36,
+        crime: '439 per 100,000',
+        murders: '113 (20th lowest)',
+        city: 'Wichita'
+      },
+      'California':{
+        rank: 37,
+        crime: '447.4 per 100,000',
+        murders: '1739 (the highest)',
+        city: 'Emeryville'
+      },
+      'Michigan':{
+        rank: 38,
+        crime: '449.4 per 100,000',
+        murders: '551 (11th highest)',
+        city: 'Muskegon Heights'
+      },
+      'Oklahoma':{
+        rank: 39,
+        crime: '466.1 per 100,000',
+        murders: '206 (25th highest)',
+        city: 'Shawnee'
+      },
+      'Maryland':{
+        rank: 40,
+        crime: '468.7 per 100,000',
+        murders: '490 (14th higest)',
+        city: 'Baltimore'
+      },
+      'Arizona':{
+        rank: 41,
+        crime: '474.9 per 100,000',
+        murders: '369 (19th highest)',
+        city: 'Tucson'
+      },
+      'South Carolina':{
+        rank: 42,
+        crime: '488.3 per 100,000',
+        murders: '392 (16th highest)',
+        city: 'Greenwood'
+      },
+      'Missouri':{
+        rank: 43,
+        crime: '502.1 per 100,000',
+        murders: '607 (8th highest)',
+        city: 'St. Louis'
+      },
+      'Alabama':{
+        rank: 44,
+        crime: '519.6 per 100,000',
+        murders: '383 (10th highest)',
+        city: 'Anniston'
+      },
+      'Louisiana':{
+        rank: 45,
+        crime: '537.5 per 100,000',
+        murders: '530 (12th highest)',
+        city: 'Opelousas'
+      },
+      'Nevada':{
+        rank: 46,
+        crime: '541.1 per 100,000',
+        murders: '202 (25th lowest)',
+        city: 'North Las Vegas'
+      },
+      'Arkansas':{
+        rank: 47,
+        crime: '543.6 per 100,000',
+        murders: '216 (23rd highest)',
+        city: 'West Memphis'
+      },
+      'Tennessee':{
+        rank: 48,
+        crime: '623.7 per 100,000',
+        murders: '498 (13th highest)',
+        city: 'Memphis'
+      },
+      'New Mexico':{
+        rank: 49,
+        crime: '856.6 per 100,000',
+        murders: '167 (22nd lowest)',
+        city: 'Gallup'
+      },
+      'Alaska':{
+        rank: 50,
+        crime: '885 per 100,000',
+        murders: '47 (12th lowest)',
+        city: 'Anchorage'
+      }
+    }
 
     constructor(private http: HttpClient) {}
 

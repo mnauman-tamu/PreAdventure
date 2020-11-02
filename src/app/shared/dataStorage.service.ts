@@ -2,6 +2,7 @@ import { Injectable, OnInit } from "@angular/core";
 import { DataService, Search } from './data.service';
 import * as DataClass from './data.classes';
 import { SummaryPageComponent } from '../pages/summary/summary.page';
+import { threadId } from 'worker_threads';
 
 
 @Injectable({
@@ -17,6 +18,8 @@ export class DataStorageService implements OnInit{
     taAttractions: any = [];
     taHotels: any = [];
     taRestaurants: any = [];
+    forecastRange: any[] = [];
+    dates: any[];
     forecast: any[];
     images: any[];
     music: any[];
@@ -96,12 +99,15 @@ export class DataStorageService implements OnInit{
             this.taAttractions = data.taAttractions;
             this.taHotels = data.taHotels;
             this.taRestaurants = data.taRestaurants;
+            this.forecastRange = data.forecastRange;
+            this.dates = data.dates;
             this.forecast = data.forecast;
             this.images = data.images;
             this.music = data.music;
             this.spotify = data.spotify;
             this.arrivalLocation = data.arrivalLocation;
             this.departureLocation = data.departureLocation;
+            console.log(data);
             return false;
         }
         return true;
@@ -117,6 +123,8 @@ export class DataStorageService implements OnInit{
         this.taAttractions = origin.taAttractions;
         this.taHotels = origin.taHotels;
         this.taRestaurants = origin.taRestaurants;
+        this.forecastRange = origin.forecastRange;
+        this.dates = origin.dates;
         this.forecast = origin.forecast;
         this.images = origin.images;
         this.music = origin.music;
@@ -124,6 +132,7 @@ export class DataStorageService implements OnInit{
         this.arrivalLocation = origin.arrivalLocation;
         this.departureLocation = origin.departureLocation;
         //Insert data to clients browser cache
+        localStorage.removeItem('Pre-Adventure-Data');
         localStorage.setItem('Pre-Adventure-Data', JSON.stringify({
             'search_input':this.search_input,
             'ORIs':this.ORIs,
@@ -134,12 +143,14 @@ export class DataStorageService implements OnInit{
             'taAttractions':this.taAttractions,
             'taHotels':this.taHotels,
             'taRestaurants':this.taRestaurants,
+            'forecastRange':this.forecastRange,
+            'dates':this.dates,
             'forecast':this.forecast,
             'images':this.images,
             'music':this.music,
             'spotify':this.spotify,
             'arrivalLocation':this.arrivalLocation,
             'departureLocation':this.departureLocation
-        }))
+        }));
     }
 }
