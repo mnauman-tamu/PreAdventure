@@ -10,6 +10,7 @@
                     <img src={{obj.photo}} class="image-center">
                     <h2 class="body-2">{{obj.address}}</h2>
                     <h3 class="body-2"><b>Rating: {{obj.rating}}/5.0</b></h3>
+                    <h3 class="body-2"><b>Breakfast: <mat-icon *ngIf="obj.breakfast">check</mat-icon><mat-icon *ngIf="!obj.breakfast">close</mat-icon> | Wifi: <mat-icon *ngIf="obj.wifi">check</mat-icon><mat-icon *ngIf="!obj.wifi">close</mat-icon></b></h3>
                     <p>{{obj.description}}</p>
                 </div>
             </mat-card-content>
