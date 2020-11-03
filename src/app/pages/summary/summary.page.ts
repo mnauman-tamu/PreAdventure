@@ -30,8 +30,7 @@ export class SummaryPageComponent implements OnInit {
   departureLocation: any;
   inflights: any = [];
   outflights: any = [];
-
-  location: any;
+  mapQuestLocation: any;
 
   crimeDone: boolean = false;
 
@@ -41,7 +40,7 @@ export class SummaryPageComponent implements OnInit {
 
   panelOpenState: boolean;
 
-  constructor(private dataStorage: DataStorageService, private dataService: DataService) {
+  constructor(private dataStorage: DataStorageService, public dataService: DataService) {
     this.ORIs = new Array();
     this.dates = new Array();
   }
@@ -345,9 +344,10 @@ export class SummaryPageComponent implements OnInit {
 
       this.dataService.mapQuestGeocode().subscribe(
         (geo) => {
-          this.location = geo;
+          this.mapQuestLocation = geo;
           console.log(geo);
-          let county: string = geo.results[0].locations[0].adminArea4;
+          this.crimeDone = true;
+          /*let county: string = this.mapQuestLocation.results[0].locations[0].adminArea4;
           this.dataService.getORIsByState(geo.results[0].locations[0].adminArea3).subscribe(
             (data) => {
               console.log(data);
@@ -378,7 +378,7 @@ export class SummaryPageComponent implements OnInit {
                 );
               }
             } 
-          )
+          )*/
         }
       );
 
@@ -405,12 +405,13 @@ export class SummaryPageComponent implements OnInit {
         this.spotify = this.dataStorage.spotify;
         this.arrivalLocation = this.dataStorage.arrivalLocation;
         this.departureLocation = this.dataStorage.departureLocation;
+        this.mapQuestLocation = this.dataStorage.mapQuestLocation;
         this.crimeDone = true;
     }
   }
 
   test() {
-    console.log(this.location);
+    console.log(this.mapQuestLocation);
     console.log(this.ORIData);
     console.log(this.ORICrimeData);
   }
