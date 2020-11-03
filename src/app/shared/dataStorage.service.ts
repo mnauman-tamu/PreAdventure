@@ -28,6 +28,7 @@ export class DataStorageService implements OnInit{
     spotify: any[];
     arrivalLocation: any;
     departureLocation: any;
+    mapQuestLocation: any;
     crimeDone: boolean = false;
 
     currentSearch: Search = null;
@@ -111,6 +112,7 @@ export class DataStorageService implements OnInit{
             this.spotify = data.spotify;
             this.arrivalLocation = data.arrivalLocation;
             this.departureLocation = data.departureLocation;
+            this.mapQuestLocation = data.mapQuestLocation;
             console.log(data);
             return false;
         }
@@ -136,6 +138,7 @@ export class DataStorageService implements OnInit{
         this.music2 = origin.music2;
         this.arrivalLocation = origin.arrivalLocation;
         this.departureLocation = origin.departureLocation;
+        this.mapQuestLocation = origin.mapQuestLocation;
         //Insert data to clients browser cache
         localStorage.removeItem('Pre-Adventure-Data');
         localStorage.setItem('Pre-Adventure-Data', JSON.stringify({
@@ -157,7 +160,8 @@ export class DataStorageService implements OnInit{
             'music2':this.music2,
             'spotify':this.spotify,
             'arrivalLocation':this.arrivalLocation,
-            'departureLocation':this.departureLocation
+            'departureLocation':this.departureLocation,
+            'mapQuestLocation':this.mapQuestLocation
         }));
     }
 }
