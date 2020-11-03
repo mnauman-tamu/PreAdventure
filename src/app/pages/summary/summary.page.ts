@@ -299,7 +299,7 @@ export class SummaryPageComponent implements OnInit {
       );*/
 
 
-      this.dataService.dailyForecast().subscribe(
+      /*this.dataService.dailyForecast().subscribe(
         (data) => {
           console.log(data);
           let daysByMonth = [31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
@@ -328,7 +328,7 @@ export class SummaryPageComponent implements OnInit {
           console.log(this.forecast);
         }
       );
-
+*/
       this.dataService.unplashImageSearch().subscribe(
         (data) => {
           console.log(data);
@@ -383,7 +383,7 @@ export class SummaryPageComponent implements OnInit {
                   }
                 );
               }
-            } 
+            }
           )*/
         }
       );

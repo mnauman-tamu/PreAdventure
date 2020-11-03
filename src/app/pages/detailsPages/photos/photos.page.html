@@ -1,14 +1,16 @@
 <div id="background" color="primary">
   <h1 class="mat-display-3" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">More Photos</h1>
-  <div fxLayout="row" fxLayoutAlign="center stretch">
-    <div class = "row">
-      <div class="column">
-        <div class="container" *ngFor="let image of images2">
+<!--  <div fxLayout="row" fxLayoutAlign="center stretch">-->
+<!--    <div class = "row">-->
+<!--      <div class="column">-->
+        <section id = "photos">
+          <div class = "container" *ngFor="let image of images2">
           <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width=50% height=auto class="image">
           <div class="overlay"><a href = "{{image.urls.raw}}"> {{image.description}}</a> by <a href = "{{image.user.links.html}}"> {{image.user.name}}</a> from <a href = "https://unsplash.com/"> Unsplash </a></div>
-        </div>
-      </div>
+<!--        </div>-->
+<!--      </div>-->
     </div>
-  </div>
+        </section>
+<!--  </div>-->
   <p style="text-align: center;" class="subheading-2"><a href = "https://unsplash.com/s/photos/{{name}}" >Even More Photos</a> </p>
 </div>
