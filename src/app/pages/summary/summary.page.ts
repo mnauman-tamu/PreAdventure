@@ -385,6 +385,7 @@ export class SummaryPageComponent implements OnInit {
               }
             } 
           )*/
+<<<<<<< HEAD
         }
       );
       this.dataService.unplashImageSearch2().subscribe(
@@ -407,6 +408,8 @@ export class SummaryPageComponent implements OnInit {
           }
           this.music2 = data.results;
           this.dataService.getMusic(this.music2);
+=======
+>>>>>>> 1e7de6a6946bdcfcd1d7015a5bcae6ca28cbfc6b
         }
       );
 

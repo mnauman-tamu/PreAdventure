@@ -30,7 +30,10 @@ export class DataService {
         start_date: '',
         end_date: ''
     };
+<<<<<<< HEAD
   music2: any[];
+=======
+>>>>>>> 1e7de6a6946bdcfcd1d7015a5bcae6ca28cbfc6b
 
     stateCrime = {
       'ME':{
