@@ -138,16 +138,18 @@
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecastRange">
+                <p>{{dates[day]}}</p>
+                <p>{{forecast[day].temp.min}} - {{forecast[day].temp.max}}</p>
+                <p>{{forecast[day].weather[0].description}}</p>
+                <img height="50px" width="50px" alt="weather icon" src="http://openweathermap.org/img/wn/{{forecast[day].weather[0].icon}}@2x.png">
               </div>
             </mat-expansion-panel>
           </mat-accordion>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>MORE DETAIL</button>
+        <button routerLink="/weather" mat-button>MORE DETAIL</button>
       </mat-card-actions>
     </mat-card>
   </div>
@@ -191,14 +193,24 @@
                                 (closed)="panelOpenState5 = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Crime Data
+                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} Crime Data
                 </mat-panel-title>
                 <mat-panel-description>
                   Click to {{panelOpenState5 ? 'close' : 'open'}}
+                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank 
+                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime.
+                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank 
+                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime.
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              <mat-divider></mat-divider>
-              <div *ngIf="crimeDone">
+              <p class="mat-body" style="font-size: 16px !important;">{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank 
+              {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime rate with
+              a rate of {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].crime}} people. 
+              For the entire year of 2018 {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}}'s total murder
+              count was {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].murders}}. Be wary when going
+              to {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].city}} as this is 
+              {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}}'s most dangerous city.</p>
+              <!--<div *ngIf="crimeDone">
                 <div class="sub-expansion-container" fxLayout="column" *ngFor="let ori of ORIs">
                   <p><b>{{ori}}: {{ORIData[ori].agency_name}}</b></p>
                   <div *ngFor="let elem of ORICrimeData[ori].results" fxLayout="row" fxLayoutAlign="space-between">
@@ -207,13 +219,13 @@
                     <p>Cleared = {{elem.cleared}}</p>
                   </div>
                 </div>
-              </div>
+              </div>-->
             </mat-expansion-panel>
           </mat-accordion>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="test()">MORE DETAIL</button>
+        <button mat-button routerLink="/crime" (click)="test()">MORE DETAIL</button>
       </mat-card-actions>
     </mat-card>
   </div>
