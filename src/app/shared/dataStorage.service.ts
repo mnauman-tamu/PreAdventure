@@ -90,31 +90,35 @@ export class DataStorageService implements OnInit{
         console.log(this.search_input);
         console.log(this.dataService.search_input);
 
-        let data = JSON.parse(localStorage.getItem('Pre-Adventure-Data'));
-        if(data && (data.search_input == this.dataService.search_input || !this.dataService.searched)) {
-            console.log('Using local storage!');
-            this.search_input = data.search_input;
-            this.ORIs = data.ORIs;
-            this.ORIData = data.ORICrimeData;
-            this.ORICrimeData = data.ORICrimeData;
-            this.POIs = data.POIs;
-            this.taLocationID = data.taLocationID;
-            this.taAttractions = data.taAttractions;
-            this.taHotels = data.taHotels;
-            this.taRestaurants = data.taRestaurants;
-            this.forecastRange = data.forecastRange;
-            this.dates = data.dates;
-            this.forecast = data.forecast;
-            this.images = data.images;
-            this.music = data.music;
-            this.images2 = data.images2;
-            this.music2 = data.music2;
-            this.spotify = data.spotify;
-            this.arrivalLocation = data.arrivalLocation;
-            this.departureLocation = data.departureLocation;
-            this.mapQuestLocation = data.mapQuestLocation;
-            console.log(data);
+        if(this.search_input == this.dataService.search_input){
             return false;
+        } else {
+            let data = JSON.parse(localStorage.getItem('Pre-Adventure-Data'));
+            if(data && (data.search_input == this.dataService.search_input || !this.dataService.searched)) {
+                console.log('Using local storage!');
+                this.search_input = data.search_input;
+                this.ORIs = data.ORIs;
+                this.ORIData = data.ORICrimeData;
+                this.ORICrimeData = data.ORICrimeData;
+                this.POIs = data.POIs;
+                this.taLocationID = data.taLocationID;
+                this.taAttractions = data.taAttractions;
+                this.taHotels = data.taHotels;
+                this.taRestaurants = data.taRestaurants;
+                this.forecastRange = data.forecastRange;
+                this.dates = data.dates;
+                this.forecast = data.forecast;
+                this.images = data.images;
+                this.music = data.music;
+                this.images2 = data.images2;
+                this.music2 = data.music2;
+                this.spotify = data.spotify;
+                this.arrivalLocation = data.arrivalLocation;
+                this.departureLocation = data.departureLocation;
+                this.mapQuestLocation = data.mapQuestLocation;
+                console.log(data);
+                return false;
+            }
         }
         return true;
     }
