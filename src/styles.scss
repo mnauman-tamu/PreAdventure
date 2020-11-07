@@ -10,7 +10,7 @@
 // Fonts
 @import 'https://fonts.googleapis.com/css?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-     
+
 $fontConfig: (
   display-4: mat-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
   display-3: mat-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
@@ -241,10 +241,39 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 .material-icons {
   font-size: 24px;
-  font-family: 'Material Icons', 'Material Icons';  
+  font-family: 'Material Icons', 'Material Icons';
   .mat-badge-content {
     font-family: 'Roboto';
   }
+}
+
+.larger-text p{
+  font-size: 30px !important;
+  font-family: "Comic Sans MS" !important;
+}
+
+.larger-text h1{
+  font-size: 50px !important;
+  font-family: "Comic Sans MS" !important;
+}
+
+.larger-text button{
+  font-family: "Comic Sans MS" !important;
+  font-size: 15px !important;
+}
+
+.larger-text mat-slide-toggle{
+  font-family: "Comic Sans MS" !important;
+}
+
+.larger-text div{
+  font-family: "Comic Sans MS" !important;
+}
+.larger-text mat-panel-title{
+  font-family: "Comic Sans MS" !important;
+}
+.larger-text mat-panel-description{
+  font-family: "Comic Sans MS" !important;
 }
 
 

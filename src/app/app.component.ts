@@ -71,4 +71,8 @@ export class AppComponent {
     }
   }
 
+  toggleLargeFont() {
+    document.body.classList.toggle("larger-text");
+  }
+
 }

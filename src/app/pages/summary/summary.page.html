@@ -116,9 +116,6 @@
           </mat-accordion>
         </div>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>MORE DETAIL</button>
-      </mat-card-actions>
     </mat-card>
   </div>
   <div fxLayout="row" fxLayoutAlign="space-evenly center">
@@ -153,36 +150,7 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-evenly center">
-    <mat-card class="card-container">
-      <mat-card-title>Place Holder</mat-card-title>
-      <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
-        <div fxLayout="row" fxLayoutAlign="center stretch">
-          <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
-            <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState4 = true"
-                                (closed)="panelOpenState4 = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Forecast
-                </mat-panel-title>
-                <mat-panel-description>
-                  Click to {{panelOpenState4 ? 'close' : 'open'}}
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecast">
-                <p>{{day.temp.min}} - {{day.temp.max}}</p>
-                <p>{{day.weather[0].description}}</p>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
-        </div>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>MORE DETAIL</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+
   <div fxLayout="row" fxLayoutAlign="space-evenly center">
     <mat-card class="card-container">
       <mat-card-title>Crime Data</mat-card-title>
@@ -197,18 +165,18 @@
                 </mat-panel-title>
                 <mat-panel-description>
                   Click to {{panelOpenState5 ? 'close' : 'open'}}
-                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank 
+                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank
                   {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime.
-                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank 
+                  {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank
                   {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime.
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              <p class="mat-body" style="font-size: 16px !important;">{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank 
+              <p class="mat-body" style="font-size: 16px !important;">{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank
               {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime rate with
-              a rate of {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].crime}} people. 
+              a rate of {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].crime}} people.
               For the entire year of 2018 {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}}'s total murder
               count was {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].murders}}. Be wary when going
-              to {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].city}} as this is 
+              to {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].city}} as this is
               {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}}'s most dangerous city.</p>
               <!--<div *ngIf="crimeDone">
                 <div class="sub-expansion-container" fxLayout="column" *ngFor="let ori of ORIs">
