@@ -116,6 +116,7 @@ export class SummaryPageComponent implements OnInit {
                 j++;
               }
               this.dataService.gettaAttractions(this.taAttractions);
+              this.dataStorage.summaryPageAPIs(this);
             }
           );
       
@@ -158,6 +159,7 @@ export class SummaryPageComponent implements OnInit {
                 this.taHotels[i] = hotObj;
               }
               this.dataService.gettaHotels(this.taHotels);
+              this.dataStorage.summaryPageAPIs(this);
             }
           );
       
@@ -187,6 +189,7 @@ export class SummaryPageComponent implements OnInit {
                 j++;
               }
               this.dataService.gettaRestaurants(this.taRestaurants);
+              this.dataStorage.summaryPageAPIs(this);
             }
           );
         }
@@ -287,7 +290,7 @@ export class SummaryPageComponent implements OnInit {
                         text.appendChild(p);
                       }
 
-
+                      this.dataStorage.summaryPageAPIs(this);
                     }
                   );
                 }
@@ -326,6 +329,7 @@ export class SummaryPageComponent implements OnInit {
           }
           //this.dataService.search_input.start_date
           console.log(this.forecast);
+          this.dataStorage.summaryPageAPIs(this);
         }
       );
 
@@ -334,6 +338,7 @@ export class SummaryPageComponent implements OnInit {
           console.log(data);
           this.images = data.results;
           console.log(this.images);
+          this.dataStorage.summaryPageAPIs(this);
         }
       );
 
@@ -345,47 +350,17 @@ export class SummaryPageComponent implements OnInit {
             console.log(data.results[i].trackViewUrl)
           }
           this.music = data.results;
+          this.dataStorage.summaryPageAPIs(this);
         }
       );
 
+      // crime
       this.dataService.mapQuestGeocode().subscribe(
         (geo) => {
           this.mapQuestLocation = geo;
           console.log(geo);
           this.crimeDone = true;
           this.dataStorage.summaryPageAPIs(this);
-          /*let county: string = this.mapQuestLocation.results[0].locations[0].adminArea4;
-          this.dataService.getORIsByState(geo.results[0].locations[0].adminArea3).subscribe(
-            (data) => {
-              console.log(data);
-              let countA = 0;
-              let countB = 0;
-              for(let elem of data.results) {
-                console.log(county + ' ' + elem.county_name);
-                if(county.toUpperCase().includes(elem.county_name.toUpperCase()) && elem.county_name != "") {
-                  console.log(elem);
-                  this.ORIs.push(elem.ori);
-                  this.ORIData[elem.ori] = elem;
-                  countA++;
-                }
-              }
-              for(let elem of this.ORIs) {
-                console.log(elem);
-                this.dataService.getCrimeDataForORI(elem).subscribe(
-                  (crimeData) => {
-                    console.log(crimeData);
-                    this.ORICrimeData[elem] = crimeData;
-                    countB++;
-                    if(countA == countB) {
-                      console.log('All APIs Done');
-                      this.crimeDone = true;
-                      this.dataStorage.summaryPageAPIs(this);
-                    }
-                  }
-                );
-              }
-            }
-          )*/
         }
       );
       this.dataService.unplashImageSearch2().subscribe(
@@ -395,6 +370,7 @@ export class SummaryPageComponent implements OnInit {
           this.images2 = data.results;
           console.log(this.images2);
           this.dataService.getImages(this.images2);
+          this.dataStorage.summaryPageAPIs(this);
         }
 
       );
@@ -408,6 +384,7 @@ export class SummaryPageComponent implements OnInit {
           }
           this.music2 = data.results;
           this.dataService.getMusic(this.music2);
+          this.dataStorage.summaryPageAPIs(this);
         }
       );
 

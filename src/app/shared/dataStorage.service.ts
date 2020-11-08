@@ -3,6 +3,7 @@ import { DataService, Search } from './data.service';
 import * as DataClass from './data.classes';
 import { SummaryPageComponent } from '../pages/summary/summary.page';
 import { threadId } from 'worker_threads';
+import { CrimePageComponent } from '../pages/detailsPages/crime/crime.page';
 
 
 @Injectable({
@@ -166,6 +167,35 @@ export class DataStorageService implements OnInit{
             'arrivalLocation':this.arrivalLocation,
             'departureLocation':this.departureLocation,
             'mapQuestLocation':this.mapQuestLocation
+        }));
+    }
+
+    needToRequestCrime(): boolean {
+        console.log(this.search_input);
+        console.log(this.dataService.search_input);
+       
+        let data = JSON.parse(localStorage.getItem('Pre-Adventure-Crime-Data'));
+        if(data && (data.search_input == this.dataService.search_input)) {
+            this.ORIs = data.ORIs;
+            this.ORIData = data.ORICrimeData;
+            this.ORICrimeData = data.ORICrimeData;
+            return false;
+        }
+        return true;
+    }
+
+    crimeData(origin: CrimePageComponent) {
+        this.search_input = this.dataService.getInputSearch();
+        this.ORIs = origin.ORIs;
+        this.ORIData = origin.ORICrimeData;
+        this.ORICrimeData = origin.ORICrimeData;
+        //Insert data to clients browser cache
+        localStorage.removeItem('Pre-Adventure-Crime-Data');
+        localStorage.setItem('Pre-Adventure-Crime-Data', JSON.stringify({
+            'search_input':this.search_input,
+            'ORIs':this.ORIs,
+            'ORIData':this.ORIData,
+            'ORICrimeData':this.ORICrimeData,
         }));
     }
 }

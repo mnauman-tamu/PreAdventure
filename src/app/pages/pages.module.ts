@@ -26,6 +26,7 @@ import { RestaurantsPageComponent } from './detailsPages/restaurants/restaurants
 import { WeatherPageComponent } from './detailsPages/weather/weather.page';
 import { aboutUsPageComponent } from './aboutUsPage/aboutUs.page';
 import { Router, RouterModule } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { Router, RouterModule } from '@angular/router';
     MatToolbarModule,
     MatMenuModule,
     MatExpansionModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     HomePageComponent,
@@ -79,7 +81,8 @@ import { Router, RouterModule } from '@angular/router';
     MatToolbarModule,
     MatMenuModule,
     MatExpansionModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule
   ]
 })
 export class PagesModule { }
