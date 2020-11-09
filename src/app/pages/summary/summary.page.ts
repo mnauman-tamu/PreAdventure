@@ -363,6 +363,7 @@ export class SummaryPageComponent implements OnInit {
           this.dataStorage.summaryPageAPIs(this);
         }
       );
+      
       this.dataService.unplashImageSearch2().subscribe(
 
         (data) => {
