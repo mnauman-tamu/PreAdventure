@@ -33,7 +33,7 @@
               <mat-divider></mat-divider>
               <div *ngIf="taAttractions.length > 0">
                 <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
-                  <p><b><a class="website" href={{taAttractions[i].webURL}}>{{taAttractions[i].name}}</a></b></p>
+                  <p><b><a class="website" href={{taAttractions[i].webURL}} target="_blank">{{taAttractions[i].name}}</a></b></p>
                   <p>{{taAttractions[i].rating}}/5.0</p>
                   <p>{{taAttractions[i].address}}</p>
                 </div>
@@ -55,7 +55,7 @@
               <mat-divider></mat-divider>
               <div *ngIf="taHotels.length > 0">
                 <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
-                  <p><b><a class="website" href={{taHotels[i].webURL}}>{{taHotels[i].name}}</a></b></p>
+                  <p><b><a class="website" href={{taHotels[i].webURL}} target="_blank">{{taHotels[i].name}}</a></b></p>
                   <p>{{taHotels[i].rating}}/5.0</p>
                   <p>{{taHotels[i].address}}</p>
                 </div>
@@ -77,7 +77,7 @@
               <mat-divider></mat-divider>
               <div *ngIf="taRestaurants.length > 0">
                 <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let i of range5">
-                  <p><b><a class="website" href={{taRestaurants[i].webURL}}>{{taRestaurants[i].name}}</a></b></p>
+                  <p><b><a class="website" href={{taRestaurants[i].webURL}} target="_blank">{{taRestaurants[i].name}}</a></b></p>
                   <p>{{taRestaurants[i].rating}}/5.0</p>
                   <p>{{taRestaurants[i].address}}</p>
                 </div>
