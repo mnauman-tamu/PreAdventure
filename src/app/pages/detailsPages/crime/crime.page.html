@@ -1,2 +1,15 @@
 <h2>Under Construction</h2>
 <p>Plan to implement an interactive map that displays crime data by department throughout the county.</p>
+<div *ngIf="!crimeDone">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="crimeDone">
+    <div class="sub-expansion-container" fxLayout="column" *ngFor="let ori of ORIs">
+        <p><strong>{{ori}}: {{ORIData[ori].agency_name}}</strong></p>
+        <div *ngFor="let elem of ORICrimeData[ori].results" fxLayout="row" fxLayoutAlign="space-between">
+        <p>{{elem.offense}} :</p>
+        <p>Actual = {{elem.actual}},</p>
+        <p>Cleared = {{elem.cleared}}</p>
+        </div>
+    </div>
+</div>
