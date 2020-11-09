@@ -19,6 +19,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
   declarations: [
     AppComponent,
     SafePipe,
+    //HereMapComponent,
   ],
   imports: [
     BrowserModule,

@@ -473,23 +473,23 @@ export class DataService {
       `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/${from}/${to}/${fromdate}`, options);
   }
 
-    dailyForecast(): Observable<any> {
-        const options = {
-          headers: {
-            'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-            'x-rapidapi-key': 'a622ac738emsh154c26ff5de0944p1a36a0jsn6b447b8261a5'
-          },
-          params: {
-            q: `${this.search_input.to}, us`,
-            units: 'imperial'
-          }
-        };
+  dailyForecast(): Observable<any> {
+      const options = {
+        headers: {
+          'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+          'x-rapidapi-key': 'a622ac738emsh154c26ff5de0944p1a36a0jsn6b447b8261a5'
+        },
+        params: {
+          q: `${this.search_input.to}, us`,
+          units: 'imperial'
+        }
+      };
 
-        return this.http.get(
-          `https://rapidapi.p.rapidapi.com/forecast/daily`,
-          options
-        );
-      }
+      return this.http.get(
+        `https://rapidapi.p.rapidapi.com/forecast/daily`,
+        options
+      );
+  }
 
 
   skyScannerGetLoc(loc: any): Observable<any> {
@@ -658,8 +658,8 @@ export class DataService {
         /*"content-type": "application/x-www-form-urlencoded",
         "x-rapidapi-host": "iTunesvolodimir-kudriachenkoV1.p.rapidapi.com",
         "x-rapidapi-key": "a0c517e50fmsha9a75e803218fbep1f3c97jsndc0fddd8d86d",
-        "useQueryString": true
-        'Access-Control-Allow-Origin': 'http://localhost:4200/summary',*/
+        "useQueryString": true*/
+        'Access-Control-Allow-Origin': '*',
       },
       params: {
         term: `${this.search_input.to}`,
@@ -675,68 +675,37 @@ export class DataService {
     );
   }
 
-  /*spotifySearch(): Observable<any> {
-    const options = {
-      headers: {
-        /*'content-type': 'application/x-www-form-urlencoded',
-        'x-rapidapi-host': 'Spotifystefan-skliarovV1.p.rapidapi.com',
-        'x-rapidapi-key': 'a0c517e50fmsha9a75e803218fbep1f3c97jsndc0fddd8d86d',
-        useQueryString: true*/
-        /*'Authorization' : 'Bearer b9d611ae46fc4445a82f258464e6a64d'
-      },
-      params: {
-        "q": `'${this.search_input.to}'`,
-        //"accessToken": "b9d611ae46fc4445a82f258464e6a64d",
-        "type": "track",
-        "limit": "25"
-      }
-    };
-
-    console.log('https://api.spotify.com/v1/search', options)
-    return this.http.get(
-      'https://api.spotify.com/v1/search',
-      options
-    );
+  inputSearch(formInput): void {
+      this.search_input.from = formInput.from;
+      this.search_input.to = formInput.to;
+      this.search_input.start_date = formInput.start_date;
+      this.search_input.end_date = formInput.end_date;
+      this.searched = true;
+      console.log(this.search_input);
   }
 
-    console.log('https://api.spotify.com/v1/search', options)
-    return this.http.get(
-      'https://api.spotify.com/v1/search',
-      options
-    );
-  }*/
+  getInputSearch(): Search {
+      return this.search_input;
+  }
 
-    inputSearch(formInput): void {
-        this.search_input.from = formInput.from;
-        this.search_input.to = formInput.to;
-        this.search_input.start_date = formInput.start_date;
-        this.search_input.end_date = formInput.end_date;
-        this.searched = true;
-        console.log(this.search_input);
-    }
+  gettaAttractions(attractionsl): void {
+      this.taAttractionsList = attractionsl;
+      console.log(this.taAttractionsList);
+  }
 
-    getInputSearch(): Search {
-        return this.search_input;
-    }
+  gettaHotels(hotelsl): void {
+      this.taHotelsList = hotelsl;
+      console.log(this.taHotelsList);
+  }
 
-    gettaAttractions(attractionsl): void {
-        this.taAttractionsList = attractionsl;
-        console.log(this.taAttractionsList);
-    }
+  gettaRestaurants(restl): void {
+      this.taRestaurantsList = restl;
+      console.log(this.taRestaurantsList);
+  }
 
-    gettaHotels(hotelsl): void {
-        this.taHotelsList = hotelsl;
-        console.log(this.taHotelsList);
-    }
-
-    gettaRestaurants(restl): void {
-        this.taRestaurantsList = restl;
-        console.log(this.taRestaurantsList);
-    }
-
-    getImages(photos): void {
-      this.images2 = photos;
-    }
+  getImages(photos): void {
+    this.images2 = photos;
+  }
 
   getMusic(songs): void {
     this.music2 = songs;

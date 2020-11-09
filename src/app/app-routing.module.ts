@@ -12,6 +12,7 @@ import { PhotosPageComponent } from './pages/detailsPages/photos/photos.page';
 import { RestaurantsPageComponent } from './pages/detailsPages/restaurants/restaurants.page';
 import { WeatherPageComponent } from './pages/detailsPages/weather/weather.page';
 import { aboutUsPageComponent } from './pages/aboutUsPage/aboutUs.page';
+import { contactUsPageComponent } from './pages/contactUsPage/contactUs.page';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'photos', component: PhotosPageComponent},
   { path: 'restaurants', component: RestaurantsPageComponent},
   { path: 'weather', component: WeatherPageComponent},
-  { path: 'aboutUs', component: aboutUsPageComponent}
+  { path: 'aboutUs', component: aboutUsPageComponent},
+  { path: 'contactUs', component: contactUsPageComponent},
 ];
 
 @NgModule({
