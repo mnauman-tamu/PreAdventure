@@ -9,14 +9,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./home.page.scss']
 })
 export class HomePageComponent {
+    toError = false;
 
     imageName = "assets/images/valley.jpg";
 
     searchParams = new FormGroup( {
-        from: new FormControl(''),
+        from: new FormControl('', Validators.required),
         to: new FormControl('', Validators.required),
-        start_date: new FormControl(''),
-        end_date: new FormControl('')
+        start_date: new FormControl('', Validators.required),
+        end_date: new FormControl('', Validators.required)
     });
 
     constructor(private dataService: DataService, private router: Router) {}
@@ -25,6 +26,19 @@ export class HomePageComponent {
         this.dataService.inputSearch(this.searchParams.value);
         console.log("searched!");
         console.log(this.searchParams.value);
-        this.router.navigate(['summary']);
+        this.dataService.mapQuestGeocode().subscribe(
+            (geo) => {
+                console.log(geo);
+                if(geo.results[0].locations[0].adminArea1 == 'US') {
+                    this.router.navigate(['summary']);
+                } else {
+                    this.toError = true;
+                    this.searchParams.patchValue({
+                        to: ''
+                    })
+                }
+            }
+          );
+        
     }
 }
