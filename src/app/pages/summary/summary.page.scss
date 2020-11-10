@@ -30,7 +30,7 @@
 /* Make the image to responsive */
 .image {
   display: block;
-  width: 500px;
+  width: 100%;
 }
 
 .overlay {
@@ -90,15 +90,15 @@
   text-decoration: underline;
   color:black;
 }
-.centered-and-cropped { object-fit: cover }
+/*.centered-and-cropped { object-fit: cover }
 
 .imgContainer {
   overflow: hidden;
-  width: 500px;
-  height: 500px;
+  width: 28%;
+  height: auto;
 }
 .imgContainer img {
-  width: 500px;
+  width: 28%;
   height: auto;
 }
 
@@ -106,10 +106,12 @@
   object-fit: cover;
 }
 
+
 .img-cropped {
   object-fit: cover;
   object-position: center center;
-  width: 500px;
-  height: 500px;
+  width: 28%;
+  height: auto;
 }
 
+*/

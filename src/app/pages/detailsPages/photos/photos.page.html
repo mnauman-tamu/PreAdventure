@@ -6,7 +6,7 @@
         <section id = "photos">
           <div class = "container" *ngFor="let image of images2">
           <img src = "{{image.urls.raw}}"  alt = "{{image.description}}" width=50% height=auto class="image">
-          <div class="overlay"><a href = "{{image.urls.raw}}"> {{image.description}}</a> by <a href = "{{image.user.links.html}}"> {{image.user.name}}</a> from <a href = "https://unsplash.com/"> Unsplash </a></div>
+          <div class="overlay"><a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a> by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a href = "https://unsplash.com/" target="_blank"> Unsplash </a></div>
 <!--        </div>-->
 <!--      </div>-->
     </div>

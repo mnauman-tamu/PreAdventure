@@ -38,9 +38,9 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
             <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between">
-              <p><a href = "{{song.artistViewUrl}}">{{song.artistName}}</a></p>
+              <p><a href = "{{song.artistViewUrl}}" target="_blank">{{song.artistName}}</a></p>
               <!-- <p>{{song.trackViewUrl}}</p> -->
-              <p><a href = "{{song.collectionViewUrl}}">{{song.trackCensoredName}}</a></p>
+              <p><a href = "{{song.collectionViewUrl}}" target="_blank">{{song.trackCensoredName}}</a></p>
               <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="250" style="width:100%;max-width:360px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" [src]='song.trackViewUrl | safe'></iframe>
             </div>
           </mat-expansion-panel>
