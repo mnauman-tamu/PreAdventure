@@ -217,6 +217,10 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 // Theme Init
 @include angular-material-theme($theme);
+body {
+  background-color: $light-background;
+  color: $dark-text;
+}
 
 .theme-alternate {
   background-color: $dark-background;
