@@ -420,6 +420,12 @@ export class DataService {
           `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${this.search_input.to}`
         );
     }
+    
+    mapQuestGeocodeFrom(loc: string): Observable<any> {
+      return this.http.get(
+        `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${loc}`
+      );
+  }
 
     mapquestSearch(): Observable<any> {
         const options = {
