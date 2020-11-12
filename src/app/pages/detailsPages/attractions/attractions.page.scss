@@ -41,8 +41,13 @@ $screen-xl-min: 1200px; // Large tablets and desktops
     display: inline-block;
     width: 95vw;
 
+<<<<<<< HEAD
     @include sm {
         width: 80vw;
+=======
+    @include sm {  
+        width: 70vw;
+>>>>>>> added new background images and implemented them on trip advisor sections
     }
 }
 
