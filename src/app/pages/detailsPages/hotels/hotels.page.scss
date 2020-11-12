@@ -42,7 +42,7 @@ $screen-xl-min: 1200px; // Large tablets and desktops
     width: 95vw;
 
     @include sm {  
-        width: 80vw;
+        width: 70vw;
     }
 }
 
@@ -50,6 +50,7 @@ $screen-xl-min: 1200px; // Large tablets and desktops
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #f1f0f0;
+  background-attachment: fixed;
 }
 
 .card-container {
