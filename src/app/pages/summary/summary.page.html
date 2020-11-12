@@ -111,6 +111,21 @@
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
               <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" id="FlightsData">
+                <div *ngIf="outflights.length > 0">
+                  <p><b>Outbound Flights</b></p>
+                  <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let flight of outflights">
+                    <p>{{flight.originName}} airport to {{flight.destinationName}} airport</p>
+                    <p>{{flight.airlineName}} ${{flight.price}}</p>
+                  </div>
+                </div>
+                <div *ngIf="inflights.length > 0">
+                  <br>
+                  <p><b>Inbound Flights</b></p>
+                  <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" *ngFor="let flight of inflights">
+                    <p>{{flight.originName}} airport to {{flight.destinationName}} airport</p>
+                    <p>{{flight.airlineName}} ${{flight.price}}</p>
+                  </div>
+                </div>
               </div>
             </mat-expansion-panel>
           </mat-accordion>

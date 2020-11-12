@@ -13,8 +13,8 @@ import { DataStorageService } from 'src/app/shared/dataStorage.service';
 
 export class SummaryPageComponent implements OnInit {
   ORIs: string[];
-  ORIData: { [ori: string] : any } = {}; 
-  ORICrimeData: { [ori: string] : any} = {};
+  ORIData: { [ori: string]: any } = {};
+  ORICrimeData: { [ori: string]: any} = {};
   POIs: any[];
   taLocationID: any;
   taAttractions: any = [];
@@ -33,8 +33,13 @@ export class SummaryPageComponent implements OnInit {
   inflights: any = [];
   outflights: any = [];
   mapQuestLocation: any;
+  tocarriers: any = [];
+  toplaces: any = [];
+  fromcarriers: any = [];
+  fromplaces: any = [];
 
-  crimeDone: boolean = false;
+
+  crimeDone = false;
 
   range5 = [0, 1, 2, 3, 4];
 
@@ -72,9 +77,9 @@ export class SummaryPageComponent implements OnInit {
         }
       );*/
 
-    //trip advisor api servicing
+    // trip advisor api servicing
     this.crimeDone = false;
-    if(this.dataStorage.needToRequest()) {
+    if (this.dataStorage.needToRequest()) {
       // this.dataService.tripAdvisorLocationSearch().subscribe(
       //   (data) => {
       //     // console.log(data);
@@ -87,7 +92,7 @@ export class SummaryPageComponent implements OnInit {
       //       }
       //     }
       //     console.log('Trip Advisor Location ID: ' + this.taLocationID);
-      
+
       //     //trip advisor attractions search
       //     // const card = document.getElementById('AttractionsList')
       //     this.dataService.tripAdvisorAttractionsSearch(this.taLocationID).subscribe(
@@ -109,17 +114,17 @@ export class SummaryPageComponent implements OnInit {
       //             attPhoto = attractionsData.data[i].photo.images.large.url;
       //           }
       //           catch {}
-      
+
       //           let attObj = new DataClass.attObject(attName, attDesc, attRate, attAddy, attURL, attPhoto);
       //           this.taAttractions[j] = attObj;
-      
+
       //           j++;
       //         }
       //         this.dataService.gettaAttractions(this.taAttractions);
       //       }
       //     );
-      
-      
+
+
       //     //trip advisor hotels search api call
       //     // const card2 = document.getElementById('HotelsList')
       //     this.dataService.tripAdvisorHotelsSearch(this.taLocationID).subscribe(
@@ -140,7 +145,7 @@ export class SummaryPageComponent implements OnInit {
       //             hotPhoto = hotelsData.data[i].photo.images.large.url;
       //           }
       //           catch { }
-      
+
       //           //search through amenities
       //           for(let dict of hotelsData.data[i].amenities)
       //           {
@@ -153,14 +158,14 @@ export class SummaryPageComponent implements OnInit {
       //               hotBreakfast = true;
       //             }
       //           }
-      
+
       //           let hotObj = new DataClass.hotObject(hotName, hotDesc, hotRate, hotPrice, hotAddy, hotURL, hotPhoto, hotWifi, hotBreakfast);
       //           this.taHotels[i] = hotObj;
       //         }
       //         this.dataService.gettaHotels(this.taHotels);
       //       }
       //     );
-      
+
       //     //trip advisor restaurants search api call
       //     this.dataService.tripAdvisorRestaurantSearch(this.taLocationID).subscribe(
       //       (restData) => {
@@ -180,10 +185,10 @@ export class SummaryPageComponent implements OnInit {
       //             restPhoto = restData.data[i].photo.images.large.url;
       //           }
       //           catch { }
-      
+
       //           let restObj = new DataClass.restObject(restName, restDesc, restRating, restPrice, restAddy, restURL, restPhoto);
       //           this.taRestaurants[j] = restObj;
-      
+
       //           j++;
       //         }
       //         this.dataService.gettaRestaurants(this.taRestaurants);
@@ -193,7 +198,7 @@ export class SummaryPageComponent implements OnInit {
       //   }
       // );
 
-        //mapquest api servicing
+        // mapquest api servicing
 
         // this.dataService.mapquestSearch().subscribe(
         //   (data) => {
@@ -211,11 +216,10 @@ export class SummaryPageComponent implements OnInit {
         //   }
         // );
 
-      /*this.dataService.skyScannerGetLoc(this.dataService.search_input.to).subscribe(
+      this.dataService.skyScannerGetLoc(this.dataService.search_input.to).subscribe(
         (data1) => {
           this.dataService.skyScannerGetLoc(this.dataService.search_input.from).subscribe(
             (data2) => {
-              console.log(data2);
               this.arrivalLocation = data1.Places[0].CityId as string;
               this.departureLocation = data2.Places[0].CityId as string;
 
@@ -223,48 +227,23 @@ export class SummaryPageComponent implements OnInit {
               // tslint:disable-next-line:max-line-length
               this.dataService.skyScannerFlightSearch(this.departureLocation, this.arrivalLocation, this.dataService.search_input.start_date).subscribe(
                 (dataTo) => {
-                  const text = document.getElementById('FlightsData');
-                  const p = document.createElement('p');
-                  const b = document.createElement('b');
-                  b.textContent = 'Outbound Flights';
-                  p.appendChild(b);
-                  text.appendChild(p);
-
                   // Flights to location are stored here
-                  console.log(dataTo);
                   for (let i = 0; i < dataTo.Quotes.length; i++) {
                     // tslint:disable-next-line:max-line-length
                     const flight = new DataClass.flightData(dataTo.Quotes[i].MinPrice, dataTo.Quotes[i].OutboundLeg.CarrierIds, dataTo.Quotes[i].OutboundLeg.DepartureDate, dataTo.Quotes[i].Direct, dataTo.Quotes[i].OutboundLeg.OriginId, dataTo.Quotes[i].OutboundLeg.DestinationId);
                     this.outflights[i] = flight;
                   }
                   this.outflights.sort((a, b) => a.price < b.price ? -1 : a.price > b.price ? 1 : 0);
-
                   for (let i = 0; i < this.outflights.length; i++) {
-                    const p = document.createElement('p');
-                    const airlines = this.dataService.skyScannerCarriers(this.outflights[i].airlines, dataTo.Carriers);
-                    const origin = this.dataService.skyScannerPlaces(this.outflights[i].originid, dataTo.Places);
-                    const destination = this.dataService.skyScannerPlaces(this.outflights[i].destinationid, dataTo.Places);
-                    console.log(airlines);
-                    p.textContent = `${origin} Airport to ${destination} Airport`;
-                    const br = document.createElement('br');
-                    p.appendChild(br);
-                    const p2 = document.createElement('p');
-                    p2.textContent = `${airlines} $${this.outflights[i].price} `;
-                    p.appendChild(p2);
-                    text.appendChild(p);
+                    this.outflights[i].airlineName = this.dataService.skyScannerCarriers(this.outflights[i].airlines, dataTo.Carriers);
+                    this.outflights[i].originName = this.dataService.skyScannerPlaces(this.outflights[i].originid, dataTo.Places);
+                    this.outflights[i].destinationName = this.dataService.skyScannerPlaces(this.outflights[i].destinationid, dataTo.Places);
                   }
 
 
                   // tslint:disable-next-line:max-line-length
                   this.dataService.skyScannerFlightSearch(this.arrivalLocation, this.departureLocation, this.dataService.search_input.end_date).subscribe(
                     (dataFrom) => {
-                      console.log(dataFrom);
-                      const p = document.createElement('p');
-                      const b = document.createElement('b');
-                      b.textContent = 'Inbound Flights';
-                      p.appendChild(b);
-                      text.appendChild(p);
-
                       // Flights from location are stored here
                       for (let i = 0; i < dataFrom.Quotes.length; i++) {
                         // tslint:disable-next-line:max-line-length
@@ -272,20 +251,10 @@ export class SummaryPageComponent implements OnInit {
                         this.inflights[i] = flight;
                       }
                       this.inflights.sort((a, b) => a.price < b.price ? -1 : a.price > b.price ? 1 : 0);
-
                       for (let i = 0; i < this.inflights.length; i++) {
-                        const p = document.createElement('p');
-                        const airlines = this.dataService.skyScannerCarriers(this.inflights[i].airlines, dataTo.Carriers);
-                        const origin = this.dataService.skyScannerPlaces(this.inflights[i].originid, dataTo.Places);
-                        const destination = this.dataService.skyScannerPlaces(this.inflights[i].destinationid, dataTo.Places);
-                        console.log(airlines);
-                        p.textContent = `${origin} Airport to ${destination} Airport`;
-                        const br = document.createElement('br');
-                        p.appendChild(br);
-                        const p2 = document.createElement('p');
-                        p2.textContent = `${airlines} $${this.inflights[i].price} `;
-                        p.appendChild(p2);
-                        text.appendChild(p);
+                        this.inflights[i].airlineName = this.dataService.skyScannerCarriers(this.inflights[i].airlines, dataFrom.Carriers);
+                        this.inflights[i].originName = this.dataService.skyScannerPlaces(this.inflights[i].originid, dataFrom.Places);
+                        this.inflights[i].destinationName = this.dataService.skyScannerPlaces(this.inflights[i].destinationid, dataFrom.Places);
                       }
 
                       this.dataStorage.summaryPageAPIs(this);
@@ -297,7 +266,7 @@ export class SummaryPageComponent implements OnInit {
           );
 
         }
-      );*/
+      );
 
 
       /*this.dataService.dailyForecast().subscribe(
@@ -343,9 +312,9 @@ export class SummaryPageComponent implements OnInit {
       this.dataService.iTunesSearch().subscribe(
         (data) => {
           console.log(data);
-          for(var i = 0; i < data.results.length; i++) {
-            data.results[i].trackViewUrl = data.results[i].trackViewUrl.replace("https://", "https://embed.");
-            console.log(data.results[i].trackViewUrl)
+          for (let i = 0; i < data.results.length; i++) {
+            data.results[i].trackViewUrl = data.results[i].trackViewUrl.replace('https://', 'https://embed.');
+            console.log(data.results[i].trackViewUrl);
           }
           this.music = data.results;
           this.dataStorage.summaryPageAPIs(this);
@@ -407,9 +376,9 @@ export class SummaryPageComponent implements OnInit {
       this.dataService.iTunesSearch2().subscribe(
         (data) => {
           console.log(data);
-          for(var i = 0; i < data.results.length; i++) {
-            data.results[i].trackViewUrl = data.results[i].trackViewUrl.replace("https://", "https://embed.");
-            console.log(data.results[i].trackViewUrl)
+          for (let i = 0; i < data.results.length; i++) {
+            data.results[i].trackViewUrl = data.results[i].trackViewUrl.replace('https://', 'https://embed.');
+            console.log(data.results[i].trackViewUrl);
           }
           this.music2 = data.results;
           this.dataService.getMusic(this.music2);
@@ -426,33 +395,33 @@ export class SummaryPageComponent implements OnInit {
     } else {
       console.log('Using old data');
 
-        this.ORIs = this.dataStorage.ORIs;
-        this.ORIData = this.dataStorage.ORICrimeData;
-        this.ORICrimeData = this.dataStorage.ORICrimeData;
-        this.POIs = this.dataStorage.POIs;
-        this.taLocationID = this.dataStorage.taLocationID;
-        this.taAttractions = this.dataStorage.taAttractions;
-        this.taHotels = this.dataStorage.taHotels;
-        this.taRestaurants = this.dataStorage.taRestaurants;
-        this.forecastRange = this.dataStorage.forecastRange;
-        this.dates = this.dataStorage.dates;
-        this.forecast = this.dataStorage.forecast;
-        this.images = this.dataStorage.images;
-        this.music = this.dataStorage.music;
-        this.images2 = this.dataStorage.images2;
-        this.music2 = this.dataStorage.music2;
-        this.spotify = this.dataStorage.spotify;
-        this.arrivalLocation = this.dataStorage.arrivalLocation;
-        this.departureLocation = this.dataStorage.departureLocation;
-        this.mapQuestLocation = this.dataStorage.mapQuestLocation;
-        this.crimeDone = true;
-        console.log(this.forecastRange);
+      this.ORIs = this.dataStorage.ORIs;
+      this.ORIData = this.dataStorage.ORICrimeData;
+      this.ORICrimeData = this.dataStorage.ORICrimeData;
+      this.POIs = this.dataStorage.POIs;
+      this.taLocationID = this.dataStorage.taLocationID;
+      this.taAttractions = this.dataStorage.taAttractions;
+      this.taHotels = this.dataStorage.taHotels;
+      this.taRestaurants = this.dataStorage.taRestaurants;
+      this.forecastRange = this.dataStorage.forecastRange;
+      this.dates = this.dataStorage.dates;
+      this.forecast = this.dataStorage.forecast;
+      this.images = this.dataStorage.images;
+      this.music = this.dataStorage.music;
+      this.images2 = this.dataStorage.images2;
+      this.music2 = this.dataStorage.music2;
+      this.spotify = this.dataStorage.spotify;
+      this.arrivalLocation = this.dataStorage.arrivalLocation;
+      this.departureLocation = this.dataStorage.departureLocation;
+      this.mapQuestLocation = this.dataStorage.mapQuestLocation;
+      this.crimeDone = true;
+      this.inflights = this.dataStorage.inflights;
+      this.outflights = this.dataStorage.outfights;
+
+      console.log(this.forecastRange);
     }
   }
 
   test() {
-    console.log(this.mapQuestLocation);
-    console.log(this.ORIData);
-    console.log(this.ORICrimeData);
   }
 }

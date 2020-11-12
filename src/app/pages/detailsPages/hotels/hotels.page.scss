@@ -38,10 +38,10 @@ $screen-xl-min: 1200px; // Large tablets and desktops
 }
 
 .mobile-handler {
-    display: inline-block; 
+    display: inline-block;
     width: 95vw;
 
-    @include sm {  
+    @include sm {
         width: 80vw;
     }
 }
@@ -143,4 +143,46 @@ $screen-xl-min: 1200px; // Large tablets and desktops
 .website:hover{
   text-decoration: underline;
   color:black;
+}
+
+$buttons-height: 24px;
+$sticky-width: 40px;
+$padding: 10px;
+
+.sticky-container {
+  background-color: transparent;;
+  padding-top: $padding;
+  padding-left: 0px;
+  padding-bottom: $padding;
+  padding-right: $padding;
+  position: fixed;
+  top: 50%;
+  left: -$sticky-width;
+  width: 0px;
+  height: auto;
+  z-index: 9999;
+  margin-top: -$buttons-height;
+  text-align: center;
+
+  &:hover {
+    left: 5px;
+  }
+
+  a {
+    padding:0 !important;
+    display: block;
+    text-align: left;
+    height: $buttons-height;
+    width: $sticky-width;
+    padding: 8px 16px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+
+    button {
+      max-height: 100%;
+    }
+  }
 }

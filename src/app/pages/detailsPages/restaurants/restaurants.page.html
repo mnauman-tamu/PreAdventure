@@ -1,6 +1,11 @@
 <div id="background" [ngStyle]="{'background-image': ''}">
     <h1 class="mat-display-3" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Restaurants in {{name}}
     </h1>
+  <div class="sticky-container">
+    <div class="button-container">
+      <button mat-fab routerLink="/summary" color="primary">Back</button>
+    </div>
+  </div>
     <div fxLayout="column" fxLayoutAlign="space-evenly center">
         <mat-card class="card-container mobile-handler"  *ngFor="let obj of taRestaurantsList">
             <mat-card-title>{{obj.name}}</mat-card-title>

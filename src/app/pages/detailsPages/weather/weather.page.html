@@ -1,5 +1,10 @@
 <div class="mobile-handler" fxLayout="column" fxLayoutAlign="space-evenly center">
-    <h1 class="mat-display-3" style="margin-top:20px;">Weather</h1> 
+    <h1 class="mat-display-3" style="margin-top:20px;">Weather</h1>
+  <div class="sticky-container">
+    <div class="button-container">
+      <button mat-fab routerLink="/summary" color="primary">Back</button>
+    </div>
+  </div>
     <div  fxLayout="column" fxLayoutAlign="space-evenly stretch">
         <div *ngFor="let day of forecastRange">
             <mat-card class="mobile-handler">

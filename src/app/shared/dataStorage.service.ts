@@ -31,6 +31,8 @@ export class DataStorageService implements OnInit{
     departureLocation: any;
     mapQuestLocation: any;
     crimeDone: boolean = false;
+    inflights: any[];
+    outfights: any[];
 
     currentSearch: Search = null;
 
@@ -117,6 +119,8 @@ export class DataStorageService implements OnInit{
                 this.arrivalLocation = data.arrivalLocation;
                 this.departureLocation = data.departureLocation;
                 this.mapQuestLocation = data.mapQuestLocation;
+                this.inflights = data.inflights;
+                this.outfights = data.outflights;
                 console.log(data);
                 return false;
             }
@@ -144,6 +148,8 @@ export class DataStorageService implements OnInit{
         this.arrivalLocation = origin.arrivalLocation;
         this.departureLocation = origin.departureLocation;
         this.mapQuestLocation = origin.mapQuestLocation;
+        this.inflights = origin.inflights;
+        this.outfights = origin.outflights;
         //Insert data to clients browser cache
         localStorage.removeItem('Pre-Adventure-Data');
         localStorage.setItem('Pre-Adventure-Data', JSON.stringify({
@@ -166,14 +172,16 @@ export class DataStorageService implements OnInit{
             'spotify':this.spotify,
             'arrivalLocation':this.arrivalLocation,
             'departureLocation':this.departureLocation,
-            'mapQuestLocation':this.mapQuestLocation
+            'mapQuestLocation':this.mapQuestLocation,
+            'inflights': this.inflights,
+            'outflights': this.outfights,
         }));
     }
 
     needToRequestCrime(): boolean {
         console.log(this.search_input);
         console.log(this.dataService.search_input);
-       
+
         let data = JSON.parse(localStorage.getItem('Pre-Adventure-Crime-Data'));
         if(data && (data.search_input == this.dataService.search_input)) {
             this.ORIs = data.ORIs;

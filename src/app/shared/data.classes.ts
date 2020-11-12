@@ -68,6 +68,9 @@ export class flightData{
   direct: any;
   originid: any;
   destinationid: any;
+  originName: any;
+  destinationName: any;
+  arlineName: any;
 
   constructor(price: any, airlines: any, date: any, direct: any, originid: any, destinationid: any) {
     this.price = price;
@@ -77,4 +80,6 @@ export class flightData{
     this.originid = originid;
     this.destinationid = destinationid;
   }
+
+
 }

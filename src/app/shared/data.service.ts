@@ -420,7 +420,7 @@ export class DataService {
           `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${this.search_input.to}`
         );
     }
-    
+
     mapQuestGeocodeFrom(loc: string): Observable<any> {
       return this.http.get(
         `http://www.mapquestapi.com/geocoding/v1/address?key=gYVGtryHTzuGgQYJf5laNbsIKgFp5Avw&location=${loc}`
@@ -472,7 +472,6 @@ export class DataService {
         'x-rapidapi-key': '7224126e86msh83a5d846bba8024p1a6411jsn5c98e71aefa2'
       },
     };
-    console.log(from);
 
     return this.http.get(
       // tslint:disable-next-line:max-line-length
@@ -532,7 +531,6 @@ export class DataService {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < places.length; ++i) {
       if (placeId === places[i].PlaceId) {
-        console.log('here');
         return places[i].Name;
       }
     }
@@ -582,7 +580,7 @@ export class DataService {
             }
         };
 
-        console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options)
+        console.log(`https://rapidapi.p.rapidapi.com/attractions/list`, options);
         return this.http.get(
             `https://rapidapi.p.rapidapi.com/attractions/list`,
             options
