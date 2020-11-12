@@ -43,7 +43,7 @@ export class SummaryPageComponent implements OnInit {
 
   range5 = [0, 1, 2, 3, 4];
 
-  imageName = '';
+  imageName = 'assets/images/6.png';
 
   panelOpenState: boolean;
   panelOpenState1: boolean;

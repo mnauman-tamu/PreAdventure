@@ -109,3 +109,10 @@ $padding: 10px;
     }
   }
 }
+
+#background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f1f0f0;
+  background-attachment: fixed;
+}
