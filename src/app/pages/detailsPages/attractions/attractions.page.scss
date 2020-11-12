@@ -41,15 +41,16 @@ $screen-xl-min: 1200px; // Large tablets and desktops
     display: inline-block;
     width: 95vw;
 
-    @include sm {
-        width: 80vw;
+    @include sm {  
+        width: 70vw;
     }
 }
 
 #background {
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #f1f0f0;
+  background-attachment: fixed;
+  // background-color:rgb(245, 245, 245);
 }
 
 .card-container {

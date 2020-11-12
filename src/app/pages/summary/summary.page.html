@@ -1,6 +1,6 @@
 <div id="background" color="primary" [ngStyle]="{'background-image': 'url(' + imageName + ')'}">
-  <h1 class="mat-display-3" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Adventure Summary</h1>
-  <p style="text-align: center;">Click "More Detail" to find out more about each element of your adventure.</p>
+  <h1 class="mat-display-3 text-outline" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Adventure Summary</h1>
+  <!-- <p class = "text-outline" style="text-align: center;">Click "More Detail" to find out more about each element of your adventure.</p> -->
   <div fxLayout="row" fxLayoutAlign="center stretch">
   <div class = "row">
     <div class="column" *ngFor="let image of images">
@@ -83,7 +83,7 @@
                 </div>
               </div>
               <mat-action-row>
-                <a mat-button target="_blank" [routerLink]="['/restaurants']" color="primary">More Details</a>
+                <a mat-button [routerLink]="['/restaurants']" color="primary">More Details</a>
               </mat-action-row>
             </mat-expansion-panel>
           </mat-accordion>
