@@ -11,6 +11,8 @@ import { DataStorageService } from 'src/app/shared/dataStorage.service';
   })
 export class aboutUsPageComponent implements OnInit{
 
+  imageName = "assets/images/valley.jpg";
+
     constructor(private dataService: DataService) {}
 
     ngOnInit() {

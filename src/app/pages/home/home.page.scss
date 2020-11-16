@@ -6,75 +6,106 @@ $screen-xl-min: 1200px; // Large tablets and desktops
 
 @mixin xs {
   @media (min-width: #{$screen-xs-min}) {
-      @content;
+    @content;
   }
 }
 
 @mixin sm {
   @media (min-width: #{$screen-sm-min}) {
-      @content;
+    @content;
   }
 }
 
 // Medium devices
 @mixin md {
   @media (min-width: #{$screen-md-min}) {
-      @content;
+    @content;
   }
 }
 
 // Large devices
 @mixin lg {
   @media (min-width: #{$screen-lg-min}) {
-      @content;
+    @content;
   }
 }
 
 // Extra large devices
 @mixin xl {
   @media (min-width: #{$screen-xl-min}) {
-      @content;
+    @content;
   }
 }
 
 #background {
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .page-container {
-    position: absolute;
-    top:0;
-    left:0;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
+  position: absolute;
+  top:0;
+  left:0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
 }
 
 .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .mobile-handler {
-    display: inline-block; 
-    width: 95vw;
+  display: inline-block;
+  width: 95vw;
 
-    @include sm {
-        
-        width: 80vw;
-    }
+  @include sm {
+
+    width: 80vw;
+  }
 }
 
 .date-input {
-    min-width: 150px !important;
+  min-width: 150px !important;
 }
 
 .submit {
-    width: 120px;
-    color: #fafafa;
-    background-color: #fafafa3f;
+  width: 120px;
+  color: #fafafa;
+  background-color: #fafafa3f;
 }
+
+:host {
+  display: block;
+}
+
+section {
+  margin-top: 100px;
+}
+.background {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  background-size: cover;
+  opacity: 0.5;
+}
+.div1{
+  background-image: url("https://picsum.photos/id/402/2500/1667")
+}
+.div2{
+  background-image: url("https://picsum.photos/id/301/2500/1667")
+}
+.div3{
+  background-image: url("https://picsum.photos/id/302/2500/1667")
+}
+.div0{
+  background-image: url("https://picsum.photos/id/400/2500/1667")
+}
+

@@ -1,37 +1,43 @@
-<div id="background" [ngStyle]="{'background-image': 'url(' + imageName + ')'}" class="page-container theme-alternate">
-    <div class="form-container">
-        <div class="mobile-handler">
-            <form [formGroup]="searchParams">
-                <div fxLayout="row" fxLayout.sm="row wrap" fxLayout.xs="row wrap" fxLayoutAlign="start center" 
-                fxLayoutGap="10px" fxLayoutGap.sm="0px" fxLayoutGap.xs="0px">
-                    <mat-form-field appearance="fill" fxFlex="35" fxFlex.sm="100" fxFlex.xs="100">
-                        <mat-error *ngIf="fromError">*Place not found in US</mat-error>
-                        <mat-label>From</mat-label>
-                        <input matInput style="color: #fafafa;" type="text" formControlName="from" required>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field appearance="fill" fxFlex="35" fxFlex.sm="100" fxFlex.xs="100">
-                        <mat-error *ngIf="toError"> *Place not found in US</mat-error>
-                        <mat-label>To</mat-label>
-                        <input matInput style="color: #fafafa;" type="text" formControlName="to" required>
-                    </mat-form-field>
-                    
-                    <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" fxLayout="row" fxLayoutGap="10px">
-                        <mat-form-field class="date-input" appearance="fill" fxFlexFill>
-                            <mat-error *ngIf="startError">*Date is in the past</mat-error>
-                            <mat-label>Start Date</mat-label>
-                            <input matInput style="color: #fafafa;" type="date" formControlName="start_date" required>
-                        </mat-form-field>
-                        <br>
-                        <mat-form-field class="date-input" appearance="fill" fxFlexFill>
-                            <mat-error *ngIf="endError">*Date is before Start Date</mat-error>
-                            <mat-label>End Date</mat-label>
-                            <input matInput style="color: #fafafa;" type="date" formControlName="end_date" required>
-                        </mat-form-field>
-                    </div>
-                </div>
-            </form> 
+<!--<div id="background" [ngStyle]="{'background-image': 'url(' + imageName + ')'}" class="page-container theme-alternate">-->
+<ng-container *ngFor="let i of [0,1,2,3]" class = "theme-alternate">
+  <div *ngIf="i==index && !loading" [@flyInOut] [ngClass]="'background div'+i" class = "theme-alternate">
+  </div>
+</ng-container>
+<div *ngIf="loading" class="background div0 theme-alternate"></div>
+<div class = "page-container">
+  <div class="form-container">
+    <div class="mobile-handler">
+      <form [formGroup]="searchParams">
+        <div fxLayout="row" fxLayout.sm="row wrap" fxLayout.xs="row wrap" fxLayoutAlign="start center"
+             fxLayoutGap="10px" fxLayoutGap.sm="0px" fxLayoutGap.xs="0px">
+          <mat-form-field appearance="fill" fxFlex="35" fxFlex.sm="100" fxFlex.xs="100">
+            <mat-error *ngIf="fromError">*Place not found in US</mat-error>
+            <mat-label>From</mat-label>
+            <input matInput style="color: #fafafa;" type="text" formControlName="from" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" fxFlex="35" fxFlex.sm="100" fxFlex.xs="100">
+            <mat-error *ngIf="toError"> *Place not found in US</mat-error>
+            <mat-label>To</mat-label>
+            <input matInput style="color: #fafafa;" type="text" formControlName="to" required>
+          </mat-form-field>
+
+          <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="date-input" appearance="fill" fxFlexFill>
+              <mat-error *ngIf="startError">*Date is in the past</mat-error>
+              <mat-label>Start Date</mat-label>
+              <input matInput style="color: #fafafa;" type="date" formControlName="start_date" required>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="date-input" appearance="fill" fxFlexFill>
+              <mat-error *ngIf="endError">*Date is before Start Date</mat-error>
+              <mat-label>End Date</mat-label>
+              <input matInput style="color: #fafafa;" type="date" formControlName="end_date" required>
+            </mat-form-field>
+          </div>
         </div>
-        <button class="submit" mat-stroked-button (click)="submit()"  [disabled]="!searchParams.valid">Search</button>
+      </form>
     </div>
+    <button class="submit" mat-stroked-button (click)="submit()"  [disabled]="!searchParams.valid">Search</button>
+  </div>
 </div>

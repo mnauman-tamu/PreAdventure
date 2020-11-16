@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
@@ -13,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SafePipe } from './safe.pipe';
 import { RouterModule } from '@angular/router';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     BrowserAnimationsModule,
     PagesModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    FormsModule,
+    SlideshowModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
