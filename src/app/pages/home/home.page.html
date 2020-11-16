@@ -7,13 +7,15 @@
                     <mat-form-field appearance="fill" fxFlex="35" fxFlex.sm="100" fxFlex.xs="100">
                         <mat-error *ngIf="fromError">*Place not found in US</mat-error>
                         <mat-label>From</mat-label>
-                        <input matInput style="color: #fafafa;" type="text" formControlName="from" required>
+                        <input matInput style="color: #fafafa;" type="text" formControlName="from" required
+                        placeholder="Ex. Dallas, New York">
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="fill" fxFlex="35" fxFlex.sm="100" fxFlex.xs="100">
                         <mat-error *ngIf="toError"> *Place not found in US</mat-error>
                         <mat-label>To</mat-label>
-                        <input matInput style="color: #fafafa;" type="text" formControlName="to" required>
+                        <input matInput style="color: #fafafa;" type="text" formControlName="to" required
+                        placeholder="Ex. Dallas, New York">
                     </mat-form-field>
                     
                     <div fxFlex="30" fxFlex.sm="100" fxFlex.xs="100" fxLayout="row" fxLayoutGap="10px">

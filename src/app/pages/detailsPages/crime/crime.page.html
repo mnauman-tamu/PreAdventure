@@ -1,15 +1,19 @@
-<h2>Under Construction</h2>
-<p>Plan to implement an interactive map that displays crime data by department throughout the county.</p>
-<div *ngIf="!crimeDone">
-    <mat-spinner></mat-spinner>
-</div>
-<div *ngIf="crimeDone">
-    <div class="sub-expansion-container" fxLayout="column" *ngFor="let ori of ORIs">
-        <p><strong>{{ori}}: {{ORIData[ori].agency_name}}</strong></p>
-        <div *ngFor="let elem of ORICrimeData[ori].results" fxLayout="row" fxLayoutAlign="space-between">
-        <p>{{elem.offense}} :</p>
-        <p>Actual = {{elem.actual}},</p>
-        <p>Cleared = {{elem.cleared}}</p>
-        </div>
+<div id="map" style="width: 100%; height: 530px;"></div>
+<mat-spinner style="z-index: 1000;" *ngIf="!crimeDone"></mat-spinner>
+<div *ngIf="crimeDone" fxLayout="row" fxLayoutGap="50px">
+    <div *ngFor="let ori of ORIs">
+        <mat-card class="mobile-handler">
+            <mat-card-title>
+                {{ORIData[ori].agency_name}}
+            </mat-card-title>
+            <mat-card-content>
+                <p>2018:<br />
+                        Violent Crime: {{this.ORICrimeData[ori][2018]['violent-crime']['actual']}}<br />
+                        Larceny: {{this.ORICrimeData[ori][2018]['larceny']['actual']}}<br />
+                    2019:<br />
+                        Violent Crime: {{this.ORICrimeData[ori][2019]['violent-crime']['actual']}}<br />
+                        Larceny: {{this.ORICrimeData[ori][2019]['larceny']['actual']}}</p>
+            </mat-card-content>
+        </mat-card>
     </div>
 </div>

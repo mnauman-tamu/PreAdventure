@@ -87,6 +87,10 @@ export class DataStorageService implements OnInit{
           };*/
     }
 
+    setMapQuestLocation(geo: any): void {
+        this.mapQuestLocation = geo;
+    }
+
     needToRequest(): boolean {
         console.log(this.search_input);
         console.log(this.dataService.search_input);
@@ -175,10 +179,24 @@ export class DataStorageService implements OnInit{
         console.log(this.dataService.search_input);
        
         let data = JSON.parse(localStorage.getItem('Pre-Adventure-Crime-Data'));
-        if(data && (data.search_input == this.dataService.search_input)) {
+        console.log(data);
+        if(data && ((data.search_input.to == this.dataService.search_input.to) || this.dataService.search_input.to == '')) {
+            if(typeof(this.ORIs) === 'undefined' || this.ORIs == null) {
+                return true;
+            }
+            if(typeof(this.ORIData) === 'undefined' || this.ORIData == null) {
+                return true;
+            }
+            if(typeof(this.ORICrimeData) === 'undefined' || this.ORICrimeData == null) {
+                return true;
+            }
+            if(typeof(this.mapQuestLocation) === 'undefined' || this.mapQuestLocation == null) {
+                return true;
+            }
             this.ORIs = data.ORIs;
             this.ORIData = data.ORICrimeData;
             this.ORICrimeData = data.ORICrimeData;
+            this.mapQuestLocation = data.mapQuestLocation;
             return false;
         }
         return true;
@@ -196,6 +214,7 @@ export class DataStorageService implements OnInit{
             'ORIs':this.ORIs,
             'ORIData':this.ORIData,
             'ORICrimeData':this.ORICrimeData,
+            'mapQuestLocation': this.mapQuestLocation
         }));
     }
 }

@@ -300,7 +300,7 @@ export class SummaryPageComponent implements OnInit {
       );*/
 
 
-      /*this.dataService.dailyForecast().subscribe(
+      this.dataService.dailyForecast().subscribe(
         (data) => {
           console.log(data);
           let daysByMonth = [31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
@@ -330,7 +330,7 @@ export class SummaryPageComponent implements OnInit {
           this.dataStorage.summaryPageAPIs(this);
         }
       );
-*/
+
       this.dataService.unplashImageSearch().subscribe(
         (data) => {
           console.log(data);
@@ -357,38 +357,6 @@ export class SummaryPageComponent implements OnInit {
           this.mapQuestLocation = geo;
           console.log(geo);
           this.crimeDone = true;
-          /*let county: string = this.mapQuestLocation.results[0].locations[0].adminArea4;
-          this.dataService.getORIsByState(geo.results[0].locations[0].adminArea3).subscribe(
-            (data) => {
-              console.log(data);
-              let countA = 0;
-              let countB = 0;
-              for(let elem of data.results) {
-                console.log(county + ' ' + elem.county_name);
-                if(county.toUpperCase().includes(elem.county_name.toUpperCase()) && elem.county_name != "") {
-                  console.log(elem);
-                  this.ORIs.push(elem.ori);
-                  this.ORIData[elem.ori] = elem;
-                  countA++;
-                }
-              }
-              for(let elem of this.ORIs) {
-                console.log(elem);
-                this.dataService.getCrimeDataForORI(elem).subscribe(
-                  (crimeData) => {
-                    console.log(crimeData);
-                    this.ORICrimeData[elem] = crimeData;
-                    countB++;
-                    if(countA == countB) {
-                      console.log('All APIs Done');
-                      this.crimeDone = true;
-                      this.dataStorage.summaryPageAPIs(this);
-                    }
-                  }
-                );
-              }
-            }
-          )*/
         }
       );
 

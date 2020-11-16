@@ -135,11 +135,16 @@
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecastRange">
-                <p>{{dates[day]}}</p>
-                <p>{{forecast[day].temp.min}} - {{forecast[day].temp.max}}</p>
-                <p>{{forecast[day].weather[0].description}}</p>
-                <img height="50px" width="50px" alt="weather icon" src="http://openweathermap.org/img/wn/{{forecast[day].weather[0].icon}}@2x.png">
+              <div *ngIf="forecastRange.length != 0">
+                <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let day of forecastRange">
+                  <p>{{dates[day]}}</p>
+                  <p>{{forecast[day].temp.min}} - {{forecast[day].temp.max}}</p>
+                  <p>{{forecast[day].weather[0].description}}</p>
+                  <img height="50px" width="50px" alt="weather icon" src="http://openweathermap.org/img/wn/{{forecast[day].weather[0].icon}}@2x.png">
+                </div>
+              </div>
+              <div *ngIf="forecastRange.length == 0">
+                <h3 class="mat-display-1" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">No forecast data available.</h3>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
@@ -171,12 +176,12 @@
                   {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime.
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              <p class="mat-body" style="font-size: 16px !important;">{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank
-              {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime rate with
-              a rate of {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].crime}} people.
+              <p class="mat-body" style="font-size: 18px !important;">{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank
+              <strong>{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}}</strong> for lowest violent crime rate with
+              a rate of <strong>{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].crime}}</strong> people.
               For the entire year of 2018 {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}}'s total murder
-              count was {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].murders}}. Be wary when going
-              to {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].city}} as this is
+              count was <strong>{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].murders}}</strong>. Be wary when going
+              to <strong>{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].city}}</strong> as this is
               {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}}'s most dangerous city.</p>
               <!--<div *ngIf="crimeDone">
                 <div class="sub-expansion-container" fxLayout="column" *ngFor="let ori of ORIs">
