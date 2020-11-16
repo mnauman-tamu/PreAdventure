@@ -198,23 +198,23 @@ export class SummaryPageComponent implements OnInit {
         }
       );
 
-        //mapquest api servicing
+        // mapquest api servicing
 
-        this.dataService.mapquestSearch().subscribe(
-          (data) => {
-            console.log(data);
+        // this.dataService.mapquestSearch().subscribe(
+        //   (data) => {
+        //     console.log(data);
 
-            const app = document.getElementById('AttractionsInfo')
+        //     const app = document.getElementById('AttractionsInfo')
 
-            for(var i=0; i < data.searchResults.length && i < 5; i++)
-            {
-              var loc_name = data.searchResults[i].name;
-              const p = document.createElement('p');
-              p.textContent = `${loc_name}`;
-              app.appendChild(p);
-            }
-          }
-        );
+        //     for(var i=0; i < data.searchResults.length && i < 5; i++)
+        //     {
+        //       var loc_name = data.searchResults[i].name;
+        //       const p = document.createElement('p');
+        //       p.textContent = `${loc_name}`;
+        //       app.appendChild(p);
+        //     }
+        //   }
+        // );
 
       this.dataService.skyScannerGetLoc(this.dataService.search_input.to).subscribe(
         (data1) => {
