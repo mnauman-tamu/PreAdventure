@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './../../shared/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DataStorageService } from 'src/app/shared/dataStorage.service';
 
 @Component({
   selector: 'home-page',
@@ -23,7 +24,7 @@ export class HomePageComponent {
         end_date: new FormControl('', Validators.required)
     });
 
-    constructor(private dataService: DataService, private router: Router) {}
+    constructor(private dataService: DataService, private router: Router, private dataStorage: DataStorageService) {}
 
     submit() {
         this.dataService.inputSearch(this.searchParams.value);
@@ -42,6 +43,7 @@ export class HomePageComponent {
                                 (geo2) => {
                                     console.log(geo2);
                                     if(geo2.results[0].locations[0].adminArea1 == 'US' && geo2.results[0].adminArea3 != ""){
+                                        this.dataStorage.setMapQuestLocation(geo);
                                         this.router.navigate(['/summary']);
                                     } else {
                                         this.fromError = true;
