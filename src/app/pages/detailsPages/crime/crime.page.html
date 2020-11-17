@@ -1,10 +1,12 @@
-<div class="sticky-container">
+<div id="background" [ngStyle]="{'background-image': 'url(assets/images/8.jpg)'}" style="height: 100vh;">
+<div class="sticky-container" >
   <div class="button-container">
     <button mat-fab routerLink="/summary" color="primary">Back</button>
   </div>
 </div>
-<div id="map" style="width: 100%; height: 530px;"></div>
+<div id="map" style="width: 100%; height: 530px; margin-top: 150px; margin-bottom:150px;"></div>
 <mat-spinner style="z-index: 1000;" *ngIf="!crimeDone"></mat-spinner>
+</div>
 <!--<div *ngIf="crimeDone" fxLayout="row" fxLayoutGap="50px">
     <div *ngFor="let ori of ORIs">
         <mat-card class="mobile-handler">
