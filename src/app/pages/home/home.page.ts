@@ -124,6 +124,16 @@ export class HomePageComponent implements OnInit {
     }
 
     checkDate(yearA: number, monthA: number, dateA: number, yearB: number, monthB: number, dateB: number): boolean {
+        if(yearA < yearB) {
+            return true;
+        }
+        
+        if(yearA <= yearB) {
+            if(monthA < monthB) {
+                return true;
+            }
+        }
+
         if(yearA <= yearB) {
             if(monthA <= monthB) {
                 if(dateA <= dateB) {
@@ -131,8 +141,9 @@ export class HomePageComponent implements OnInit {
                 }
             }
         }
+
+        
         return false;
     }
-
 
 }
