@@ -13,6 +13,7 @@ import { RestaurantsPageComponent } from './pages/detailsPages/restaurants/resta
 import { WeatherPageComponent } from './pages/detailsPages/weather/weather.page';
 import { aboutUsPageComponent } from './pages/aboutUsPage/aboutUs.page';
 import { contactUsPageComponent } from './pages/contactUsPage/contactUs.page';
+import {FAQPageComponent} from './pages/FAQPage/FAQ.page';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'weather', component: WeatherPageComponent},
   { path: 'aboutUs', component: aboutUsPageComponent},
   { path: 'contactUs', component: contactUsPageComponent},
+  { path: 'FAQ', component: FAQPageComponent},
 ];
 
 @NgModule({

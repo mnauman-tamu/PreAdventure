@@ -27,6 +27,7 @@ import { WeatherPageComponent } from './detailsPages/weather/weather.page';
 import { aboutUsPageComponent } from './aboutUsPage/aboutUs.page';
 import { Router, RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {FAQPageComponent} from './FAQPage/FAQ.page';
 import {SlideshowModule} from 'ng-simple-slideshow';
 
 @NgModule({
@@ -42,25 +43,25 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     RestaurantsPageComponent,
     WeatherPageComponent,
     aboutUsPageComponent,
+    FAQPageComponent,
     SafePipe,
   ],
-    imports: [
-        CommonModule,
-        RouterModule,
-        FlexLayoutModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatExpansionModule,
-        MatDividerModule,
-        MatProgressSpinnerModule,
-        SlideshowModule
-    ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatProgressSpinnerModule
+  ],
   exports: [
     HomePageComponent,
     SummaryPageComponent,
@@ -73,6 +74,7 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     RestaurantsPageComponent,
     WeatherPageComponent,
     aboutUsPageComponent,
+    FAQPageComponent,
     FlexLayoutModule,
     ReactiveFormsModule,
     MatInputModule,

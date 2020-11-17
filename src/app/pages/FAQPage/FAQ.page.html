@@ -1,0 +1,69 @@
+<div id="background" color="primary"  [ngStyle]="{'background-image': 'url(' + imageName + ')'}" style="height: 100vh; background-size: cover;">
+  <h1 class="mat-display-3 text-outline" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Frequently Asked Questions (FAQ)</h1>
+      <section class="location-section">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              What does this application do?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>This web application aids you in planning a trip or vacation. We give you the top points of interest, best flights to take, and the crime rate
+            of the place that you will be visited. All of this information is available in one page. There is no need to search through several websites and
+            find the information that you need. Our goal is to provide one place where you can save time doing research about a city. </p>
+        </mat-expansion-panel>
+      </section>
+      <section class="location-section">
+        <mat-expansion-panel (opened)="panelOpenState2 = true"
+                             (closed)="panelOpenState2 = false" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              How can I use this application?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Head to the home page and enter in a US city as your origin location and a US city as your destination. You will be directed to a summary page
+          with all the details that we provide about your destination. You can click on the dropdown sections and explore the information has
+          to offer you. If you want more details on a specific section, there are more details pages that you can look at to get more information. </p>
+        </mat-expansion-panel>
+      </section>
+      <section class="location-section">
+        <mat-expansion-panel (opened)="panelOpenState2 = true"
+                             (closed)="panelOpenState2 = false" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              What places can I search for?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Currently this application is only able to search for places in the United States. You can search for any place in the US, but some
+          smaller cities may not work as well since there is not a lot of data for those places. This website works best for travel destinations that have some
+          points of interest.</p>
+        </mat-expansion-panel>
+      </section>
+
+  <section class="location-section">
+    <mat-expansion-panel (opened)="panelOpenState2 = true"
+                         (closed)="panelOpenState2 = false" [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How can I book a hotel?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>You can book a hotel by going to the Hotel more details page and clicking on the name of the hotel which will
+        redirect you to the trip advisor hotel booking site. There you will be able to put in the dates that you want to book the hotel
+      for and book it from that site. </p>
+    </mat-expansion-panel>
+  </section>
+
+      <section class="location-section">
+        <mat-expansion-panel (opened)="panelOpenState2 = true"
+                             (closed)="panelOpenState2 = false" [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Who can I contact if I have more questions?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>If you have more questions, head to the Contact Us page and enter your question in the form that we have. We would love to answer any
+            further questions that you have.</p>
+        </mat-expansion-panel>
+      </section>
+  </div>
