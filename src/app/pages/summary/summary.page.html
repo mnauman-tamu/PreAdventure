@@ -233,17 +233,22 @@
                   Click here to view photos
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let image of images">
-                <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br>
-                <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=50% height=auto><br>
-                Photo by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a rel="noopener noreferrer" href="https://unsplash.com/" target="_blank"> Unsplash </a>
+              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-evenly" *ngFor="let image of images">
+                <div fxFlex="20%">
+                <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br></div>
+                <div fxFlex="50%">
+                <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=100% height=auto>
+                </div>
+                <div fxFlex="20%">
+                <p>Photo by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a rel="noopener noreferrer" href="https://unsplash.com/" target="_blank"> Unsplash </a></p>
+                </div>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button [routerLink]="['/photos']" color="primary">More Details</button>
+        <button routerLink="/photos" mat-button>MORE DETAIL</button>
       </mat-card-actions>
     </mat-card>
   </div>
@@ -274,7 +279,7 @@
         </div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button [routerLink]="['/music']" color="primary">More Details</button>
+        <button routerLink="/music" mat-button>MORE DETAIL</button>
       </mat-card-actions>
     </mat-card>
   </div>

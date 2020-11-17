@@ -14,7 +14,7 @@
   /* Just in case there are inline attributes */
   width: 100% !important;
   height: auto !important;
-  border: 15px solid #fff;
+  border: 15px solid transparent;
 }
 
 #background {
@@ -60,13 +60,13 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
 }
 
 ///* Make the image to responsive */
 .image {
   display: block;
-  width: 500px;
+  width: 1000px;
 }
 
 .overlay {
@@ -78,7 +78,6 @@
   width: 100%;
   transition: .5s ease;
   opacity:0;
-  color: black;
   font-size: 10px;
   padding: 20px;
   text-align: center;
@@ -104,7 +103,7 @@
 
 //!* Create two equal columns that sits next to each other *!
 .column {
-  flex: 50%;
+  flex: 30%;
   padding: 0 4px;
 }
 
@@ -132,11 +131,11 @@
 
 .imgContainer {
   overflow: hidden;
-  width: 500px;
-  height: 500px;
+  width: 30%;
+  height: 30%;
 }
 .imgContainer img {
-  width: 500px;
+  width: 30%;
   height: auto;
 }
 
