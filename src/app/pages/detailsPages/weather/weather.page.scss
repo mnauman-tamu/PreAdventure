@@ -48,7 +48,7 @@ p {
 .mobile-handler {
     margin:auto;
     display: inline-block;
-    width: 98vw;
+    width: 80vw;
 
     @include sm {
 
@@ -115,4 +115,5 @@ $padding: 10px;
   background-size: cover;
   background-color: #f1f0f0;
   background-attachment: fixed;
+  height: 100%;
 }
