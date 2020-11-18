@@ -1,4 +1,5 @@
 <!--<div id="background" [ngStyle]="{'background-image': 'url(' + imageName + ')'}" class="page-container theme-alternate">-->
+<img id="logo" src="assets/images/logo.png">
 <ng-container *ngFor="let i of [0,1,2,3]" class = "theme-alternate">
   <div *ngIf="i==index && !loading" [@flyInOut] [ngClass]="'background div'+i" class = "theme-alternate">
   </div>
