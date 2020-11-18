@@ -12,11 +12,12 @@ import { DataStorageService } from 'src/app/shared/dataStorage.service';
 export class aboutUsPageComponent implements OnInit{
 
   imageName = "assets/images/valley.jpg";
+  isMobileLayout: boolean;
 
     constructor(private dataService: DataService) {}
 
     ngOnInit() {
-
+      this.isMobileLayout = window.screen.width <= 992;
     }
 
 }

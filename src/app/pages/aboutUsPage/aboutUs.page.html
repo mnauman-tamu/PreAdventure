@@ -1,146 +1,126 @@
 
 <!--<div id="background" [ngStyle]="{'background-image': 'url(' + imageName + ')'}" class="page-container theme-alternate">-->
-<section class="u-align-center u-clearfix u-section-1" id="carousel_387c">
-  <h1 class="u-align-center u-heading-font u-text u-text-grey u-title u-text-1">ABOUT US</h1>
-<!--  <h3 class="u-align-center u-text u-text-black u-text-2">Origins</h3>-->
-<!--  <p class="u-align-center u-text u-text-black u-text-5"> <br>We are students at Texas A&amp;M University who created this webpage in the CSCE 315 class.<br><br> </p>-->
-<!--  <h3 class="u-align-center u-text u-text-black u-text-4">Our Vision</h3>-->
-  <p class="u-align-left u-text u-text-grey u-text-5"> <br>We are students at Texas A&amp;M University who created this webpage in the CSCE 315 class. <br>When planning a trip you often need to search through several applications and websites to gather all the information and guidance you need. Such a process is tedious and time-consuming often feeling more like research/work which is why our application will combine all the information you might need in one place so the user is left with a stress-free planning experience. With all the information in one place, the user will no longer have to scour the internet for random sites that have bits of information, instead the user will be free to focus on what is important, how to make their trip/vacation experience the best it can be.<br><br></p>
-  <h2 class="u-align-center u-text u-text-6">our perfect <b>team</b>
-  </h2>
-  <div class="u-expanded-width u-palette-3-base u-shape u-shape-rectangle u-shape-1"></div>
-  <div class="u-list u-repeater u-list-1">
-    <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
-      <div class="u-container-layout u-similar-container u-container-layout-1">
-        <div alt="" class="u-image u-image-circle u-image-1"></div>
-        <div class="u-container-style u-expanded-width-xs u-group u-group-1">
-          <div class="u-container-layout u-container-layout-2">
-            <h4 class="u-custom-font u-font-oswald u-text u-text-7">Andrea Espinoza</h4>
-            <h5 class="u-custom-font u-text u-text-font u-text-palette-2-base u-text-8">Project Manager/Developer</h5>
-            <p class="u-large-text u-text u-text-variant u-text-9">Andrea Espinoza was the team manager for Pre-Adventure. Andrea is a Junior Computer Science student who has previous experience in designing web pages and applications and managing project teams. She led the stand-up/scrum meetings and facilitated usage of resources between team members. Andrea also designed the visual interface of the application as part of her technical work in conjunction with her leadership role. She is responsible for the visual design of the application on the web and also the implementation. She also worked on integrating the SkyScanner and flights data into the application. Learn more about Andrea&nbsp;<a _ngcontent-qkl-c175="" href="http://people.tamu.edu/~andreaiespinoza/" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">here</a>.
-            </p>
+<div *ngIf="!isMobileLayout">
+  <section class="u-align-center u-clearfix u-section-1" id="carousel_387c">
+    <h1 class="u-align-center u-heading-font u-text u-text-grey u-title u-text-1">ABOUT US</h1>
+    <p class="u-align-left u-text u-text-grey u-text-5"> <br>We are students at Texas A&amp;M University who created this webpage in the CSCE 315 class. <br>When planning a trip you often need to search through several applications and websites to gather all the information and guidance you need. Such a process is tedious and time-consuming often feeling more like research/work which is why our application will combine all the information you might need in one place so the user is left with a stress-free planning experience. With all the information in one place, the user will no longer have to scour the internet for random sites that have bits of information, instead the user will be free to focus on what is important, how to make their trip/vacation experience the best it can be.<br><br></p>
+    <h2 class="u-align-center u-text u-text-6">our perfect <b>team</b>
+    </h2>
+    <div class="u-expanded-width u-palette-3-base u-shape u-shape-rectangle u-shape-1"></div>
+    <div class="u-list u-repeater u-list-1">
+      <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
+        <div class="u-container-layout u-similar-container u-container-layout-1">
+          <div alt="" class="u-image u-image-circle u-image-1"></div>
+          <div class="u-container-style u-expanded-width-xs u-group u-group-1">
+            <div class="u-container-layout u-container-layout-2">
+              <h4 class="u-custom-font u-font-oswald u-text u-text-7">Andrea Espinoza</h4>
+              <h5 class="u-custom-font u-text u-text-font u-text-palette-2-base u-text-8">Project Manager/Developer</h5>
+              <p class="u-large-text u-text u-text-variant u-text-9">Andrea Espinoza was the team manager for Pre-Adventure. Andrea is a Junior Computer Science student who has previous experience in designing web pages and applications and managing project teams. She led the stand-up/scrum meetings and facilitated usage of resources between team members. Andrea also designed the visual interface of the application as part of her technical work in conjunction with her leadership role. She is responsible for the visual design of the application on the web and also the implementation. She also worked on integrating the SkyScanner and flights data into the application. Learn more about Andrea&nbsp;<a _ngcontent-qkl-c175="" href="http://people.tamu.edu/~andreaiespinoza/" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">here</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-2">
+        <div class="u-container-layout u-similar-container u-container-layout-3">
+          <div alt="" class="u-image u-image-circle u-image-2"></div>
+          <div class="u-align-center-xs u-container-style u-expanded-width-xs u-group u-group-2">
+            <div class="u-container-layout u-container-layout-4">
+              <h4 class="u-custom-font u-font-oswald u-text u-text-default u-text-10">Brett Henry</h4>
+              <h5 class="u-custom-font u-text u-text-default u-text-font u-text-palette-2-base u-text-11">Developer/Programming Guru</h5>
+              <p class="u-large-text u-text u-text-variant u-text-12">Brett Henry is a Junior Computer Science student who has experience in using newer technologies in the web application development section such as Angular and NodeJS from his internship at AT&amp;T. Brett was responsible for the development of the user interface using Angular and NodeJS and making sure the whole web application is integrated and works as a whole. He was also responsible for the testing of the program which will include smoke tests as well as logical testing of the APIs from the user’s perspective. He was also responsible for integrating the crime data API and the weather API. Learn more about Brett&nbsp;<a _ngcontent-qkl-c175="" href="http://people.tamu.edu/~wbh1942/" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">here</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-3">
+        <div class="u-container-layout u-similar-container u-container-layout-5">
+          <div alt="" class="u-image u-image-circle u-image-3"></div>
+          <div class="u-align-center-xs u-container-style u-expanded-width-xs u-group u-group-3">
+            <div class="u-container-layout u-container-layout-6">
+              <h4 class="u-custom-font u-font-oswald u-text u-text-default u-text-13">Muhammad Nauman</h4>
+              <h5 class="u-custom-font u-text u-text-default u-text-font u-text-palette-2-base u-text-14">Developer</h5>
+              <p class="u-large-text u-text u-text-variant u-text-15">Muhammad Nauman is a Junior Computer Science student who has experience in designing web pages in HTML and CSS both in CSCE 315 and his internship at United Health Group as an Application Developer intern. His technical responsibilities for this project included integration of the APIs within the application. Specifically, he was responsible for integrating the iTunes API (music) and the Unsplash API (images). He was also responsible for testing the application incrementally and finding technical debt that needs to be added to the backlog and solved later. Learn more about Muhammad&nbsp;<a _ngcontent-qkl-c175="" href="http://people.tamu.edu/~mnauman/" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">here</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-4">
+        <div class="u-container-layout u-similar-container u-container-layout-7">
+          <div alt="" class="u-image u-image-circle u-image-4"></div>
+          <div class="u-align-center-xs u-container-style u-expanded-width-xs u-group u-group-4">
+            <div class="u-container-layout u-container-layout-8">
+              <h4 class="u-custom-font u-font-oswald u-text u-text-default u-text-16">Bryant Passage</h4>
+              <h5 class="u-custom-font u-text u-text-default u-text-font u-text-palette-2-base u-text-17">Developer</h5>
+              <p class="u-large-text u-text u-text-variant u-text-18">Bryant Passage is a Junior Computer Engineering student who has experience in designing web applications and automation scripting during his CSCE 315 course as well as his internship at Texas Instruments. Bryant was responsible for the integration of the APIs into the web application. Specifically, he was responsible for integrating the TripAdvisor API, the hotels, attractions, and restaurants database API. At the end, the user should be able to find points of interests near the location that they searched for as well as get hotels and restaurants related to the place they are searching. Learn more about Bryant&nbsp;<a _ngcontent-qkl-c175="" href="http://people.tamu.edu/~bryant.passage/" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4">here</a>.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-2">
-      <div class="u-container-layout u-similar-container u-container-layout-3">
-        <div alt="" class="u-image u-image-circle u-image-2"></div>
-        <div class="u-align-center-xs u-container-style u-expanded-width-xs u-group u-group-2">
-          <div class="u-container-layout u-container-layout-4">
-            <h4 class="u-custom-font u-font-oswald u-text u-text-default u-text-10">Brett Henry</h4>
-            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-palette-2-base u-text-11">Developer/Programming Guru</h5>
-            <p class="u-large-text u-text u-text-variant u-text-12">Brett Henry is a Junior Computer Science student who has experience in using newer technologies in the web application development section such as Angular and NodeJS from his internship at AT&amp;T. Brett was responsible for the development of the user interface using Angular and NodeJS and making sure the whole web application is integrated and works as a whole. He was also responsible for the testing of the program which will include smoke tests as well as logical testing of the APIs from the user’s perspective. He was also responsible for integrating the crime data API and the weather API. Learn more about Brett&nbsp;<a _ngcontent-qkl-c175="" href="http://people.tamu.edu/~wbh1942/" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">here</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-3">
-      <div class="u-container-layout u-similar-container u-container-layout-5">
-        <div alt="" class="u-image u-image-circle u-image-3"></div>
-        <div class="u-align-center-xs u-container-style u-expanded-width-xs u-group u-group-3">
-          <div class="u-container-layout u-container-layout-6">
-            <h4 class="u-custom-font u-font-oswald u-text u-text-default u-text-13">Muhammad Nauman</h4>
-            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-palette-2-base u-text-14">Developer</h5>
-            <p class="u-large-text u-text u-text-variant u-text-15">Muhammad Nauman is a Junior Computer Science student who has experience in designing web pages in HTML and CSS both in CSCE 315 and his internship at United Health Group as an Application Developer intern. His technical responsibilities for this project included integration of the APIs within the application. Specifically, he was responsible for integrating the iTunes API (music) and the Unsplash API (images). He was also responsible for testing the application incrementally and finding technical debt that needs to be added to the backlog and solved later. Learn more about Muhammad&nbsp;<a _ngcontent-qkl-c175="" href="http://people.tamu.edu/~mnauman/" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-3">here</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-4">
-      <div class="u-container-layout u-similar-container u-container-layout-7">
-        <div alt="" class="u-image u-image-circle u-image-4"></div>
-        <div class="u-align-center-xs u-container-style u-expanded-width-xs u-group u-group-4">
-          <div class="u-container-layout u-container-layout-8">
-            <h4 class="u-custom-font u-font-oswald u-text u-text-default u-text-16">Bryant Passage</h4>
-            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-palette-2-base u-text-17">Developer</h5>
-            <p class="u-large-text u-text u-text-variant u-text-18">Bryant Passage is a Junior Computer Engineering student who has experience in designing web applications and automation scripting during his CSCE 315 course as well as his internship at Texas Instruments. Bryant was responsible for the integration of the APIs into the web application. Specifically, he was responsible for integrating the TripAdvisor API, the hotels, attractions, and restaurants database API. At the end, the user should be able to find points of interests near the location that they searched for as well as get hotels and restaurants related to the place they are searching. Learn more about Bryant&nbsp;<a _ngcontent-qkl-c175="" href="http://people.tamu.edu/~bryant.passage/" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-4">here</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 <!--</div>-->
-<!--ALTERNATE
+<!--ALTERNATE-->
 
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="./../../../assets/images/aEsp.jpg" alt="Andrea" style="width:100%">
-      <div class="container">
-        <h2>Andrea Espinoza</h2>
-        <p class="title">Manager & Developer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+<div *ngIf="isMobileLayout">
+  <div class="about-section">
+    <h1>About Us</h1>
+    <p>We are students at Texas A&amp;M University who created this webpage in the CSCE 315 class. <br>When planning a trip you often need to search through several applications and websites to gather all the information and guidance you need. Such a process is tedious and time-consuming often feeling more like research/work which is why our application will combine all the information you might need in one place so the user is left with a stress-free planning experience. With all the information in one place, the user will no longer have to scour the internet for random sites that have bits of information, instead the user will be free to focus on what is important, how to make their trip/vacation experience the best it can be.</p>
+  </div>
+
+  <h2 style="text-align:center">Our Perfect Team</h2>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="./../../../assets/images/aEsp.jpg" alt="Andrea" style="width:100%">
+        <div class="container">
+          <h2>Andrea Espinoza</h2>
+          <p class="title">Project Manager/Developer</p>
+          <p>Andrea Espinoza was the team manager for Pre-Adventure. Andrea is a Junior Computer Science student who has previous experience in designing web pages and applications and managing project teams. She led the stand-up/scrum meetings and facilitated usage of resources between team members. Andrea also designed the visual interface of the application as part of her technical work in conjunction with her leadership role. She is responsible for the visual design of the application on the web and also the implementation. She also worked on integrating the SkyScanner and flights data into the application. Learn more about Andrea <a href = "http://people.tamu.edu/~andreaiespinoza/" target="_blank">here</a>.</p>
+          <p>andreaiespinoza@tamu.edu</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="./../../../assets/images/Color_Portrait.jpeg" alt="Brett" style="width:100%">
+        <div class="container">
+          <h2>Brett Henry</h2>
+          <p class="title">Programming Guru/Developer</p>
+          <p>Brett Henry is a Junior Computer Science student who has experience in using newer technologies in the web application development section such as Angular and NodeJS from his internship at AT&T. Brett was responsible for the development of the user interface using Angular and NodeJS and making sure the whole web application is integrated and works as a whole. He was also responsible for the testing of the program which will include smoke tests as well as logical testing of the APIs from the user’s perspective. He was also responsible for integrating the crime data API and the weather API. Learn more about Brett <a href = "http://people.tamu.edu/~wbh1942/" target="_blank">here</a>.</p>
+          <p>wbh1942@tamu.edu</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="img2.jpg" alt="Mike" style="width:100%">
-      <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="./../../../assets/images/IDPIC2.jpg" alt="Muhammad" style="width:100%">
+        <div class="container">
+          <h2>Muhammad Nauman</h2>
+          <p class="title">Developer</p>
+          <p>Muhammad Nauman is a Junior Computer Science student who has experience in designing web pages in HTML and CSS both in CSCE 315 and his internship at United Health Group as an Application Developer intern. His technical responsibilities for this project included integration of the APIs within the application. Specifically, he was responsible for integrating the iTunes API (music) and the Unsplash API (images). He was also responsible for testing the application incrementally and finding technical debt that needs to be added to the backlog and solved later. Learn more about Muhammad <a href = "http://people.tamu.edu/~mnauman/" target="_blank">here</a>.</p>
+          <p>mnauman@tamu.edu</p>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="./../../../assets/images/FBpfp.jpg" alt="Bryant" style="width:100%">
+        <div class="container">
+          <h2>Bryant Passage</h2>
+          <p class="title">Developer</p>
+          <p>Bryant Passage is a Junior Computer Engineering student who has experience in designing web applications and automation scripting during his CSCE 315 course as well as his internship at Texas Instruments. Bryant was responsible for the integration of the APIs into the web application. Specifically, he was responsible for integrating the TripAdvisor API, the hotels, attractions, and restaurants database API. At the end, the user should be able to find points of interests near the location that they searched for as well as get hotels and restaurants related to the place they are searching. Learn more about Bryant <a href = "http://people.tamu.edu/~bryant.passage/" target="_blank">here</a>.</p>
+          <p>bryant.passage@tamu.edu</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="img3.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card">
-      <img src="img3.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
--->
-<!--OLD
-<section class="introduction-section">
-  <h1>About Us</h1>
-  <p style="text-align: center;">We are students at Texas A&M University who created this webpage in the CSCE 315 class. </p> <p style="text-align: center;">When planning a trip you often need to search through several applications and websites to gather all the information and guidance you need. Such a process is tedious and time-consuming often feeling more like research/work which is why our application will combine all the information you might need in one place so the user is left with a stress-free planning experience. With all the information in one place, the user will no longer have to scour the internet for random sites that have bits of information, instead the user will be free to focus on what is important, how to make their trip/vacation experience the best it can be.</p>
-</section>
-<section class="location-section">
-  <h1>Andrea Espinoza</h1>
-  <p>Andrea Espinoza was the team manager for Pre-Adventure. Andrea is a Junior Computer Science student who has previous experience in designing web pages and applications and managing project teams. She led the stand-up/scrum meetings and facilitated usage of resources between team members. Andrea also designed the visual interface of the application as part of her technical work in conjunction with her leadership role. She is responsible for the visual design of the application on the web and also the implementation. She also worked on integrating the SkyScanner and flights data into the application. Learn more about Andrea <a href = "http://people.tamu.edu/~andreaiespinoza/" target="_blank">here</a>.</p>
-</section>
-<section class="location-section">
-  <h1>Muhammad Nauman</h1>
-  <p>Muhammad Nauman is a Junior Computer Science student who has experience in designing web pages in HTML and CSS both in CSCE 315 and his internship at United Health Group as an Application Developer intern. His technical responsibilities for this project included integration of the APIs within the application. Specifically, he was responsible for integrating the iTunes API (music) and the Unsplash API (images). He was also responsible for testing the application incrementally and finding technical debt that needs to be added to the backlog and solved later. Learn more about Muhammad <a href = "http://people.tamu.edu/~mnauman/" target="_blank">here</a>.</p>
-</section>
-<section class="location-section">
-  <h1>Bryant Passage</h1>
-  <p>Bryant Passage is a Junior Computer Engineering student who has experience in designing web applications and automation scripting during his CSCE 315 course as well as his internship at Texas Instruments. Bryant was responsible for the integration of the APIs into the web application. Specifically, he was responsible for integrating the TripAdvisor API, the hotels, attractions, and restaurants database API. At the end, the user should be able to find points of interests near the location that they searched for as well as get hotels and restaurants related to the place they are searching. Learn more about Bryant <a href = "http://people.tamu.edu/~bryant.passage/" target="_blank">here</a>.</p>
-</section>
-<section class="location-section">
-  <h1>Brett Henry</h1>
-  <p>Brett Henry is a Junior Computer Science student who has experience in using newer technologies in the web application development section such as Angular and NodeJS from his internship at AT&T. Brett was responsible for the development of the user interface using Angular and NodeJS and making sure the whole web application is integrated and works as a whole. He was also responsible for the testing of the program which will include smoke tests as well as logical testing of the APIs from the user’s perspective. He was also responsible for integrating the crime data API and the weather API. Learn more about Brett <a href = "http://people.tamu.edu/~wbh1942/" target="_blank">here</a>.</p>
-</section>
--->
