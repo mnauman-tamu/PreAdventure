@@ -94,7 +94,6 @@ export class SummaryPageComponent implements OnInit {
             }
           }
           console.log('Trip Advisor Location ID: ' + this.taLocationID);
-      
           //trip advisor attractions search
           // const card = document.getElementById('AttractionsList')
           this.dataService.tripAdvisorAttractionsSearch(this.taLocationID).subscribe(
@@ -147,7 +146,6 @@ export class SummaryPageComponent implements OnInit {
                   hotPhoto = hotelsData.data[i].photo.images.large.url;
                 }
                 catch { }
-      
                 //search through amenities
                 for(let dict of hotelsData.data[i].amenities)
                 {
@@ -160,14 +158,12 @@ export class SummaryPageComponent implements OnInit {
                     hotBreakfast = true;
                   }
                 }
-                
                 let hotObj = new DataClass.hotObject(hotName, hotDesc, hotRate, hotPrice, hotAddy, hotURL, hotPhoto, hotWifi, hotBreakfast);
                 this.taHotels[i] = hotObj;
               }
               this.dataService.gettaHotels(this.taHotels);
             }
           );
-      
           //trip advisor restaurants search api call
           this.dataService.tripAdvisorRestaurantSearch(this.taLocationID).subscribe(
             (restData) => {
