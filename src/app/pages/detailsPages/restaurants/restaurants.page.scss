@@ -41,7 +41,7 @@ $screen-xl-min: 1200px; // Large tablets and desktops
     display: inline-block;
     width: 95vw;
 
-    @include sm {  
+    @include sm {
         width: 70vw;
     }
 }
@@ -158,16 +158,13 @@ $padding: 10px;
   padding-right: $padding;
   position: fixed;
   top: 50%;
-  left: -$sticky-width;
+  left: $sticky-width;
   width: 0px;
   height: auto;
   z-index: 9999;
   margin-top: -$buttons-height;
   text-align: center;
 
-  &:hover {
-    left: 5px;
-  }
 
   a {
     padding:0 !important;
@@ -176,7 +173,7 @@ $padding: 10px;
     height: $buttons-height;
     width: $sticky-width;
     padding: 8px 16px;
-    color: #fff;
+    color: white !important;
     font-family: Arial, sans-serif;
     font-size: 17px;
     font-weight: bold;
@@ -184,6 +181,48 @@ $padding: 10px;
 
     button {
       max-height: 100%;
+      color: white !important;
+    }
+
+
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .sticky-container {
+    background-color: transparent;;
+    padding-top: $padding;
+    padding-left: 0px;
+    padding-bottom: $padding;
+    padding-right: $padding;
+    position: fixed;
+    top: 50%;
+    left: -$sticky-width;
+    width: 0px;
+    height: auto;
+    z-index: 9999;
+    margin-top: -$buttons-height;
+    text-align: center;
+
+
+    a {
+      padding:0 !important;
+      display: block;
+      text-align: left;
+      height: $buttons-height;
+      width: $sticky-width;
+      padding: 8px 16px;
+      color: white !important;
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      font-weight: bold;
+      text-decoration: none;
+
+      button {
+        max-height: 100%;
+        color: white !important;
+        text-align: right;
+      }
     }
   }
 }

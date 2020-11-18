@@ -24,8 +24,10 @@
 <div id="background" color="primary" [ngStyle]="{'background-image': 'url(assets/images/4.jpg)'}">
 <div fxLayout="row" fxLayoutAlign="space-evenly center" >
   <div class="sticky-container">
-    <div class="button-container">
-      <button mat-fab routerLink="/summary" color="primary">Back</button>
+    <div class="button-container" >
+      <button mat-fab routerLink="/summary" color="accent">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
     </div>
   </div>
   <mat-card class="card-container">

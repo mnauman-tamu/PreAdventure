@@ -1,11 +1,11 @@
 <div id="background" [ngStyle]="{'background-image': 'url(assets/images/8.jpg)'}" style="padding-top:150px; padding-bottom:150x; height: 100vh;">
-<div class="sticky-container" >
-  <div class="button-container">
-    <button mat-fab routerLink="/summary" color="primary">
+  <div class="sticky-container">
+    <div class="button-container" >
+      <button mat-fab routerLink="/summary" color="accent">
         <mat-icon>arrow_back</mat-icon>
-    </button>
+      </button>
+    </div>
   </div>
-</div>
 <div id="map" style="width: 100%; height: 750px; ">
     <mat-spinner style="z-index: 1000;" *ngIf="!crimeDone"></mat-spinner>
 </div>
