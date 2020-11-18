@@ -16,8 +16,12 @@ export class PhotosPageComponent implements OnInit{
 
     constructor(private dataService: DataService) {}
 
+    isMobileLayout: boolean = window.innerWidth <= 992;
+
+
     ngOnInit() {
-        this.images2 = this.dataService.images2;
+      // window.onresize = () => this.isMobileLayout = window.innerWidth <= 991;
+      this.images2 = this.dataService.images2;
       this.name = this.dataService.search_input.to;
     }
 

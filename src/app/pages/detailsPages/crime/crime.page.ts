@@ -136,7 +136,7 @@ export class CrimePageComponent implements OnInit{
     }
     for(let ori of this.ORIs) {
       console.log(ori);
-      
+
       if(typeof(this.ORIData[ori].latitude) !== 'undefined' && this.ORIData[ori].latitude !== null ) {
         this.markerCount++;
         let msg = `<p><strong>${this.ORIData[ori].agency_name}</strong>:<br />

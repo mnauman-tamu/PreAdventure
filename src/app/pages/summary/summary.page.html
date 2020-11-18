@@ -222,7 +222,7 @@
       <mat-card-title>Images</mat-card-title>
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
-            <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
+            <mat-accordion class="accordion" fxLayout="row" fxLayoutAlign="start center">
               <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
                                    (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
@@ -233,14 +233,26 @@
                   Click here to view photos
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-evenly" *ngFor="let image of images">
-                <div fxFlex="20%">
-                <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br></div>
-                <div fxFlex="50%">
-                <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=100% height=auto>
+              <div *ngIf="isMobileLayout">
+                <div class="row" fxLayoutAlign="space-evenly" style="display: flex" *ngFor="let image of images">
+                  <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br>
+                  <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=100% height=auto>
+                  <p>Photo by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a rel="noopener noreferrer" href="https://unsplash.com/" target="_blank"> Unsplash </a></p>
                 </div>
-                <div fxFlex="20%">
-                <p>Photo by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a rel="noopener noreferrer" href="https://unsplash.com/" target="_blank"> Unsplash </a></p>
+              </div>
+              <div *ngIf="!isMobileLayout">
+                <div class="sub-expansion-container" fxLayoutAlign="space-evenly" style="display: flex" *ngFor="let image of images">
+                  <div class="column">
+                    <div fxFlex="20%">
+                      <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br>
+                    </div>
+                    <div fxFlex="50%">
+                      <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=100% height=auto>
+                    </div>
+                    <div fxFlex="20%">
+                      <p>Photo by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a rel="noopener noreferrer" href="https://unsplash.com/" target="_blank"> Unsplash </a></p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </mat-expansion-panel>
@@ -268,11 +280,21 @@
                   Click here to view songs
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" *ngFor="let song of music">
-                <p><a href = "{{song.artistViewUrl}}" target="_blank">{{song.artistName}}</a></p>
-    <!-- <p>{{song.trackViewUrl}}</p> -->
-                <p><a href = "{{song.collectionViewUrl}}" target="_blank">{{song.trackCensoredName}}</a></p>
-                <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="250" style="width:100%;max-width:360px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" [src]='song.trackViewUrl | safe'></iframe>
+              <div *ngIf="!isMobileLayout">
+                <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" style="display: flex" *ngFor="let song of music">
+                  <p><a href = "{{song.artistViewUrl}}" target="_blank">{{song.artistName}}</a></p>
+      <!-- <p>{{song.trackViewUrl}}</p> -->
+                  <p><a href = "{{song.collectionViewUrl}}" target="_blank">{{song.trackCensoredName}}</a></p>
+                  <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="250" style="width:100%;max-width:360px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" [src]='song.trackViewUrl | safe'></iframe>
+                </div>
+              </div>
+              <div *ngIf="isMobileLayout">
+                <div class="row" fxLayout="row" fxLayoutAlign="space-between" style="display: flex" *ngFor="let song of music">
+                  <p><a href = "{{song.artistViewUrl}}" target="_blank">{{song.artistName}}</a></p>
+                  <!-- <p>{{song.trackViewUrl}}</p> -->
+                  <p><a href = "{{song.collectionViewUrl}}" target="_blank">{{song.trackCensoredName}}</a></p>
+                  <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="250" style="width:100%;max-width:360px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" [src]='song.trackViewUrl | safe'></iframe>
+                </div>
               </div>
             </mat-expansion-panel>
           </mat-accordion>

@@ -46,3 +46,9 @@ $padding: 10px;
   background-color: #f1f0f0;
   background-attachment: fixed;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}

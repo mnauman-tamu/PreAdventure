@@ -1,20 +1,71 @@
+$screen-xs-min: 425px;  // Tiny phones
+$screen-sm-min: 576px;  // Small tablets and large smartphones (landscape view)
+$screen-md-min: 768px;  // Small tablets (portrait view)
+$screen-lg-min: 992px;  // Tablets and small desktops
+$screen-xl-min: 1200px; // Large tablets and desktops
+
+@mixin xs {
+  @media (min-width: #{$screen-xs-min}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+
 #photos {
   /* Prevent vertical gaps */
-  line-height: 0px;
+  line-height: 5px;
 
-  -webkit-column-count: 3;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    3;
-  -moz-column-gap:      0px;
-  column-count:         3;
-  column-gap:           0px;
+  -webkit-column-count: 1;
+  -webkit-column-gap:   1%;
+  -moz-column-count:    1;
+  -moz-column-gap:      1%;
+  column-count:         1;
+  column-gap:           1%;
+  @include lg {
+    line-height: 0px;
+    -webkit-column-count: 3;
+    -webkit-column-gap:   1%;
+    -moz-column-count:    3;
+    -moz-column-gap:      1%;
+    column-count:         3;
+    column-gap:           1%;
+
+
+  }
 }
 
 #photos img {
   /* Just in case there are inline attributes */
   width: 100% !important;
   height: auto !important;
-  border: 15px solid transparent;
+  border: 5px solid transparent;
 }
 
 #background {
@@ -60,13 +111,13 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1500px;
 }
 
 ///* Make the image to responsive */
 .image {
   display: block;
-  width: 1000px;
+  width: 1500px;
 }
 
 .overlay {
@@ -119,36 +170,36 @@
 
 
 //!* creates link without text-decoration *!
-.website:link {
-  text-decoration: none;
-  color: black;
-}
-.website:hover{
-  text-decoration: underline;
-  color:black;
-}
+//.website:link {
+//  text-decoration: none;
+//  color: black;
+//}
+//.website:hover{
+//  text-decoration: underline;
+//  color:black;
+//}
 .centered-and-cropped { object-fit: cover }
-
-.imgContainer {
-  overflow: hidden;
-  width: 30%;
-  height: 30%;
-}
-.imgContainer img {
-  width: 30%;
-  height: auto;
-}
+//
+//.imgContainer {
+//  overflow: hidden;
+//  width: 30%;
+//  height: 30%;
+//}
+//.imgContainer img {
+//  width: 30%;
+//  height: auto;
+//}
 
 .cover {
   object-fit: cover;
 }
-
-.img-cropped {
-  object-fit: cover;
-  object-position: center center;
-  width: 500px;
-  height: 500px;
-}
+//
+//.img-cropped {
+//  object-fit: cover;
+//  object-position: center center;
+//  width: 500px;
+//  height: 500px;
+//}
 
 $buttons-height: 24px;
 $sticky-width: 40px;

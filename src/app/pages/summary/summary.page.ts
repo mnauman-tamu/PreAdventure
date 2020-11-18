@@ -37,6 +37,7 @@ export class SummaryPageComponent implements OnInit {
   toplaces: any = [];
   fromcarriers: any = [];
   fromplaces: any = [];
+  isMobileLayout: boolean;
 
 
   crimeDone = false;
@@ -79,6 +80,7 @@ export class SummaryPageComponent implements OnInit {
 
     // trip advisor api servicing
     this.crimeDone = false;
+    this.isMobileLayout = window.screen.width <= 992;
     if(this.dataStorage.needToRequest()) {
       this.dataService.tripAdvisorLocationSearch().subscribe(
         (data) => {
@@ -92,7 +94,7 @@ export class SummaryPageComponent implements OnInit {
             }
           }
           console.log('Trip Advisor Location ID: ' + this.taLocationID);
-      
+
           //trip advisor attractions search
           // const card = document.getElementById('AttractionsList')
           this.dataService.tripAdvisorAttractionsSearch(this.taLocationID).subscribe(
@@ -114,17 +116,17 @@ export class SummaryPageComponent implements OnInit {
                   attPhoto = attractionsData.data[i].photo.images.large.url;
                 }
                 catch {}
-      
+
                 let attObj = new DataClass.attObject(attName, attDesc, attRate, attAddy, attURL, attPhoto);
                 this.taAttractions[j] = attObj;
-      
+
                 j++;
               }
               this.dataService.gettaAttractions(this.taAttractions);
             }
           );
-      
-      
+
+
           //trip advisor hotels search api call
           // const card2 = document.getElementById('HotelsList')
           this.dataService.tripAdvisorHotelsSearch(this.taLocationID).subscribe(
@@ -145,7 +147,7 @@ export class SummaryPageComponent implements OnInit {
                   hotPhoto = hotelsData.data[i].photo.images.large.url;
                 }
                 catch { }
-      
+
                 //search through amenities
                 for(let dict of hotelsData.data[i].amenities)
                 {
@@ -158,14 +160,14 @@ export class SummaryPageComponent implements OnInit {
                     hotBreakfast = true;
                   }
                 }
-      
+
                 let hotObj = new DataClass.hotObject(hotName, hotDesc, hotRate, hotPrice, hotAddy, hotURL, hotPhoto, hotWifi, hotBreakfast);
                 this.taHotels[i] = hotObj;
               }
               this.dataService.gettaHotels(this.taHotels);
             }
           );
-      
+
           //trip advisor restaurants search api call
           this.dataService.tripAdvisorRestaurantSearch(this.taLocationID).subscribe(
             (restData) => {
@@ -185,10 +187,10 @@ export class SummaryPageComponent implements OnInit {
                   restPhoto = restData.data[i].photo.images.large.url;
                 }
                 catch { }
-      
+
                 let restObj = new DataClass.restObject(restName, restDesc, restRating, restPrice, restAddy, restURL, restPhoto);
                 this.taRestaurants[j] = restObj;
-      
+
                 j++;
               }
               this.dataService.gettaRestaurants(this.taRestaurants);
