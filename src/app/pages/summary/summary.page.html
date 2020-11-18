@@ -222,41 +222,55 @@
       <mat-card-title>Images</mat-card-title>
       <mat-card-content style="margin-bottom: 0px !important; margin-top: 20px;">
         <div fxLayout="row" fxLayoutAlign="center stretch">
+
+          <div *ngIf="!isMobileLayout">
+            <mat-accordion class="accordion" fxLayout="column" fxLayoutAlign="start center">
+              <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
+                                   (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Images Panel
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Click here to view photos
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                  <div class="sub-expansion-container" fxLayoutAlign="space-evenly" *ngFor="let image of images">
+                    <div class="column">
+                      <div fxFlex="20%">
+                        <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br>
+                      </div>
+                      <div fxFlex="50%">
+                        <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=100% height=auto>
+                      </div>
+                      <div fxFlex="20%">
+                        <p>Photo by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a rel="noopener noreferrer" href="https://unsplash.com/" target="_blank"> Unsplash </a></p>
+                      </div>
+                    </div>
+                  </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div *ngIf="isMobileLayout">
             <mat-accordion class="accordion" fxLayout="row" fxLayoutAlign="start center">
               <mat-expansion-panel fxFlexAlign="stretch" style="margin-bottom: 20px;" (opened)="panelOpenState = true"
                                    (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Images Panel
-                </mat-panel-title>
-                <mat-panel-description>
-                  Click here to view photos
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div *ngIf="isMobileLayout">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Images Panel
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Click here to view photos
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
                 <div class="row" fxLayoutAlign="space-evenly" style="display: flex" *ngFor="let image of images">
                   <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br>
                   <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=100% height=auto>
                   <p>Photo by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a rel="noopener noreferrer" href="https://unsplash.com/" target="_blank"> Unsplash </a></p>
                 </div>
-              </div>
-              <div *ngIf="!isMobileLayout">
-                <div class="sub-expansion-container" fxLayoutAlign="space-evenly" style="display: flex" *ngFor="let image of images">
-                  <div class="column">
-                    <div fxFlex="20%">
-                      <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br>
-                    </div>
-                    <div fxFlex="50%">
-                      <img src = "{{image.urls.small}}"  alt = "{{image.description}}" width=100% height=auto>
-                    </div>
-                    <div fxFlex="20%">
-                      <p>Photo by <a href = "{{image.user.links.html}}" target="_blank"> {{image.user.name}}</a> from <a rel="noopener noreferrer" href="https://unsplash.com/" target="_blank"> Unsplash </a></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
         </div>
       </mat-card-content>
       <mat-card-actions>
