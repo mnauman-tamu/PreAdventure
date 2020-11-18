@@ -40,7 +40,12 @@ $padding: 10px;
   }
 }
 .mat-spinner{
-    position: absolute;
-    top: 40vh;
-    left: 50vw;
+    position: relative;
+    margin-top: 50%;
+}
+
+#background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }

@@ -94,7 +94,6 @@ export class SummaryPageComponent implements OnInit {
             }
           }
           console.log('Trip Advisor Location ID: ' + this.taLocationID);
-
           //trip advisor attractions search
           // const card = document.getElementById('AttractionsList')
           this.dataService.tripAdvisorAttractionsSearch(this.taLocationID).subscribe(
@@ -125,8 +124,8 @@ export class SummaryPageComponent implements OnInit {
               this.dataService.gettaAttractions(this.taAttractions);
             }
           );
-
-
+      
+      
           //trip advisor hotels search api call
           // const card2 = document.getElementById('HotelsList')
           this.dataService.tripAdvisorHotelsSearch(this.taLocationID).subscribe(
@@ -147,7 +146,6 @@ export class SummaryPageComponent implements OnInit {
                   hotPhoto = hotelsData.data[i].photo.images.large.url;
                 }
                 catch { }
-
                 //search through amenities
                 for(let dict of hotelsData.data[i].amenities)
                 {
@@ -160,14 +158,12 @@ export class SummaryPageComponent implements OnInit {
                     hotBreakfast = true;
                   }
                 }
-
                 let hotObj = new DataClass.hotObject(hotName, hotDesc, hotRate, hotPrice, hotAddy, hotURL, hotPhoto, hotWifi, hotBreakfast);
                 this.taHotels[i] = hotObj;
               }
               this.dataService.gettaHotels(this.taHotels);
             }
           );
-
           //trip advisor restaurants search api call
           this.dataService.tripAdvisorRestaurantSearch(this.taLocationID).subscribe(
             (restData) => {
@@ -187,10 +183,10 @@ export class SummaryPageComponent implements OnInit {
                   restPhoto = restData.data[i].photo.images.large.url;
                 }
                 catch { }
-
+      
                 let restObj = new DataClass.restObject(restName, restDesc, restRating, restPrice, restAddy, restURL, restPhoto);
                 this.taRestaurants[j] = restObj;
-
+      
                 j++;
               }
               this.dataService.gettaRestaurants(this.taRestaurants);
@@ -200,23 +196,23 @@ export class SummaryPageComponent implements OnInit {
         }
       );
 
-        //mapquest api servicing
+        // mapquest api servicing
 
-        this.dataService.mapquestSearch().subscribe(
-          (data) => {
-            console.log(data);
+        // this.dataService.mapquestSearch().subscribe(
+        //   (data) => {
+        //     console.log(data);
 
-            const app = document.getElementById('AttractionsInfo')
+        //     const app = document.getElementById('AttractionsInfo')
 
-            for(var i=0; i < data.searchResults.length && i < 5; i++)
-            {
-              var loc_name = data.searchResults[i].name;
-              const p = document.createElement('p');
-              p.textContent = `${loc_name}`;
-              app.appendChild(p);
-            }
-          }
-        );
+        //     for(var i=0; i < data.searchResults.length && i < 5; i++)
+        //     {
+        //       var loc_name = data.searchResults[i].name;
+        //       const p = document.createElement('p');
+        //       p.textContent = `${loc_name}`;
+        //       app.appendChild(p);
+        //     }
+        //   }
+        // );
 
       this.dataService.skyScannerGetLoc(this.dataService.search_input.to).subscribe(
         (data1) => {
