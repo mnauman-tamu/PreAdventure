@@ -1,11 +1,14 @@
-<div id="background" [ngStyle]="{'background-image': 'url(assets/images/8.jpg)'}" style="height: 100vh;">
+<div id="background" [ngStyle]="{'background-image': 'url(assets/images/8.jpg)'}" style="padding-top:150px; padding-bottom:150x; height: 100vh;">
 <div class="sticky-container" >
   <div class="button-container">
-    <button mat-fab routerLink="/summary" color="primary">Back</button>
+    <button mat-fab routerLink="/summary" color="primary">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
   </div>
 </div>
-<div id="map" style="width: 100%; height: 530px; margin-top: 150px; margin-bottom:150px;"></div>
-<mat-spinner style="z-index: 1000;" *ngIf="!crimeDone"></mat-spinner>
+<div id="map" style="width: 100%; height: 750px; ">
+    <mat-spinner style="z-index: 1000;" *ngIf="!crimeDone"></mat-spinner>
+</div>
 </div>
 <!--<div *ngIf="crimeDone" fxLayout="row" fxLayoutGap="50px">
     <div *ngFor="let ori of ORIs">
