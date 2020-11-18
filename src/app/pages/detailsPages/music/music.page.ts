@@ -12,10 +12,12 @@ import { DataStorageService } from 'src/app/shared/dataStorage.service';
 export class MusicPageComponent implements OnInit{
     music2: any[];
     name: string;
+    isMobileLayout: boolean;
 
     constructor(private dataService: DataService) {}
 
     ngOnInit() {
+      this.isMobileLayout = window.screen.width <= 992;
       this.music2 = this.dataService.music2;
       this.name = this.dataService.search_input.to;
     }
