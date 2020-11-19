@@ -81,7 +81,7 @@ export class CrimePageComponent implements OnInit{
                   countB++;
                   if(countA == countB) {
                     console.log('All APIs Done');
-                    this.crimeDone = true;
+                    
                     this.dataStorage.crimeData(this);
                     if(!this.dataService.searched) {
                         map = L.mapquest.map('map', {
@@ -91,6 +91,7 @@ export class CrimePageComponent implements OnInit{
                       });
                     }
                     this.addMarkers(map);
+                    this.crimeDone = true;
                   }
                 }
               );
@@ -111,7 +112,6 @@ export class CrimePageComponent implements OnInit{
       console.log(this.dataStorage.mapQuestLocation);
       this.county = this.dataStorage.mapQuestLocation.results[0].locations[0].adminArea4;
       this.state = this.dataStorage.mapQuestLocation.results[0].locations[0].adminArea3;
-      this.crimeDone = true;
       if(!this.dataService.searched) {
           map = L.mapquest.map('map', {
           center: this.dataStorage.mapQuestLocation.results[0].locations[0].displayLatLng,
@@ -120,7 +120,16 @@ export class CrimePageComponent implements OnInit{
         });
       }
       this.addMarkers(map);
+      this.crimeDone = true;
     }
+  }
+
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
   }
 
   addMarkers(map): void {
@@ -136,9 +145,11 @@ export class CrimePageComponent implements OnInit{
     }
     for(let ori of this.ORIs) {
       console.log(ori);
+      console.log(this.ORIData[ori]);
+      console.log(this.ORICrimeData[ori]);
 
-      if(typeof(this.ORIData[ori].latitude) !== 'undefined' && this.ORIData[ori].latitude !== null ) {
-        this.markerCount++;
+      if(typeof(this.ORIData[ori].latitude) !== 'undefined' && this.ORIData[ori].latitude !== null && !this.isEmpty(this.ORICrimeData[ori][2018]) && !this.isEmpty(this.ORICrimeData[ori][2019])) {
+        console.log(this.markerCount++);
         let msg = `<p><strong>${this.ORIData[ori].agency_name}</strong>:<br />
                   2018:<br />
                       Violent Crime: ${this.ORICrimeData[ori][2018]['violent-crime']['actual']}<br />
