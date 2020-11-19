@@ -119,6 +119,7 @@ section {
   background-image: url("https://picsum.photos/id/400/2500/1667")
 }
 
+
 ::ng-deep .mat-form-field-label {
   /*change color of label*/
   color: white !important;
@@ -127,14 +128,18 @@ section {
 ::ng-deep .mat-form-field-underline {
   /*change color of underline*/
   background-color: white !important;
-} 
+}
 
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
   /*change color of underline*/
   background-color: white !important;
-} 
+}
 
 ::ng-deep .mat-form-field-ripple {
  /*change color of underline when focused*/
  background-color: white !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: rgb(0,0,0, 0.1);
 }
