@@ -113,7 +113,7 @@ section {
   background-image: url("https://picsum.photos/id/301/2500/1667")
 }
 .div3{
-  background-image: url("https://picsum.photos/id/302/2500/1667")
+  background-image: url("https://images.unsplash.com/photo-1498598457418-36ef20772bb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
 }
 .div0{
   background-image: url("https://picsum.photos/id/400/2500/1667")
@@ -127,12 +127,12 @@ section {
 ::ng-deep .mat-form-field-underline {
   /*change color of underline*/
   background-color: white !important;
-} 
+}
 
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
   /*change color of underline*/
   background-color: white !important;
-} 
+}
 
 ::ng-deep .mat-form-field-ripple {
  /*change color of underline when focused*/
