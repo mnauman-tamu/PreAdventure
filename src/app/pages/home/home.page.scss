@@ -143,3 +143,14 @@ section {
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: rgb(0,0,0, 0.1);
 }
+
+button{
+  background-color: rgb(0,0,0,0.05) !important;
+  color: rgb(255,255,255,0.5) !important;
+}
+
+button:enabled{
+  background-color: rgb(0,0,0,0.1) !important;
+  color: rgb(255,255,255,1) !important;
+  border-color: white;
+}
