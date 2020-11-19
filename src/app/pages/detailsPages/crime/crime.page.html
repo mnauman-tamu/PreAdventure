@@ -1,4 +1,4 @@
-<div id="background" [ngStyle]="{'background-image': 'url(assets/images/8.jpg)'}" style="padding-top:150px; padding-bottom:150x; height: 100vh;">
+<div id="background" [ngStyle]="{'background-image': 'url(assets/images/8.jpg)'}">
   <div class="sticky-container">
     <div class="button-container" >
       <button mat-fab routerLink="/summary" color="accent">
@@ -6,7 +6,10 @@
       </button>
     </div>
   </div>
-<div id="map" style="width: 100%; height: 750px; ">
+  <h1 id="title" class="mat-display-3 text-outline" style="text-align: center; padding-top: 15px; margin-bottom: 10px !important;">Crime
+    in {{county}}
+</h1>
+<div id="map">
     <mat-spinner style="z-index: 1000;" *ngIf="!crimeDone"></mat-spinner>
 </div>
 </div>

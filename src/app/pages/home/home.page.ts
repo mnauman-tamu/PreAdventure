@@ -56,7 +56,7 @@ export class HomePageComponent implements OnInit {
   imagesUrl = [
     "https://picsum.photos/id/402/2500/1667",
     "https://picsum.photos/id/301/2500/1667",
-    "https://picsum.photos/id/302/2500/1667", "https://picsum.photos/id/400/2500/1667"]
+    "https://images.unsplash.com/photo-1498598457418-36ef20772bb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", "https://picsum.photos/id/400/2500/1667"]
 
   ngOnInit() {
     this.imagesUrl.forEach((x, index) => {
@@ -129,7 +129,7 @@ export class HomePageComponent implements OnInit {
         if(yearA < yearB) {
             return true;
         }
-        
+
         if(yearA <= yearB) {
             if(monthA < monthB) {
                 return true;
@@ -144,7 +144,7 @@ export class HomePageComponent implements OnInit {
             }
         }
 
-        
+
         return false;
     }
 
