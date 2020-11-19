@@ -85,7 +85,7 @@ $screen-xl-min: 1200px; // Large tablets and desktops
 .submit {
   width: 120px;
   color: #fafafa;
-  background-color: #fafafa3f;
+  background-color: #fafafa8f;
 }
 
 :host {
@@ -137,4 +137,8 @@ section {
 ::ng-deep .mat-form-field-ripple {
  /*change color of underline when focused*/
  background-color: white !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: rgba(90, 90, 90, 0.4) !important;
 }

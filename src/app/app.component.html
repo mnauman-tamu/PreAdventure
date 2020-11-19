@@ -23,9 +23,16 @@
 
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
-  <button mat-button routerLink="/aboutUs">About</button>
-  <button mat-button routerLink="/contactUs">Contact Us</button>
-  <button mat-button routerLink="/FAQ">FAQ</button>
+  <div fxLayout="column" fxLayoutAlign="start start">
+    <button mat-button routerLink="/aboutUs">About</button>
+    <button mat-button routerLink="/contactUs">Contact Us</button>
+    <button mat-button routerLink="/FAQ">FAQ</button>
+    <button mat-button (click)="changeTheme()">Dark Mode</button>
+    <div fxLayout="column" style="font-size: 14px;">
+      <mat-slide-toggle color="primary" (click)="toggleColorBlind()">Color Blind</mat-slide-toggle>
+      <mat-slide-toggle color="primary" (click)="toggleLargeFont()">Dyslexia Mode</mat-slide-toggle>
+    </div>
+  </div>
 </mat-menu>
 
 <router-outlet></router-outlet>
