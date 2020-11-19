@@ -14,6 +14,7 @@ import {
   // ...
 } from '@angular/animations';
 import { switchMap, catchError } from 'rxjs/operators'
+import { DataStorageService } from 'src/app/shared/dataStorage.service';
 
 
 @Component({
@@ -72,7 +73,7 @@ export class HomePageComponent implements OnInit {
     })
   }
 
-    constructor(private dataService: DataService, private router: Router) {}
+    constructor(private dataService: DataService, private router: Router, private dataStorage: DataStorageService) {}
 
     submit() {
         this.dataService.inputSearch(this.searchParams.value);
@@ -91,6 +92,7 @@ export class HomePageComponent implements OnInit {
                                 (geo2) => {
                                     console.log(geo2);
                                     if(geo2.results[0].locations[0].adminArea1 == 'US' && geo2.results[0].adminArea3 != ""){
+                                        this.dataStorage.setMapQuestLocation(geo);
                                         this.router.navigate(['/summary']);
                                     } else {
                                         this.fromError = true;

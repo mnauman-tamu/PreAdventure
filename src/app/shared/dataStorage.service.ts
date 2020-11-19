@@ -101,8 +101,9 @@ export class DataStorageService implements OnInit{
             return false;
         } else {
             let data = JSON.parse(localStorage.getItem('Pre-Adventure-Data'));
-            if(data && (data.search_input == this.dataService.search_input || !this.dataService.searched)) {
+            if(data && (data.search_input === this.dataService.search_input || !this.dataService.searched)) {
                 console.log('Using local storage!');
+                console.log(data);
                 this.search_input = data.search_input;
                 this.ORIs = data.ORIs;
                 this.ORIData = data.ORICrimeData;
@@ -188,7 +189,10 @@ export class DataStorageService implements OnInit{
 
         let data = JSON.parse(localStorage.getItem('Pre-Adventure-Crime-Data'));
         console.log(data);
-        if(data && ((data.search_input.to == this.dataService.search_input.to) || this.dataService.search_input.to == '')) {
+        console.log(data.search_input);
+        console.log(data.search_input.to == this.dataService.search_input.to);
+        console.log(data.search_input.to === this.dataService.search_input.to)
+        if(data && ((data.search_input.to === this.dataService.search_input.to) || this.dataService.search_input.to == '')) {
             if(typeof(this.ORIs) === 'undefined' || this.ORIs == null) {
                 return true;
             }
@@ -202,7 +206,7 @@ export class DataStorageService implements OnInit{
                 return true;
             }
             this.ORIs = data.ORIs;
-            this.ORIData = data.ORICrimeData;
+            this.ORIData = data.ORIData;
             this.ORICrimeData = data.ORICrimeData;
             this.mapQuestLocation = data.mapQuestLocation;
             return false;
@@ -213,7 +217,7 @@ export class DataStorageService implements OnInit{
     crimeData(origin: CrimePageComponent) {
         this.search_input = this.dataService.getInputSearch();
         this.ORIs = origin.ORIs;
-        this.ORIData = origin.ORICrimeData;
+        this.ORIData = origin.ORIData;
         this.ORICrimeData = origin.ORICrimeData;
         //Insert data to clients browser cache
         localStorage.removeItem('Pre-Adventure-Crime-Data');
