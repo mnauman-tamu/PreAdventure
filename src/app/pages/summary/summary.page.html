@@ -26,9 +26,9 @@
                 <mat-panel-title>
                   Attractions
                 </mat-panel-title>
-                <mat-panel-description>
+                <!-- <mat-panel-description>
                   Best places to visit for your destination
-                </mat-panel-description>
+                </mat-panel-description> -->
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
               <div *ngIf="taAttractions.length > 0">
@@ -48,9 +48,9 @@
                 <mat-panel-title>
                   Hotels
                 </mat-panel-title>
-                <mat-panel-description>
+                <!-- <mat-panel-description>
                   Find the best hotels for your destination
-                </mat-panel-description>
+                </mat-panel-description> -->
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
               <div *ngIf="taHotels.length > 0">
@@ -70,9 +70,9 @@
                 <mat-panel-title>
                   Restaurants
                 </mat-panel-title>
-                <mat-panel-description>
+                <!-- <mat-panel-description>
                   Click to {{panelOpenState1 ? 'close' : 'open'}}
-                </mat-panel-description>
+                </mat-panel-description> -->
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
               <div *ngIf="taRestaurants.length > 0">
@@ -105,9 +105,9 @@
                 <mat-panel-title>
                   Flight time and Prices
                 </mat-panel-title>
-                <mat-panel-description>
+                <!-- <mat-panel-description>
                   Click to {{panelOpenState2 ? 'close' : 'open'}}
-                </mat-panel-description>
+                </mat-panel-description> -->
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
               <div class="sub-expansion-container" fxLayout="column" fxLayoutAlign="space-between" id="FlightsData">
@@ -145,9 +145,9 @@
                 <mat-panel-title>
                   Forecast
                 </mat-panel-title>
-                <mat-panel-description>
+                <!-- <mat-panel-description>
                   Click to {{panelOpenState3 ? 'close' : 'open'}}
-                </mat-panel-description>
+                </mat-panel-description> -->
               </mat-expansion-panel-header>
               <mat-divider></mat-divider>
               <div *ngIf="forecastRange.length != 0">
@@ -183,13 +183,13 @@
                 <mat-panel-title>
                   {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} Crime Data
                 </mat-panel-title>
-                <mat-panel-description>
+                <!-- <mat-panel-description>
                   Click to {{panelOpenState5 ? 'close' : 'open'}}
                   {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank
                   {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime.
                   {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank
                   {{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}} for lowest violent crime.
-                </mat-panel-description>
+                </mat-panel-description> -->
               </mat-expansion-panel-header>
               <p class="mat-body" style="font-size: 18px !important;">{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].name}} is rank
               <strong>{{dataService.stateCrime[mapQuestLocation.results[0].locations[0].adminArea3].rank}}</strong> for lowest violent crime rate with
@@ -231,9 +231,9 @@
                   <mat-panel-title>
                     Images Panel
                   </mat-panel-title>
-                  <mat-panel-description>
+                  <!-- <mat-panel-description>
                     Click here to view photos
-                  </mat-panel-description>
+                  </mat-panel-description> -->
                 </mat-expansion-panel-header>
                   <div class="sub-expansion-container" fxLayoutAlign="space-evenly" *ngFor="let image of images">
                     <div class="column">
@@ -259,9 +259,9 @@
                   <mat-panel-title>
                     Images Panel
                   </mat-panel-title>
-                  <mat-panel-description>
+                  <!-- <mat-panel-description>
                     Click here to view photos
-                  </mat-panel-description>
+                  </mat-panel-description> -->
                 </mat-expansion-panel-header>
                 <div class="row" fxLayoutAlign="space-evenly" style="display: flex" *ngFor="let image of images">
                   <a href = "{{image.urls.raw}}" target="_blank"> {{image.description}}</a><br>
@@ -290,9 +290,9 @@
                 <mat-panel-title>
                   Music Panel
                 </mat-panel-title>
-                <mat-panel-description>
+                <!-- <mat-panel-description>
                   Click here to view songs
-                </mat-panel-description>
+                </mat-panel-description> -->
               </mat-expansion-panel-header>
               <div *ngIf="!isMobileLayout">
                 <div class="sub-expansion-container" fxLayout="row" fxLayoutAlign="space-between" style="display: flex" *ngFor="let song of music">
