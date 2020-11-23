@@ -537,7 +537,7 @@ export class DataService {
     return '';
   }
 
-    taKey = '0ca729d386msh96bc584a4685233p119899jsncc5cbeeb00d9';
+    taKey = 'c240828760msh057482f498e41c4p172a21jsndb181050d689';
     tripAdvisorLocationSearch(): Observable<any>
     {
         const options = {
