@@ -221,12 +221,19 @@ body {
   background-color: $light-background;
   // background-color: rgb(255, 195, 195);
   color: $dark-text;
+  a {
+    color: black !important;
+  }
 }
 
 .theme-alternate {
   background-color: $dark-background;
   color: $light-text;
   @include angular-material-theme($altTheme);
+
+  a {
+    color: white !important;
+  }
 }
 
 // Specific component overrides, pieces that are not in line with the general theming
